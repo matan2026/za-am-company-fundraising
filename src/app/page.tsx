@@ -166,6 +166,9 @@ export default function Home() {
                   </a>
                 ) : null}
               </div>
+              <p className="secure-trust-line">
+                התרומה מתבצעת באמצעות מערכת סליקה מאובטחת.
+              </p>
               <p className="trust-line">
                 כל תרומה, קטנה כגדולה, הופכת לחלק מהביטחון של כולנו.
               </p>
@@ -426,7 +429,7 @@ export default function Home() {
             >
               מעבר לתרומה מאובטחת
             </DonationLink>
-            <p className="trust-small">התרומה מתבצעת באמצעות עמוד סליקה מאובטח של Grow.</p>
+            <p className="trust-small">התרומה מתבצעת באמצעות מערכת סליקה מאובטחת.</p>
             <PaymentEmbed />
             {nonprofitConfigured ? (
               <p className="nonprofit-details">
@@ -454,6 +457,7 @@ export default function Home() {
               </p>
             </div>
             <DonationLink className="button button-large">תרמו עכשיו לפלוגת ״זעם״</DonationLink>
+            <p className="trust-small">התרומה מתבצעת באמצעות מערכת סליקה מאובטחת.</p>
           </div>
         </section>
 

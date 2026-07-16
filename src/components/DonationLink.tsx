@@ -11,6 +11,7 @@ type DonationLinkProps = {
   sectionFallback?: boolean;
   ariaLabel?: string;
   onNavigate?: () => void;
+  newTab?: boolean;
 };
 
 function donationHref(amount?: number | "other") {
@@ -29,6 +30,7 @@ export function DonationLink({
   sectionFallback = true,
   ariaLabel,
   onNavigate,
+  newTab = false,
 }: DonationLinkProps) {
   const href = donationHref(amount);
 
@@ -50,8 +52,8 @@ export function DonationLink({
     <a
       href={href || "#donation"}
       className={className}
-      target={href ? "_blank" : undefined}
-      rel={href ? "noopener noreferrer" : undefined}
+      target={href && newTab ? "_blank" : undefined}
+      rel={href && newTab ? "noopener noreferrer" : undefined}
       aria-label={ariaLabel}
       onClick={() => {
         onNavigate?.();

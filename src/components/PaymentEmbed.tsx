@@ -26,6 +26,7 @@ export function PaymentEmbed() {
         <DonationLink
           className="button button-large"
           ariaLabel="פתיחת עמוד התרומה המאובטח של Grow בחלון חדש"
+          newTab
           onNavigate={() => trackEvent("payment_fallback_click")}
         >
           פתיחת עמוד התרומה
