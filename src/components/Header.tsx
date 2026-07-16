@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { DonationLink } from "@/components/DonationLink";
 
 const navItems = [
@@ -12,6 +12,20 @@ const navItems = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setOpen(false);
+      menuButtonRef.current?.focus();
+    };
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [open]);
 
   return (
     <header className="site-header">
@@ -40,6 +54,7 @@ export function Header() {
         </nav>
 
         <button
+          ref={menuButtonRef}
           className="menu-button"
           type="button"
           aria-expanded={open}
@@ -63,7 +78,11 @@ export function Header() {
             {item.label}
           </a>
         ))}
-        <DonationLink className="button" ariaLabel="תרמו עכשיו לפלוגת זעם">
+        <DonationLink
+          className="button"
+          ariaLabel="תרמו עכשיו לפלוגת זעם"
+          onNavigate={() => setOpen(false)}
+        >
           תרמו עכשיו
         </DonationLink>
       </nav>

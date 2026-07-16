@@ -15,6 +15,7 @@ import {
   isValidExternalUrl,
 } from "@/config/campaign";
 import { getVideoEmbedUrl } from "@/lib/video";
+import { siteUrl } from "@/config/site";
 
 const needs = [
   {
@@ -66,6 +67,7 @@ function JsonLd() {
     {
       "@type": "WebPage",
       "@id": "#webpage",
+      url: `${siteUrl}/`,
       name: "מחזקים את פלוגת זעם",
       inLanguage: "he-IL",
       about: { "@id": "#organization" },
@@ -79,7 +81,7 @@ function JsonLd() {
           "@type": "ListItem",
           position: 1,
           name: "עמוד הבית",
-          item: "/",
+          item: `${siteUrl}/`,
         },
       ],
     },
@@ -90,7 +92,7 @@ function JsonLd() {
       "@type": "VideoObject",
       name: "הכירו את פלוגת זעם",
       description: "הסיפור הרשמי של לוחמי פלוגת זעם.",
-      thumbnailUrl: ["/images/video-poster.webp"],
+      thumbnailUrl: [`${siteUrl}${campaign.videoPoster}`],
       embedUrl: videoEmbed,
     });
   }
@@ -149,7 +151,7 @@ export default function Home() {
             </div>
 
             <div className="hero-media">
-              <VideoCard />
+              <VideoCard priority />
               <div className="hero-photo-strip" aria-label="מקומות שמורים לתמונות מאושרות">
                 {[1, 2, 3].map((image) => (
                   <div className="strip-image" key={image}>
@@ -158,7 +160,6 @@ export default function Home() {
                       alt={`מקום שמור לתמונת פלוגה מאושרת ${image}`}
                       fill
                       sizes="180px"
-                      priority
                     />
                   </div>
                 ))}

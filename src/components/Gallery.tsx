@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 
 const gallery = Array.from({ length: 8 }, (_, index) => ({
@@ -11,23 +11,56 @@ const gallery = Array.from({ length: 8 }, (_, index) => ({
 
 export function Gallery() {
   const [active, setActive] = useState<number | null>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
+  const isOpen = active !== null;
 
   useEffect(() => {
-    if (active === null) return;
+    if (!isOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setActive(null);
-      if (event.key === "ArrowLeft")
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setActive(null);
+      }
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
         setActive((value) => ((value ?? 0) + 1) % gallery.length);
-      if (event.key === "ArrowRight")
+      }
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
         setActive((value) => ((value ?? 0) - 1 + gallery.length) % gallery.length);
+      }
+      if (event.key === "Tab") {
+        const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(
+          "button:not(:disabled), a[href]",
+        );
+        if (!focusable?.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
     };
+
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKeyDown);
+    const focusFrame = window.requestAnimationFrame(() => closeButtonRef.current?.focus());
+
     return () => {
-      document.body.style.overflow = "";
+      window.cancelAnimationFrame(focusFrame);
+      document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", onKeyDown);
+      previousFocusRef.current?.focus();
     };
-  }, [active]);
+  }, [isOpen]);
 
   return (
     <>
@@ -37,7 +70,8 @@ export function Gallery() {
             type="button"
             className={`gallery-item gallery-item-${(index % 4) + 1}`}
             key={image.src}
-            onClick={() => {
+            onClick={(event) => {
+              previousFocusRef.current = event.currentTarget;
               setActive(index);
               trackEvent("gallery_interaction", { image_index: index + 1 });
             }}
@@ -56,6 +90,7 @@ export function Gallery() {
 
       {active !== null ? (
         <div
+          ref={dialogRef}
           className="lightbox"
           role="dialog"
           aria-modal="true"
@@ -63,6 +98,7 @@ export function Gallery() {
           onClick={() => setActive(null)}
         >
           <button
+            ref={closeButtonRef}
             type="button"
             className="lightbox-close"
             onClick={() => setActive(null)}

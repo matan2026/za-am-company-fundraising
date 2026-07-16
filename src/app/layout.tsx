@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { AnalyticsScripts } from "@/components/AnalyticsScripts";
+import { siteUrl } from "@/config/site";
 import "./globals.css";
 
 const title = "מחזקים את פלוגת \"זעם\" | גיוס ציוד וחוסן ללוחמי המילואים";
@@ -7,9 +8,7 @@ const description =
   "פלוגת \"זעם\" מגדוד 7421 בחטיבה 4 מגייסת 47,000 ₪ עבור ציוד מציל חיים, חוסן פלוגתי ותמיכה לוגיסטית. הצטרפו וחזקו את הלוחמים.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://za-am-company-fundraising.vercel.app",
-  ),
+  metadataBase: new URL(siteUrl),
   title,
   description,
   applicationName: "מחזקים את פלוגת זעם",

@@ -10,6 +10,7 @@ type DonationLinkProps = {
   amount?: number;
   sectionFallback?: boolean;
   ariaLabel?: string;
+  onNavigate?: () => void;
 };
 
 function donationHref(amount?: number) {
@@ -27,6 +28,7 @@ export function DonationLink({
   amount,
   sectionFallback = true,
   ariaLabel,
+  onNavigate,
 }: DonationLinkProps) {
   const href = donationHref(amount);
 
@@ -52,6 +54,7 @@ export function DonationLink({
       rel={href ? "noopener noreferrer" : undefined}
       aria-label={ariaLabel}
       onClick={() => {
+        onNavigate?.();
         trackEvent(href ? "donate_click" : "scroll_to_donation", {
           ...(amount ? { amount } : {}),
           donation_configured: Boolean(href),
