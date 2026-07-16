@@ -1221,18 +1221,6 @@ blockquote {
     gap: 33px;
   }
 
-  .hero-copy {
-    display: contents;
-  }
-
-  .hero-copy .eyebrow,
-  .hero-copy h1,
-  .hero-lead,
-  .hero-actions,
-  .trust-line {
-    grid-column: 1;
-  }
-
   .hero-actions {
     align-items: stretch;
     flex-direction: column;

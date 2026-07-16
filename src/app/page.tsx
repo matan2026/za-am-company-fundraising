@@ -117,8 +117,8 @@ export default function Home() {
     <>
       <JsonLd />
       <Header />
-      <main id="top">
-        <section className="hero section-dark" aria-labelledby="hero-title">
+      <main id="main-content" tabIndex={-1}>
+        <section className="hero section-dark" id="top" aria-labelledby="hero-title">
           <div className="hero-texture" aria-hidden="true" />
           <div className="container hero-grid">
             <div className="hero-copy">

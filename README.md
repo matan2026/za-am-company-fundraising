@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# אתר גיוס — פלוגת ״זעם״
 
-## Getting Started
+דף נחיתה רספונסיבי בעברית עבור פלוגת ״זעם״, גדוד 7421, חטיבה 4. יעד הקמפיין הוא 47,000 ₪ לציוד ומיגון, חוסן פלוגתי ותמיכה לוגיסטית.
 
-First, run the development server:
+## הפעלה מקומית
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+האתר זמין לאחר ההפעלה ב־`http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+בדיקות לפני פרסום:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npx tsc --noEmit
+npm run build
+```
 
-## Learn More
+## הגדרת הקמפיין
 
-To learn more about Next.js, take a look at the following resources:
+כל נתוני הקמפיין נמצאים בקובץ `src/config/campaign.ts`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `targetAmount` — יעד הגיוס.
+- `raisedAmount` — הסכום שגויס בפועל. נשאר 0 עד להזנה מאומתת.
+- `donorCount` — מספר התורמים בפועל. נשאר 0 עד להזנה מאומתת.
+- `donationUrl` — קישור רשמי למערכת הסליקה.
+- `donationAmountParam` — שם פרמטר הסכום של מערכת הסליקה. יש להשאיר ריק אם המערכת אינה תומכת בבחירת סכום מראש.
+- `videoUrl` — קישור YouTube או Vimeo רשמי ומאושר.
+- `contactPhone` ו־`contactWhatsapp` — פרטי קשר מאושרים בלבד.
+- `nonprofitName` ו־`nonprofitNumber` — פרטי הגוף המפעיל.
+- `taxDeductible` — יש לשנות ל־`true` רק לאחר אימות זכאות לפי סעיף 46.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+אפשר להגדיר את קישורי התרומה והווידאו גם באמצעות משתני הסביבה שב־`.env.example`. כל עוד קישור התרומה הוא מקום שמור, כפתורי הסכומים מושבתים ולא מפנים לכתובת שגויה.
 
-## Deploy on Vercel
+אם מערכת הסליקה תומכת בבחירת סכום דרך פרמטר אחר מ־`amount`, יש לעדכן את הפונקציה `donationHref` בקובץ `src/components/DonationLink.tsx`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## החלפת נכסים
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+כל הנכסים הזמניים מופשטים ואינם מוצגים כתמונות אמיתיות. לפני פרסום לציבור יש להחליף אותם בחומר מאושר בלבד, תוך שמירה על שמות הקבצים או עדכון הנתיבים בקוד:
+
+| נכס | נתיב |
+| --- | --- |
+| סמל הפלוגה/הקמפיין | `public/images/unit-emblem-placeholder.webp` |
+| תמונת שער לסרטון | `public/images/video-poster.webp` |
+| תמונות גיבור | `public/images/hero/hero-01.webp` עד `hero-03.webp` |
+| תמונות גלריה | `public/images/gallery/image-01.webp` עד `image-08.webp` |
+| תמונת שיתוף | `public/images/og-cover.webp` |
+| תמונת הנצחה | אין תמונה כברירת מחדל; יש להוסיף רק צילום מאושר ולעדכן את המקטע |
+
+הגלריה תומכת ב־8 תמונות כרגע. ניתן להרחיב ל־12 על ידי הוספת קבצים ועדכון המערך בקובץ `src/components/Gallery.tsx`. לכל תמונה אמיתית יש להחליף גם את הטקסט החלופי בתיאור עברי מדויק.
+
+הסקריפט `scripts/generate-placeholder-assets.py` מחדש את תמונת השיתוף הזמנית בלבד ודורש Pillow. הוא אינו מייצר או מחקה צילום אמיתי.
+
+## וידאו, נגישות ופרטיות
+
+- הווידאו נטען רק בלחיצה ואינו מופעל אוטומטית.
+- יש להוסיף כתוביות ותמלול מלא יחד עם הסרטון הרשמי.
+- Analytics נטען רק כאשר מזהי GA4 או Meta Pixel מוגדרים.
+- לפני הפעלת כלי מדידה יש להשלים מנגנון הסכמה ולעדכן את מדיניות הפרטיות.
+- עמודי `/privacy`, `/accessibility` ו־`/terms` כוללים נוסח בסיס שיש לאשר משפטית לפני פרסום.
+
+## פריסה ל־Vercel
+
+לאחר חיבור המאגר ל־Vercel, יש לבחור Framework Preset מסוג Next.js ולהגדיר את משתני הסביבה לפי הצורך. אין לשמור קובצי `.env.local` במאגר.
+
+```bash
+npx vercel
+npx vercel --prod
+```
+
+לאחר קבלת כתובת הייצור, מומלץ להגדיר גם `NEXT_PUBLIC_SITE_URL` בסביבת Vercel כדי שה־canonical, מפת האתר והמטא־דאטה ישתמשו בדומיין הסופי.
+
+## בטיחות מידע
+
+אין לפרסם מידע מבצעי, מיקומים עדכניים, לוחות זמנים, פרטים אישיים של לוחמים, תמונות שלא אושרו, טענות מס לא מאומתות או נתוני תרומה מומצאים.
