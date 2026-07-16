@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Heebo, Rubik } from "next/font/google";
 import { AnalyticsScripts } from "@/components/AnalyticsScripts";
 import { campaignAssets } from "@/config/assets";
 import { siteUrl } from "@/config/site";
@@ -10,6 +11,20 @@ const description =
   "פלוגת \"זעם\" מגדוד 7421 בחטיבה 4 מגייסת 47,000 ₪ עבור ציוד מציל חיים, חוסן פלוגתי ותמיכה לוגיסטית. הצטרפו וחזקו את הלוחמים.";
 const socialImage = existingAsset(campaignAssets.socialImage);
 const unitEmblem = existingAsset(campaignAssets.unitEmblem);
+
+const heebo = Heebo({
+  subsets: ["hebrew", "latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-heebo",
+});
+
+const rubik = Rubik({
+  subsets: ["hebrew", "latin"],
+  weight: ["600", "700", "800"],
+  display: "swap",
+  variable: "--font-rubik",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -53,8 +68,8 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="he" dir="rtl">
-      <body>
+    <html lang="he" dir="rtl" className={`${heebo.variable} ${rubik.variable}`}>
+      <body className={`${heebo.variable} ${rubik.variable}`}>
         <a className="skip-link" href="#main-content">
           דילוג לתוכן הראשי
         </a>
