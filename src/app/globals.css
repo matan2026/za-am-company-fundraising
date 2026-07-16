@@ -287,8 +287,8 @@ h3 {
 
 .hero {
   position: relative;
-  min-height: 860px;
-  padding-block: 156px 92px;
+  min-height: 900px;
+  padding-block: 120px 68px;
   overflow: hidden;
 }
 
@@ -315,11 +315,12 @@ h3 {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(440px, 0.95fr);
+  grid-template-columns: minmax(0, 0.92fr) minmax(500px, 1.08fr);
   grid-template-areas:
     "copy media"
-    "progress media";
-  gap: 44px 64px;
+    "progress media"
+    "strip strip";
+  gap: 38px 58px;
   align-items: center;
 }
 
@@ -341,7 +342,7 @@ h3 {
   display: flex;
   align-items: center;
   gap: 25px;
-  margin-block: 30px 20px;
+  margin-block: 18px 20px;
 }
 
 .text-link {
@@ -357,7 +358,34 @@ h3 {
 }
 
 .hero-media {
+  position: relative;
   grid-area: media;
+  align-self: start;
+  margin-top: 66px;
+}
+
+.hero-media::before {
+  position: absolute;
+  inset: -12px 16px 12px -16px;
+  border: 1px solid rgb(223 208 176 / 24%);
+  border-radius: 14px;
+  content: "";
+  pointer-events: none;
+}
+
+.hero-media .video-card {
+  border-color: rgb(255 255 255 / 24%);
+  border-radius: 12px;
+  box-shadow: 0 28px 70px rgb(0 0 0 / 38%);
+}
+
+.hero-media .play-button {
+  width: 86px;
+  height: 86px;
+  border-color: rgb(255 255 255 / 70%);
+  box-shadow:
+    0 14px 42px rgb(0 0 0 / 42%),
+    0 0 0 8px rgb(255 255 255 / 10%);
 }
 
 .video-card {
@@ -438,18 +466,21 @@ h3 {
 }
 
 .hero-photo-strip {
+  grid-area: strip;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-top: 12px;
+  gap: 12px;
+  margin-top: 4px;
+  padding-top: 14px;
+  border-top: 1px solid rgb(255 255 255 / 10%);
 }
 
 .strip-image {
   position: relative;
-  aspect-ratio: 1.72;
+  aspect-ratio: 3.2;
   overflow: hidden;
-  border-radius: 4px;
-  opacity: 0.82;
+  border-radius: 6px;
+  opacity: 0.72;
 }
 
 .strip-image img {
@@ -458,6 +489,14 @@ h3 {
 
 .hero-progress {
   grid-area: progress;
+}
+
+.hero-goal-inline {
+  margin-block: 20px 0;
+  padding-inline-start: 14px;
+  border-inline-start: 3px solid var(--red);
+  color: var(--sand);
+  font-size: 1rem;
 }
 
 .goal-label {
@@ -1220,11 +1259,14 @@ blockquote {
     grid-template-areas:
       "copy"
       "media"
-      "progress";
+      "progress"
+      "strip";
   }
 
   .hero-media {
+    width: 100%;
     max-width: 760px;
+    margin-top: 0;
   }
 
   .story-grid,
@@ -1304,11 +1346,45 @@ blockquote {
   }
 
   .hero {
-    padding-block: 118px 78px;
+    padding-block: 92px 64px;
   }
 
   .hero-grid {
-    gap: 33px;
+    gap: 28px;
+  }
+
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-copy h1 {
+    order: 1;
+    font-size: clamp(2.4rem, 11.5vw, 3.4rem);
+  }
+
+  .hero-copy .eyebrow {
+    display: none;
+  }
+
+  .hero-lead {
+    order: 2;
+  }
+
+  .hero-lead p + p {
+    display: none;
+  }
+
+  .hero-actions {
+    order: 3;
+  }
+
+  .hero-copy .trust-line {
+    display: none;
+  }
+
+  .hero-goal-inline {
+    display: none;
   }
 
   .hero-actions {
@@ -1319,18 +1395,31 @@ blockquote {
   }
 
   .hero-actions .text-link {
-    text-align: center;
+    display: none;
   }
 
   .hero-media {
-    margin-top: 5px;
+    margin-top: 0;
+  }
+
+  .hero-media::before {
+    inset: -7px 8px 7px -8px;
+    border-radius: 11px;
   }
 
   .hero-photo-strip {
     gap: 6px;
+    margin-top: 0;
+    padding-top: 10px;
   }
 
-  .play-button {
+  .strip-image {
+    aspect-ratio: 1.55;
+    opacity: 0.78;
+  }
+
+  .play-button,
+  .hero-media .play-button {
     width: 62px;
     height: 62px;
   }

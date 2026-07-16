@@ -143,6 +143,9 @@ export default function Home() {
                   בלוחמים במהלך ימי הכוננות הממושכים.
                 </p>
               </div>
+              <p className="goal-label hero-goal-inline" aria-hidden="true">
+                יעד הגיוס: {formatIls(campaign.targetAmount)}
+              </p>
               <div className="hero-actions">
                 <DonationLink className="button button-large">
                   אני רוצה לחזק את הלוחמים
@@ -158,23 +161,24 @@ export default function Home() {
 
             <div className="hero-media">
               <VideoCard eager />
-              <div className="hero-photo-strip" aria-label="מקומות שמורים לתמונות מאושרות">
-                {[1, 2, 3].map((image) => (
-                  <div className="strip-image" key={image}>
-                    <Image
-                      src={`/images/hero/hero-${String(image).padStart(2, "0")}.webp`}
-                      alt={`מקום שמור לתמונת פלוגה מאושרת ${image}`}
-                      fill
-                      sizes="180px"
-                    />
-                  </div>
-                ))}
-              </div>
             </div>
 
             <div className="hero-progress">
               <p className="goal-label">יעד הגיוס: {formatIls(campaign.targetAmount)}</p>
               <Progress />
+            </div>
+
+            <div className="hero-photo-strip" aria-label="מקומות שמורים לתמונות מאושרות">
+              {[1, 2, 3].map((image) => (
+                <div className="strip-image" key={image}>
+                  <Image
+                    src={`/images/hero/hero-${String(image).padStart(2, "0")}.webp`}
+                    alt={`מקום שמור לתמונת פלוגה מאושרת ${image}`}
+                    fill
+                    sizes="(max-width: 640px) 33vw, 390px"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </section>
