@@ -1229,6 +1229,7 @@ blockquote {
 
 .faq-list summary {
   display: flex;
+  min-height: 48px;
   align-items: center;
   justify-content: space-between;
   gap: 15px;
@@ -1300,6 +1301,9 @@ blockquote {
 
 .footer-links a,
 .contact-actions a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
   border-bottom: 1px solid rgb(255 255 255 / 25%);
 }
 
@@ -1392,6 +1396,16 @@ blockquote {
     font-weight: 600;
   }
 
+  .mobile-nav > a {
+    display: flex;
+    min-height: 48px;
+    align-items: center;
+  }
+
+  .mobile-nav > .button {
+    justify-content: center;
+  }
+
   .mobile-nav.is-open {
     display: flex;
   }
@@ -1420,6 +1434,10 @@ blockquote {
     width: 100%;
     max-width: 760px;
     margin-top: 0;
+  }
+
+  .hero-media::before {
+    inset: -8px 8px 8px;
   }
 
   .story-grid,
@@ -1461,7 +1479,7 @@ blockquote {
   }
 
   body {
-    padding-bottom: calc(82px + env(safe-area-inset-bottom));
+    padding-bottom: 0;
     font-size: 1rem;
     line-height: 1.75;
   }
@@ -1471,7 +1489,7 @@ blockquote {
   }
 
   .section {
-    padding-block: 72px;
+    padding-block: clamp(56px, 14vw, 68px);
   }
 
   h1 {
@@ -1499,6 +1517,10 @@ blockquote {
     height: 40px;
   }
 
+  .brand {
+    min-height: 44px;
+  }
+
   .brand-mark {
     width: 40px;
     height: 40px;
@@ -1511,7 +1533,7 @@ blockquote {
   }
 
   .hero {
-    padding-block: 92px 64px;
+    padding-block: 92px 56px;
   }
 
   .hero-grid {
@@ -1569,8 +1591,23 @@ blockquote {
   }
 
   .hero-media::before {
-    inset: -7px 8px 7px -8px;
+    inset: -7px 7px 7px;
     border-radius: 11px;
+  }
+
+  .video-unavailable-content {
+    max-width: none;
+    padding: 12px 16px;
+  }
+
+  .video-unavailable-content span {
+    margin-bottom: 5px;
+    font-size: 0.72rem;
+  }
+
+  .video-unavailable-content p {
+    font-size: 0.9rem;
+    line-height: 1.45;
   }
 
   .hero-photo-strip {
@@ -1603,6 +1640,12 @@ blockquote {
     text-align: right;
   }
 
+  blockquote {
+    margin-top: 32px;
+    padding: 22px 20px;
+    font-size: 1.12rem;
+  }
+
   .memorial-inner {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -1617,8 +1660,26 @@ blockquote {
     width: min(150px, 48vw);
   }
 
+  .needs-grid {
+    gap: 14px;
+  }
+
+  .need-card {
+    padding: 26px 22px;
+  }
+
+  .card-number {
+    margin-bottom: 18px;
+  }
+
+  .need-card > strong {
+    margin-top: 24px;
+  }
+
   .budget-row {
     grid-template-columns: 32px 1fr;
+    gap: 12px;
+    padding-block: 18px;
   }
 
   .budget-row em {
@@ -1649,6 +1710,13 @@ blockquote {
 
   .amount-option {
     min-height: 88px;
+    gap: 14px;
+    padding: 16px 18px;
+  }
+
+  .amount-option strong {
+    flex: 0 0 auto;
+    white-space: nowrap;
   }
 
   .payment-embed-shell,
@@ -1672,10 +1740,37 @@ blockquote {
 
   .footer-grid {
     grid-template-columns: 1fr;
+    gap: 28px;
   }
 
   .site-footer {
-    padding-bottom: 65px;
+    padding-block: 56px calc(120px + env(safe-area-inset-bottom));
+  }
+
+  .footer-links,
+  .contact-actions {
+    gap: 4px 18px;
+    margin-top: 16px;
+  }
+
+  .security-note {
+    margin-top: 30px;
+  }
+
+  .faq-grid {
+    gap: 28px;
+  }
+
+  .faq-list details {
+    padding-block: 12px;
+  }
+
+  .faq-list summary {
+    font-size: 1rem;
+  }
+
+  .faq-list p {
+    margin-top: 8px;
   }
 
   .mobile-donation-bar {
@@ -1683,15 +1778,25 @@ blockquote {
     z-index: 80;
     inset: auto 0 0;
     display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 14px;
+    grid-template-columns: minmax(0, 1fr) minmax(112px, auto);
+    gap: 10px;
     align-items: center;
     border-top: 1px solid rgb(255 255 255 / 14%);
     background: rgb(18 24 20 / 96%);
-    padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
     color: var(--white);
     box-shadow: 0 -10px 30px rgb(0 0 0 / 20%);
     backdrop-filter: blur(12px);
+  }
+
+  .mobile-donation-bar .progress {
+    min-width: 0;
+  }
+
+  .mobile-donation-bar .button {
+    min-width: 112px;
+    padding-inline: 14px;
+    white-space: nowrap;
   }
 
   .progress-compact .progress-head {
