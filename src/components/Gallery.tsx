@@ -64,20 +64,23 @@ export function Gallery({ images: gallery }: { images: readonly ApprovedImageAss
         {gallery.map((image, index) => (
           <button
             type="button"
-            className={`gallery-item gallery-item-${(index % 4) + 1}`}
+            className="gallery-item"
             key={image.src}
             onClick={(event) => {
               previousFocusRef.current = event.currentTarget;
               setActive(index);
               trackEvent("gallery_interaction", { image_index: index + 1 });
             }}
-            aria-label={`פתיחת תמונה ${index + 1} בתצוגה מוגדלת`}
+            aria-label={`פתיחת תמונה בתצוגה מוגדלת: ${image.alt}`}
           >
             <Image
               src={image.src}
               alt={image.alt}
-              fill
-              sizes="(max-width: 640px) 50vw, (max-width: 1000px) 33vw, 25vw"
+              width={image.width}
+              height={image.height}
+              sizes="(max-width: 640px) 50vw, (max-width: 980px) 33vw, 380px"
+              loading="lazy"
+              decoding="async"
               onError={(event) => {
                 event.currentTarget.closest("button")?.setAttribute("hidden", "");
               }}
@@ -93,7 +96,7 @@ export function Gallery({ images: gallery }: { images: readonly ApprovedImageAss
           className="lightbox"
           role="dialog"
           aria-modal="true"
-          aria-label={`תמונה ${active + 1} מתוך ${gallery.length}`}
+          aria-label={`תמונה ${active + 1} מתוך ${gallery.length}: ${gallery[active].alt}`}
           onClick={() => setActive(null)}
         >
           <button
@@ -111,7 +114,7 @@ export function Gallery({ images: gallery }: { images: readonly ApprovedImageAss
               alt={gallery[active].alt}
               fill
               sizes="90vw"
-              priority
+              loading="eager"
               onError={() => setActive(null)}
             />
           </div>

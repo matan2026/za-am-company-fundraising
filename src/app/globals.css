@@ -904,32 +904,30 @@ blockquote {
 }
 
 .gallery-grid {
-  display: grid;
-  grid-auto-rows: 160px;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+  columns: 3;
+  column-gap: 12px;
 }
 
 .gallery-item {
   position: relative;
+  display: block;
+  width: 100%;
+  margin: 0 0 12px;
+  break-inside: avoid;
   overflow: hidden;
+  border: 1px solid var(--border);
   border-radius: 5px;
   background: #687061;
   color: var(--white);
   cursor: pointer;
-}
-
-.gallery-item-1,
-.gallery-item-4 {
-  grid-row: span 2;
-}
-
-.gallery-item-2 {
-  grid-column: span 2;
+  padding: 0;
+  text-align: right;
 }
 
 .gallery-item img {
-  object-fit: cover;
+  display: block;
+  width: 100%;
+  height: auto;
   transition: scale 300ms ease;
 }
 
@@ -976,10 +974,17 @@ blockquote {
 .lightbox-close {
   position: absolute;
   inset: 22px auto auto 24px;
-  background: transparent;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 32%);
+  border-radius: 50%;
+  background: rgb(0 0 0 / 24%);
   color: var(--white);
   cursor: pointer;
   font-size: 2.5rem;
+  line-height: 1;
 }
 
 .lightbox-controls {
@@ -993,6 +998,7 @@ blockquote {
 }
 
 .lightbox-controls button {
+  min-height: 44px;
   border: 1px solid rgb(255 255 255 / 25%);
   border-radius: 4px;
   background: transparent;
@@ -1476,7 +1482,7 @@ blockquote {
   }
 
   .gallery-grid {
-    grid-template-columns: repeat(3, 1fr);
+    columns: 3;
   }
 }
 
@@ -1700,17 +1706,27 @@ blockquote {
   }
 
   .gallery-grid {
-    grid-auto-rows: 130px;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 7px;
+    columns: 2;
+    column-gap: 7px;
   }
 
-  .gallery-item-2 {
-    grid-column: auto;
+  .gallery-item {
+    margin-bottom: 7px;
   }
 
   .lightbox {
     padding: 15px;
+  }
+
+  .lightbox-close {
+    inset: calc(12px + env(safe-area-inset-top)) auto auto 12px;
+  }
+
+  .lightbox-controls {
+    inset-block-end: calc(16px + env(safe-area-inset-bottom));
+    width: calc(100% - 30px);
+    justify-content: center;
+    gap: 12px;
   }
 
   .amount-grid {

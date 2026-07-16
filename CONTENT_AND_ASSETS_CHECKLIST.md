@@ -12,7 +12,7 @@
 | קישור וידאו | חסר | `NEXT_PUBLIC_VIDEO_URL` | להזין קישור רשמי ומאושר של YouTube או Vimeo. מקטע הווידאו המלא מוסתר עד אז. |
 | תמונת שער לווידאו | חסרה | `campaignAssets.videoPoster` | להוסיף את הקובץ המפורט בטבלת הנכסים ולרשום אותו ב־`src/config/assets.ts`. |
 | תמונות Hero | חסרות | `campaignAssets.heroImages` | להוסיף 3 תמונות מאושרות. פס התמונות מוסתר כל עוד הרשימה ריקה. |
-| תמונות גלריה | חסרות | `campaignAssets.galleryImages` | להוסיף 8–12 תמונות מאושרות. מקטע הגלריה כולו מוסתר כל עוד הרשימה ריקה. |
+| תמונות גלריה | 9 תמונות מוגדרות | `campaignAssets.galleryImages` | אין. התמונות שסופקו הומרו ל־WebP ללא חיתוך וללא EXIF/GPS. |
 | תמונת הנצחה | חסרה ולא חובה | `campaignAssets.memorialImage` | להוסיף רק צילום שאושר לפרסום. בלעדיו מוצג סימון נר מכובד ללא תמונה. |
 | סמל/לוגו | חסר | `campaignAssets.unitEmblem` | להוסיף סמל מאושר. בלעדיו מוצג סימן טקסטואלי, לא סמל מדומה. |
 | טלפון ליצירת קשר | חסר | `campaign.contactPhone` ב־`src/config/campaign.ts` | להחליף רק במספר קמפיין מאושר. הקישור מוסתר כעת. |
@@ -36,7 +36,7 @@
 | תמונת Hero 1 | `public/images/hero/hero-01.webp` | WebP | 1800×1200 פיקסלים | יחס 3:2 מומלץ, עד 400KB. |
 | תמונת Hero 2 | `public/images/hero/hero-02.webp` | WebP | 1800×1200 פיקסלים | יחס 3:2 מומלץ, עד 400KB. |
 | תמונת Hero 3 | `public/images/hero/hero-03.webp` | WebP | 1800×1200 פיקסלים | יחס 3:2 מומלץ, עד 400KB. |
-| גלריה 1–12 | `public/images/gallery/image-01.webp` עד `public/images/gallery/image-12.webp` | WebP | לפחות 1600 פיקסלים בצלע הארוכה | לשמור על היחס המקורי; 150–500KB לתמונה. אפשר לפרסם 8–12 תמונות. |
+| גלריה 1–12 | `public/images/gallery/*.webp` בשמות תיאוריים | WebP | לפחות 1600 פיקסלים בצלע הארוכה, כשקיים במקור | לשמור על היחס המקורי; 150–500KB לתמונה. אפשר לפרסם 8–12 תמונות. |
 | תמונת הנצחה | `public/images/memorial/oriel-aviad-silverman.webp` | WebP | 1200×1500 פיקסלים | יחס 4:5, עד 350KB, ורק באישור המשפחה/בעלי הזכויות. |
 | תמונת שיתוף | `public/images/social/og-cover.jpg` | JPEG איכותי | 1200×630 פיקסלים | יחס 1.91:1, עד 500KB; להשאיר אזור בטוח של כ־80 פיקסלים מכל צד. |
 
