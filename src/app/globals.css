@@ -857,15 +857,10 @@ blockquote {
   text-align: center;
 }
 
-.configuration-notice {
-  max-width: 680px;
-  margin: 0 auto 30px;
-  border: 1px solid #d8c99e;
-  border-radius: 5px;
-  background: #fff8df;
-  color: #67572b;
-  padding: 13px 18px;
-  font-size: 0.9rem;
+.donation-supporting-text {
+  max-width: 720px;
+  margin-inline: auto;
+  text-align: center;
 }
 
 .amount-grid {
@@ -916,6 +911,101 @@ blockquote {
   margin: 13px 0 0;
   color: var(--muted);
   font-size: 0.82rem;
+}
+
+.payment-embed-shell,
+.payment-fallback {
+  width: min(100%, 760px);
+  margin: 46px auto 0;
+}
+
+.payment-embed-shell {
+  position: relative;
+  min-height: 850px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--sand-light);
+}
+
+.payment-frame {
+  display: block;
+  width: 100%;
+  min-height: 850px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--white);
+  transition: opacity 180ms ease;
+}
+
+.payment-frame.is-loading {
+  opacity: 0;
+}
+
+.payment-loading {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--olive-deep);
+}
+
+.payment-loading p {
+  margin: 0;
+  font-weight: 700;
+}
+
+.payment-spinner {
+  width: 42px;
+  height: 42px;
+  border: 4px solid rgb(89 98 74 / 20%);
+  border-top-color: var(--olive);
+  border-radius: 50%;
+  animation: payment-spin 900ms linear infinite;
+}
+
+.payment-fallback {
+  display: flex;
+  min-height: 280px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--sand-light);
+  padding: 38px;
+  box-shadow: 0 18px 45px rgb(35 46 36 / 8%);
+}
+
+.payment-fallback p {
+  margin: 0;
+  color: var(--olive-deep);
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
+.payment-lock {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--olive-deep);
+  color: var(--white);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+@keyframes payment-spin {
+  to {
+    rotate: 360deg;
+  }
 }
 
 .closing-section {
@@ -1300,6 +1390,25 @@ blockquote {
 
   .amount-option {
     min-height: 88px;
+  }
+
+  .payment-embed-shell,
+  .payment-frame {
+    min-height: 950px;
+  }
+
+  .payment-embed-shell,
+  .payment-fallback {
+    margin-bottom: calc(92px + env(safe-area-inset-bottom));
+  }
+
+  .payment-fallback {
+    min-height: 320px;
+    padding: 32px 20px;
+  }
+
+  .payment-fallback .button {
+    width: 100%;
   }
 
   .footer-grid {

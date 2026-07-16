@@ -7,16 +7,16 @@ import { trackEvent } from "@/lib/analytics";
 type DonationLinkProps = {
   children: ReactNode;
   className?: string;
-  amount?: number;
+  amount?: number | "other";
   sectionFallback?: boolean;
   ariaLabel?: string;
   onNavigate?: () => void;
 };
 
-function donationHref(amount?: number) {
+function donationHref(amount?: number | "other") {
   if (!isValidExternalUrl(campaign.donationUrl)) return null;
   const url = new URL(campaign.donationUrl);
-  if (amount && campaign.donationAmountParam) {
+  if (typeof amount === "number" && campaign.donationAmountParam) {
     url.searchParams.set(campaign.donationAmountParam, String(amount));
   }
   return url.toString();
@@ -55,11 +55,15 @@ export function DonationLink({
       aria-label={ariaLabel}
       onClick={() => {
         onNavigate?.();
-        trackEvent(href ? "donate_click" : "scroll_to_donation", {
-          ...(amount ? { amount } : {}),
+        const eventParameters = {
+          ...(amount !== undefined ? { amount } : {}),
           donation_configured: Boolean(href),
-        });
-        if (amount) trackEvent("donation_amount_select", { amount });
+        };
+        trackEvent(href ? "donate_click" : "scroll_to_donation", eventParameters);
+        if (href) trackEvent("payment_page_open", eventParameters);
+        if (amount !== undefined) {
+          trackEvent("donation_amount_selected", { amount });
+        }
       }}
     >
       {children}

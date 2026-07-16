@@ -6,7 +6,7 @@ import { campaign, isValidExternalUrl } from "@/config/campaign";
 import { trackEvent } from "@/lib/analytics";
 import { getVideoEmbedUrl } from "@/lib/video";
 
-export function VideoCard({ priority = false }: { priority?: boolean }) {
+export function VideoCard({ eager = false }: { eager?: boolean }) {
   const [playing, setPlaying] = useState(false);
   const embedUrl = isValidExternalUrl(campaign.videoUrl)
     ? getVideoEmbedUrl(campaign.videoUrl)
@@ -31,7 +31,7 @@ export function VideoCard({ priority = false }: { priority?: boolean }) {
         src={campaign.videoPoster}
         alt="תמונת שער לסרטון הרשמי של פלוגת זעם — להחלפה בחומר מאושר"
         fill
-        priority={priority}
+        loading={eager ? "eager" : "lazy"}
         sizes="(max-width: 900px) 100vw, 50vw"
       />
       <div className="video-overlay">

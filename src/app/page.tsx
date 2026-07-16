@@ -6,6 +6,7 @@ import { Faq } from "@/components/Faq";
 import { Gallery } from "@/components/Gallery";
 import { Header } from "@/components/Header";
 import { MobileDonationBar } from "@/components/MobileDonationBar";
+import { PaymentEmbed } from "@/components/PaymentEmbed";
 import { Progress } from "@/components/Progress";
 import { VideoCard } from "@/components/VideoCard";
 import {
@@ -48,10 +49,15 @@ const needs = [
 ];
 
 const donationAmounts = [
-  { amount: 100, label: "שותפים לדרך" },
-  { amount: 250, label: "מסייעים לציוד וללוגיסטיקה" },
+  { amount: 50, label: "שותפים לדרך" },
+  { amount: 100, label: "מחזקים את הלוחמים" },
+  { amount: 180, label: "מסייעים לציוד וללוגיסטיקה" },
+  { amount: 360, label: "תומכים בחוסן הפלוגתי" },
   { amount: 500, label: "מחזקים את המיגון והחוסן" },
   { amount: 1000, label: "שותפים משמעותיים לפלוגה" },
+  { amount: 2000, label: "מעניקים מעטפת משמעותית" },
+  { amount: 5000, label: "שותפים מרכזיים במערכה" },
+  { amount: 10000, label: "שותפות יוצאת דופן" },
 ];
 
 function JsonLd() {
@@ -151,7 +157,7 @@ export default function Home() {
             </div>
 
             <div className="hero-media">
-              <VideoCard priority />
+              <VideoCard eager />
               <div className="hero-photo-strip" aria-label="מקומות שמורים לתמונות מאושרות">
                 {[1, 2, 3].map((image) => (
                   <div className="strip-image" key={image}>
@@ -183,7 +189,7 @@ export default function Home() {
             </p>
           </div>
           <div className="container video-feature">
-            <VideoCard />
+            <VideoCard eager />
             <div className="video-caption">
               <p>
                 אנחנו עושים את מה שצריך בחזית. התמיכה שלכם מאפשרת לנו לעשות זאת
@@ -352,13 +358,11 @@ export default function Home() {
         <section className="section donation-section" id="donation" aria-labelledby="donation-title">
           <div className="container donation-inner">
             <p className="eyebrow eyebrow-dark">כל סכום הוא שותפות</p>
-            <h2 id="donation-title">בחרו את הדרך שלכם לחזק את הפלוגה</h2>
-            {!isValidExternalUrl(campaign.donationUrl) ? (
-              <p className="configuration-notice" role="status">
-                קישור התרומה הרשמי טרם הוגדר. אפשרויות התרומה יופעלו מיד לאחר
-                הזנת קישור מאובטח ומאושר.
-              </p>
-            ) : null}
+            <h2 id="donation-title">מצטרפים ומחזקים את פלוגת זעם</h2>
+            <p className="section-intro donation-supporting-text">
+              כל תרומה, קטנה כגדולה, מסייעת לנו לרכוש ציוד ומיגון, לחזק את חוסן
+              הלוחמים ולתת לפלוגה את המעטפת שהיא זקוקה לה.
+            </p>
             <div className="amount-grid">
               {donationAmounts.map((option) => (
                 <DonationLink
@@ -374,6 +378,7 @@ export default function Home() {
               ))}
               <DonationLink
                 className="amount-option amount-other"
+                amount="other"
                 sectionFallback={false}
                 ariaLabel="תרומה בסכום אחר"
               >
@@ -386,9 +391,10 @@ export default function Home() {
               sectionFallback={false}
               ariaLabel="מעבר לתרומה מאובטחת"
             >
-              לתרומה מאובטחת
+              מעבר לתרומה מאובטחת
             </DonationLink>
-            <p className="trust-small">התרומה מתבצעת באמצעות מערכת סליקה מאובטחת.</p>
+            <p className="trust-small">התרומה מתבצעת באמצעות עמוד סליקה מאובטח של Grow.</p>
+            <PaymentEmbed />
             {nonprofitConfigured ? (
               <p className="nonprofit-details">
                 {campaign.nonprofitName} · מספר גוף: <bdi>{campaign.nonprofitNumber}</bdi>
