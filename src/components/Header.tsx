@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { DonationLink } from "@/components/DonationLink";
+import type { ApprovedImageAsset } from "@/config/assets";
 
 const navItems = [
   { href: "#story", label: "סיפור הפלוגה" },
@@ -10,8 +11,9 @@ const navItems = [
   { href: "#faq", label: "שאלות נפוצות" },
 ];
 
-export function Header() {
+export function Header({ logo }: { logo: ApprovedImageAsset | null }) {
   const [open, setOpen] = useState(false);
+  const [logoFailed, setLogoFailed] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -31,13 +33,18 @@ export function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <a className="brand" href="#top" aria-label="פלוגת זעם — לראש העמוד">
-          <Image
-            src="/images/unit-emblem-placeholder.webp"
-            alt="מקום שמור לסמל המאושר של פלוגת זעם"
-            width={48}
-            height={48}
-            priority
-          />
+          {logo && !logoFailed ? (
+            <Image
+              src={logo.src}
+              alt={logo.alt}
+              width={48}
+              height={48}
+              loading="eager"
+              onError={() => setLogoFailed(true)}
+            />
+          ) : (
+            <span className="brand-mark" aria-hidden="true">זעם</span>
+          )}
           <span>
             <strong>פלוגת ״זעם״</strong>
             <small>גדוד 7421 · חטיבה 4</small>

@@ -9,6 +9,7 @@ import { MobileDonationBar } from "@/components/MobileDonationBar";
 import { PaymentEmbed } from "@/components/PaymentEmbed";
 import { Progress } from "@/components/Progress";
 import { VideoCard } from "@/components/VideoCard";
+import { campaignAssets, type ApprovedImageAsset } from "@/config/assets";
 import {
   campaign,
   formatIls,
@@ -16,6 +17,7 @@ import {
   isValidExternalUrl,
 } from "@/config/campaign";
 import { getVideoEmbedUrl } from "@/lib/video";
+import { existingAsset, existingAssets } from "@/lib/public-assets";
 import { siteUrl } from "@/config/site";
 
 const needs = [
@@ -60,7 +62,7 @@ const donationAmounts = [
   { amount: 10000, label: "שותפות יוצאת דופן" },
 ];
 
-function JsonLd() {
+function JsonLd({ videoPoster }: { videoPoster: ApprovedImageAsset | null }) {
   const videoEmbed = isValidExternalUrl(campaign.videoUrl)
     ? getVideoEmbedUrl(campaign.videoUrl)
     : null;
@@ -93,12 +95,12 @@ function JsonLd() {
     },
   ];
 
-  if (videoEmbed) {
+  if (videoEmbed && videoPoster) {
     graph.push({
       "@type": "VideoObject",
       name: "הכירו את פלוגת זעם",
       description: "הסיפור הרשמי של לוחמי פלוגת זעם.",
-      thumbnailUrl: [`${siteUrl}${campaign.videoPoster}`],
+      thumbnailUrl: [`${siteUrl}${videoPoster.src}`],
       embedUrl: videoEmbed,
     });
   }
@@ -117,18 +119,26 @@ function JsonLd() {
 }
 
 export default function Home() {
+  const logo = existingAsset(campaignAssets.unitEmblem);
+  const videoPoster = existingAsset(campaignAssets.videoPoster);
+  const heroImages = existingAssets(campaignAssets.heroImages);
+  const galleryImages = existingAssets(campaignAssets.galleryImages);
+  const memorialImage = existingAsset(campaignAssets.memorialImage);
+  const videoConfigured = Boolean(
+    isValidExternalUrl(campaign.videoUrl) && getVideoEmbedUrl(campaign.videoUrl),
+  );
   const nonprofitConfigured =
     isConfigured(campaign.nonprofitName) &&
     isConfigured(campaign.nonprofitNumber);
 
   return (
     <>
-      <JsonLd />
-      <Header />
+      <JsonLd videoPoster={videoPoster} />
+      <Header logo={logo} />
       <main id="main-content" tabIndex={-1}>
         <section className="hero section-dark" id="top" aria-labelledby="hero-title">
           <div className="hero-texture" aria-hidden="true" />
-          <div className="container hero-grid">
+          <div className={`container hero-grid ${heroImages.length ? "has-photo-strip" : ""}`}>
             <div className="hero-copy">
               <p className="eyebrow">פלוגת ״זעם״ | גדוד 7421 | חטיבה 4</p>
               <h1 id="hero-title">פלוגת ״זעם״ צריכה אתכם איתה בקו</h1>
@@ -150,9 +160,11 @@ export default function Home() {
                 <DonationLink className="button button-large">
                   אני רוצה לחזק את הלוחמים
                 </DonationLink>
-                <a className="text-link" href="#video">
-                  צפו בסיפור שלנו <span aria-hidden="true">←</span>
-                </a>
+                {videoConfigured ? (
+                  <a className="text-link" href="#video">
+                    צפו בסיפור שלנו <span aria-hidden="true">←</span>
+                  </a>
+                ) : null}
               </div>
               <p className="trust-line">
                 כל תרומה, קטנה כגדולה, הופכת לחלק מהביטחון של כולנו.
@@ -160,7 +172,7 @@ export default function Home() {
             </div>
 
             <div className="hero-media">
-              <VideoCard eager />
+              <VideoCard eager poster={videoPoster} />
             </div>
 
             <div className="hero-progress">
@@ -168,22 +180,25 @@ export default function Home() {
               <Progress />
             </div>
 
-            <div className="hero-photo-strip" aria-label="מקומות שמורים לתמונות מאושרות">
-              {[1, 2, 3].map((image) => (
-                <div className="strip-image" key={image}>
-                  <Image
-                    src={`/images/hero/hero-${String(image).padStart(2, "0")}.webp`}
-                    alt={`מקום שמור לתמונת פלוגה מאושרת ${image}`}
-                    fill
-                    sizes="(max-width: 640px) 33vw, 390px"
-                  />
-                </div>
-              ))}
-            </div>
+            {heroImages.length ? (
+              <div className="hero-photo-strip" aria-label="תמונות מאושרות מפעילות הפלוגה">
+                {heroImages.map((image) => (
+                  <div className="strip-image" key={image.src}>
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      sizes="(max-width: 640px) 33vw, 390px"
+                    />
+                  </div>
+                ))}
+              </div>
+            ) : null}
           </div>
         </section>
 
-        <section className="section video-section" id="video" aria-labelledby="video-title">
+        {videoConfigured ? (
+          <section className="section video-section" id="video" aria-labelledby="video-title">
           <div className="container narrow centered">
             <p className="eyebrow eyebrow-dark">פנים. קולות. סיפור אחד.</p>
             <h2 id="video-title">הכירו את פלוגת ״זעם״</h2>
@@ -193,7 +208,7 @@ export default function Home() {
             </p>
           </div>
           <div className="container video-feature">
-            <VideoCard eager />
+            <VideoCard eager poster={videoPoster} />
             <div className="video-caption">
               <p>
                 אנחנו עושים את מה שצריך בחזית. התמיכה שלכם מאפשרת לנו לעשות זאת
@@ -209,7 +224,8 @@ export default function Home() {
               </details>
             </div>
           </div>
-        </section>
+          </section>
+        ) : null}
 
         <section className="section story-section" id="story" aria-labelledby="story-title">
           <div className="container story-grid">
@@ -246,7 +262,18 @@ export default function Home() {
 
         <section className="section memorial" aria-labelledby="memorial-title">
           <div className="container memorial-inner">
-            <div className="memorial-mark" aria-hidden="true">נר</div>
+            {memorialImage ? (
+              <div className="memorial-image">
+                <Image
+                  src={memorialImage.src}
+                  alt={memorialImage.alt}
+                  fill
+                  sizes="(max-width: 640px) 140px, 180px"
+                />
+              </div>
+            ) : (
+              <div className="memorial-mark" aria-hidden="true">נר</div>
+            )}
             <div>
               <h2 id="memorial-title">זוכרים את אחינו לנשק</h2>
               <p>
@@ -322,18 +349,20 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section gallery-section" aria-labelledby="gallery-title">
-          <div className="container">
-            <div className="section-heading">
-              <p className="eyebrow eyebrow-dark">הפלוגה שלנו</p>
-              <h2 id="gallery-title">האנשים שמאחורי המדים</h2>
-              <p className="section-intro align-right">
-                רגעים אמיתיים מהשירות, מהשטח ומהדרך הארוכה שעברנו יחד.
-              </p>
+        {galleryImages.length ? (
+          <section className="section gallery-section" aria-labelledby="gallery-title">
+            <div className="container">
+              <div className="section-heading">
+                <p className="eyebrow eyebrow-dark">הפלוגה שלנו</p>
+                <h2 id="gallery-title">האנשים שמאחורי המדים</h2>
+                <p className="section-intro align-right">
+                  רגעים אמיתיים מהשירות, מהשטח ומהדרך הארוכה שעברנו יחד.
+                </p>
+              </div>
+              <Gallery images={galleryImages} />
             </div>
-            <Gallery />
-          </div>
-        </section>
+          </section>
+        ) : null}
 
         <section className="section urgency section-dark" aria-labelledby="urgency-title">
           <div className="container urgency-inner">

@@ -1,11 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import { AnalyticsScripts } from "@/components/AnalyticsScripts";
+import { campaignAssets } from "@/config/assets";
 import { siteUrl } from "@/config/site";
+import { existingAsset } from "@/lib/public-assets";
 import "./globals.css";
 
 const title = "מחזקים את פלוגת \"זעם\" | גיוס ציוד וחוסן ללוחמי המילואים";
 const description =
   "פלוגת \"זעם\" מגדוד 7421 בחטיבה 4 מגייסת 47,000 ₪ עבור ציוד מציל חיים, חוסן פלוגתי ותמיכה לוגיסטית. הצטרפו וחזקו את הלוחמים.";
+const socialImage = existingAsset(campaignAssets.socialImage);
+const unitEmblem = existingAsset(campaignAssets.unitEmblem);
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -19,23 +23,25 @@ export const metadata: Metadata = {
       "עזרו לנו לרכוש ציוד מציל חיים, לחזק את החוסן הפלוגתי ולתמוך בלוחמים שממשיכים להתייצב מאז אוקטובר 2023.",
     locale: "he_IL",
     type: "website",
-    images: [
-      {
-        url: "/images/og-cover.webp",
-        width: 1200,
-        height: 630,
-        alt: "מחזקים את לוחמי פלוגת זעם",
-      },
-    ],
+    images: socialImage
+      ? [
+          {
+            url: socialImage.src,
+            width: socialImage.width,
+            height: socialImage.height,
+            alt: socialImage.alt,
+          },
+        ]
+      : undefined,
   },
   twitter: {
-    card: "summary_large_image",
+    card: socialImage ? "summary_large_image" : "summary",
     title: "פלוגת \"זעם\" צריכה אתכם איתה בקו",
     description:
       "עזרו לנו לרכוש ציוד מציל חיים, לחזק את החוסן הפלוגתי ולתמוך בלוחמים.",
-    images: ["/images/og-cover.webp"],
+    images: socialImage ? [socialImage.src] : undefined,
   },
-  icons: { icon: "/images/unit-emblem-placeholder.webp" },
+  icons: unitEmblem ? { icon: unitEmblem.src } : undefined,
   robots: { index: true, follow: true },
 };
 

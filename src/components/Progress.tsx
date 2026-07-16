@@ -5,6 +5,22 @@ import {
 } from "@/config/campaign";
 
 export function Progress({ compact = false }: { compact?: boolean }) {
+  if (!campaign.totalsVerified) {
+    return (
+      <div className={`${compact ? "progress progress-compact" : "progress"} progress-unverified`}>
+        <div className="progress-head">
+          <span>{compact ? "יעד הקמפיין" : "נתוני הגיוס"}</span>
+          <strong>{compact ? formatIls(campaign.targetAmount) : "יעודכנו"}</strong>
+        </div>
+        {!compact ? (
+          <p className="progress-placeholder">
+            הסכום שגויס ומספר השותפים יוצגו לאחר אימות הנתונים.
+          </p>
+        ) : null}
+      </div>
+    );
+  }
+
   return (
     <div className={compact ? "progress progress-compact" : "progress"}>
       <div className="progress-head">

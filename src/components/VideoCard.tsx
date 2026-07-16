@@ -3,14 +3,33 @@
 import Image from "next/image";
 import { useState } from "react";
 import { campaign, isValidExternalUrl } from "@/config/campaign";
+import type { ApprovedImageAsset } from "@/config/assets";
 import { trackEvent } from "@/lib/analytics";
 import { getVideoEmbedUrl } from "@/lib/video";
 
-export function VideoCard({ eager = false }: { eager?: boolean }) {
+export function VideoCard({
+  eager = false,
+  poster,
+}: {
+  eager?: boolean;
+  poster: ApprovedImageAsset | null;
+}) {
   const [playing, setPlaying] = useState(false);
+  const [posterFailed, setPosterFailed] = useState(false);
   const embedUrl = isValidExternalUrl(campaign.videoUrl)
     ? getVideoEmbedUrl(campaign.videoUrl)
     : null;
+
+  if (!embedUrl) {
+    return (
+      <div className="video-card video-unavailable" role="status">
+        <div className="video-unavailable-content">
+          <span aria-hidden="true">סיפור הפלוגה</span>
+          <p>הסרטון הרשמי יוצג כאן לאחר קבלת הקישור והחומרים המאושרים.</p>
+        </div>
+      </div>
+    );
+  }
 
   if (playing && embedUrl) {
     return (
@@ -26,20 +45,22 @@ export function VideoCard({ eager = false }: { eager?: boolean }) {
   }
 
   return (
-    <div className="video-card video-poster">
-      <Image
-        src={campaign.videoPoster}
-        alt="תמונת שער לסרטון הרשמי של פלוגת זעם — להחלפה בחומר מאושר"
-        fill
-        loading={eager ? "eager" : "lazy"}
-        sizes="(max-width: 900px) 100vw, 50vw"
-      />
+    <div className={`video-card ${poster && !posterFailed ? "video-poster" : "video-poster-fallback"}`}>
+      {poster && !posterFailed ? (
+        <Image
+          src={poster.src}
+          alt={poster.alt}
+          fill
+          loading={eager ? "eager" : "lazy"}
+          sizes="(max-width: 900px) 100vw, 50vw"
+          onError={() => setPosterFailed(true)}
+        />
+      ) : null}
       <div className="video-overlay">
         <button
           type="button"
           className="play-button"
-          disabled={!embedUrl}
-          aria-label={embedUrl ? "נגינת הסרטון" : "הסרטון הרשמי טרם הוגדר"}
+          aria-label="נגינת הסרטון"
           onClick={() => {
             setPlaying(true);
             trackEvent("video_play");
@@ -47,9 +68,7 @@ export function VideoCard({ eager = false }: { eager?: boolean }) {
         >
           <span aria-hidden="true">▶</span>
         </button>
-        {!embedUrl ? (
-          <p>הסרטון הרשמי יוטמע כאן לאחר הזנת הקישור המאושר</p>
-        ) : null}
+        {!poster || posterFailed ? <p>נגינת הסרטון הרשמי</p> : null}
       </div>
     </div>
   );

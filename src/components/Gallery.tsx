@@ -3,13 +3,9 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import type { ApprovedImageAsset } from "@/config/assets";
 
-const gallery = Array.from({ length: 8 }, (_, index) => ({
-  src: `/images/gallery/image-${String(index + 1).padStart(2, "0")}.webp`,
-  alt: `מקום שמור לתמונה מאושרת ${index + 1} מרגעים בשירות פלוגת זעם`,
-}));
-
-export function Gallery() {
+export function Gallery({ images: gallery }: { images: readonly ApprovedImageAsset[] }) {
   const [active, setActive] = useState<number | null>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -60,7 +56,7 @@ export function Gallery() {
       window.removeEventListener("keydown", onKeyDown);
       previousFocusRef.current?.focus();
     };
-  }, [isOpen]);
+  }, [isOpen, gallery.length]);
 
   return (
     <>
@@ -82,8 +78,11 @@ export function Gallery() {
               alt={image.alt}
               fill
               sizes="(max-width: 640px) 50vw, (max-width: 1000px) 33vw, 25vw"
+              onError={(event) => {
+                event.currentTarget.closest("button")?.setAttribute("hidden", "");
+              }}
             />
-            <span>תמונה מאושרת תתווסף כאן</span>
+            <span>פתיחת התמונה</span>
           </button>
         ))}
       </div>
@@ -113,6 +112,7 @@ export function Gallery() {
               fill
               sizes="90vw"
               priority
+              onError={() => setActive(null)}
             />
           </div>
           <div className="lightbox-controls">

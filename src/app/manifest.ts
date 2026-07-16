@@ -1,6 +1,10 @@
 import type { MetadataRoute } from "next";
+import { campaignAssets } from "@/config/assets";
+import { existingAsset } from "@/lib/public-assets";
 
 export default function manifest(): MetadataRoute.Manifest {
+  const unitEmblem = existingAsset(campaignAssets.unitEmblem);
+
   return {
     name: "מחזקים את פלוגת זעם",
     short_name: "פלוגת זעם",
@@ -11,12 +15,14 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#1d241f",
     lang: "he",
     dir: "rtl",
-    icons: [
-      {
-        src: "/images/unit-emblem-placeholder.webp",
-        sizes: "512x512",
-        type: "image/webp",
-      },
-    ],
+    icons: unitEmblem
+      ? [
+          {
+            src: unitEmblem.src,
+            sizes: `${unitEmblem.width}x${unitEmblem.height}`,
+            type: unitEmblem.src.endsWith(".png") ? "image/png" : "image/webp",
+          },
+        ]
+      : [],
   };
 }

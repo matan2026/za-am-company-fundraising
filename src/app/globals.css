@@ -244,6 +244,20 @@ h3 {
   border-radius: 50%;
 }
 
+.brand-mark {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  place-items: center;
+  border: 1px solid rgb(215 197 165 / 55%);
+  border-radius: 50%;
+  color: var(--sand);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
 .brand span {
   display: flex;
   flex-direction: column;
@@ -318,10 +332,16 @@ h3 {
   grid-template-columns: minmax(0, 0.92fr) minmax(500px, 1.08fr);
   grid-template-areas:
     "copy media"
-    "progress media"
-    "strip strip";
+    "progress media";
   gap: 38px 58px;
   align-items: center;
+}
+
+.hero-grid.has-photo-strip {
+  grid-template-areas:
+    "copy media"
+    "progress media"
+    "strip strip";
 }
 
 .hero-copy {
@@ -414,6 +434,39 @@ h3 {
   inset: 0;
   background: linear-gradient(180deg, transparent 35%, rgb(8 12 9 / 72%));
   content: "";
+}
+
+.video-poster-fallback,
+.video-unavailable {
+  background:
+    radial-gradient(circle at 28% 25%, rgb(109 120 83 / 34%), transparent 32%),
+    linear-gradient(135deg, #111713, #252d26);
+}
+
+.video-unavailable {
+  display: grid;
+  place-items: center;
+}
+
+.video-unavailable-content {
+  max-width: 390px;
+  padding: 34px;
+  color: #d8dcd6;
+  text-align: center;
+}
+
+.video-unavailable-content span {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--sand);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.video-unavailable-content p {
+  margin: 0;
+  font-size: 1rem;
 }
 
 .video-overlay {
@@ -522,6 +575,16 @@ h3 {
 .progress-head strong {
   color: var(--white);
   font-size: 1.22rem;
+}
+
+.progress-placeholder {
+  margin: 0;
+  border: 1px solid rgb(255 255 255 / 16%);
+  border-radius: 4px;
+  background: rgb(255 255 255 / 5%);
+  padding: 13px 15px;
+  color: #d7d9d5;
+  font-size: 0.88rem;
 }
 
 .progress-track {
@@ -646,6 +709,19 @@ blockquote {
   color: #776b58;
   font-size: 0.76rem;
   letter-spacing: 0.15em;
+}
+
+.memorial-image {
+  position: relative;
+  width: 130px;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid #b9ad96;
+  border-radius: 4px;
+}
+
+.memorial-image img {
+  object-fit: cover;
 }
 
 .memorial h2 {
@@ -1259,6 +1335,13 @@ blockquote {
     grid-template-areas:
       "copy"
       "media"
+      "progress";
+  }
+
+  .hero-grid.has-photo-strip {
+    grid-template-areas:
+      "copy"
+      "media"
       "progress"
       "strip";
   }
@@ -1339,6 +1422,13 @@ blockquote {
   .brand img {
     width: 40px;
     height: 40px;
+  }
+
+  .brand-mark {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+    font-size: 0.65rem;
   }
 
   .brand small {
@@ -1445,6 +1535,10 @@ blockquote {
   .memorial-mark {
     width: 82px;
     height: 82px;
+  }
+
+  .memorial-image {
+    width: min(150px, 48vw);
   }
 
   .budget-row {
