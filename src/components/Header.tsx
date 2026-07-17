@@ -15,18 +15,63 @@ const navItems = [
 export function Header({ logo }: { logo: ApprovedImageAsset | null }) {
   const [open, setOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!open) return;
 
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key !== "Escape") return;
-      setOpen(false);
-      menuButtonRef.current?.focus();
+    const previousBodyOverflow = document.body.style.overflow;
+    const focusableSelector =
+      'a[href]:not([tabindex="-1"]), button:not([disabled]):not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])';
+    const inertTargets = [
+      document.querySelector<HTMLElement>("main"),
+      document.querySelector<HTMLElement>(".site-footer"),
+      document.querySelector<HTMLElement>(".mobile-donation-bar"),
+    ].filter((target): target is HTMLElement => Boolean(target));
+    const previousInertValues = inertTargets.map((target) => target.inert);
+
+    document.body.style.overflow = "hidden";
+    inertTargets.forEach((target) => {
+      target.inert = true;
+    });
+    const focusFrame = window.requestAnimationFrame(() => {
+      mobileMenuRef.current?.querySelector<HTMLElement>(focusableSelector)?.focus();
+    });
+
+    const handleMenuKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setOpen(false);
+        menuButtonRef.current?.focus();
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+
+      const focusable = mobileMenuRef.current?.querySelectorAll<HTMLElement>(focusableSelector);
+      if (!focusable?.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
 
-    window.addEventListener("keydown", closeOnEscape);
-    return () => window.removeEventListener("keydown", closeOnEscape);
+    window.addEventListener("keydown", handleMenuKeyDown);
+    return () => {
+      window.cancelAnimationFrame(focusFrame);
+      document.body.style.overflow = previousBodyOverflow;
+      inertTargets.forEach((target, index) => {
+        target.inert = previousInertValues[index];
+      });
+      window.removeEventListener("keydown", handleMenuKeyDown);
+    };
   }, [open]);
 
   return (
@@ -71,24 +116,40 @@ export function Header({ logo }: { logo: ApprovedImageAsset | null }) {
         </button>
       </SectionContainer>
 
-      <nav
+      <div
+        ref={mobileMenuRef}
         id="mobile-menu"
         className={`mobile-nav ${open ? "is-open" : ""}`}
-        aria-label="ניווט לנייד"
+        role="dialog"
+        aria-modal="true"
+        aria-label="תפריט ניווט לנייד"
+        aria-hidden={!open}
       >
-        {navItems.map((item) => (
-          <a key={item.href} href={item.href} onClick={() => setOpen(false)}>
-            {item.label}
-          </a>
-        ))}
-        <DonationLink
-          className="button"
-          ariaLabel="תרמו עכשיו לפלוגת זעם"
-          onNavigate={() => setOpen(false)}
-        >
-          תרמו עכשיו
-        </DonationLink>
-      </nav>
+        <button
+          className="mobile-nav-backdrop"
+          type="button"
+          tabIndex={-1}
+          aria-hidden="true"
+          onClick={() => {
+            setOpen(false);
+            menuButtonRef.current?.focus();
+          }}
+        />
+        <nav aria-label="ניווט לנייד">
+          {navItems.map((item) => (
+            <a key={item.href} href={item.href} onClick={() => setOpen(false)}>
+              {item.label}
+            </a>
+          ))}
+          <DonationLink
+            className="button"
+            ariaLabel="תרמו עכשיו לפלוגת זעם"
+            onNavigate={() => setOpen(false)}
+          >
+            תרמו עכשיו
+          </DonationLink>
+        </nav>
+      </div>
     </header>
   );
 }

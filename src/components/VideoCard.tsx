@@ -74,7 +74,7 @@ export function VideoCard({ poster }: VideoCardProps) {
               src={poster.src}
               alt=""
               fill
-              sizes="(max-width: 767px) calc((100vw - 40px) / 2), (max-width: 1279px) 52vw, 650px"
+              sizes="(max-width: 359px) calc(100vw - 32px), (max-width: 767px) calc(100vw - 40px), (max-width: 1279px) 52vw, 650px"
               style={{ objectPosition: poster.objectPosition ?? "50% 50%" }}
             />
           ) : (
