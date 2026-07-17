@@ -260,8 +260,10 @@ export default function Home() {
               </p>
             </div>
             <blockquote className="story-quote">
-              הפלוגה שלנו היא רקמת חיים ישראלית – אנשים שונים שהפכו למשפחה
-              אחת ולכוח לוחם אחד.
+              <p className="story-quote-text">
+                <span>הפלוגה שלנו היא רקמת חיים ישראלית –</span>
+                <span>אנשים שונים שהפכו למשפחה אחת ולכוח לוחם אחד.</span>
+              </p>
             </blockquote>
           </SectionContainer>
         </section>
@@ -317,18 +319,17 @@ export default function Home() {
             <div className="needs-grid">
               {needs.map((need) => (
                 <article className="need-card" key={need.title}>
-                  <div className="need-card-heading">
-                    <span className={`need-icon need-icon-${need.icon}`} aria-hidden="true">
-                      <span className="need-icon-glyph" />
-                    </span>
-                    <h3>{need.title}</h3>
-                  </div>
-                  <div className="need-card-copy">
+                  <span className={`need-icon need-card-icon need-icon-${need.icon}`} aria-hidden="true">
+                    <span className="need-icon-glyph" />
+                  </span>
+                  <h3 className="need-card-title">{need.title}</h3>
+                  <div className="need-card-copy need-card-body">
                     {need.text.map((paragraph) => (
                       <p key={paragraph}>{paragraph}</p>
                     ))}
                   </div>
-                  <strong>{need.highlight}</strong>
+                  <div className="need-card-divider" aria-hidden="true" />
+                  <strong className="need-card-highlight">{need.highlight}</strong>
                 </article>
               ))}
             </div>
