@@ -165,7 +165,10 @@ export default function Home() {
             </div>
 
             <div className="hero-media" id="hero-video">
-              <VideoCard poster={videoPoster} />
+              <VideoCard
+                poster={videoPoster}
+                descriptionId="video-accessibility-status"
+              />
             </div>
 
             {heroImages.length ? (
@@ -195,7 +198,10 @@ export default function Home() {
             </p>
           </SectionContainer>
           <SectionContainer className="video-feature">
-            <VideoCard poster={videoPoster} />
+            <VideoCard
+              poster={videoPoster}
+              descriptionId="video-accessibility-status"
+            />
             <div className="video-caption">
               <p>
                 אנחנו עושים את מה שצריך בחזית. התמיכה שלכם מאפשרת לנו לעשות זאת
@@ -204,7 +210,7 @@ export default function Home() {
               <DonationLink className="button">הצטרפו אלינו למערכה</DonationLink>
               <details className="transcript">
                 <summary>תמלול והנגשת הסרטון</summary>
-                <p>
+                <p id="video-accessibility-status">
                   לסרטון אין בשלב זה תמלול או כתוביות מאושרים. הם יתווספו
                   כאשר יימסרו חומרי נגישות מאושרים.
                 </p>

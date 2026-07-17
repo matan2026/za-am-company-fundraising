@@ -12,10 +12,7 @@ type DonationLinkProps = {
   sectionFallback?: boolean;
   ariaLabel?: string;
   onNavigate?: () => void;
-  onFocus?: () => void;
-  onPointerDown?: () => void;
   newTab?: boolean;
-  selected?: boolean;
   trackingEvent?: AnalyticsEvent;
 };
 
@@ -35,10 +32,7 @@ export function DonationLink({
   sectionFallback = true,
   ariaLabel,
   onNavigate,
-  onFocus,
-  onPointerDown,
   newTab = false,
-  selected = false,
   trackingEvent,
 }: DonationLinkProps) {
   const href = donationHref(amount);
@@ -64,10 +58,6 @@ export function DonationLink({
       target={href && newTab ? "_blank" : undefined}
       rel={href && newTab ? "noopener noreferrer" : undefined}
       aria-label={ariaLabel}
-      aria-current={selected ? "true" : undefined}
-      data-selected={selected ? "true" : undefined}
-      onFocus={onFocus}
-      onPointerDown={onPointerDown}
       onClick={() => {
         onNavigate?.();
         const eventParameters = {
@@ -83,6 +73,11 @@ export function DonationLink({
       }}
     >
       {children}
+      {href && !ariaLabel ? (
+        <span className="sr-only">
+          {" "}— מעבר לעמוד התרומה המאובטח של Grow
+        </span>
+      ) : null}
     </a>
   );
 }

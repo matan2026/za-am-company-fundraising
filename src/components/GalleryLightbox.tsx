@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import type { ApprovedImageAsset } from "@/config/assets";
 
 type GalleryLightboxProps = {
@@ -23,6 +24,14 @@ export function GalleryLightbox({
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow;
+    const inertTargets = [
+      document.querySelector<HTMLElement>(".skip-link"),
+      document.querySelector<HTMLElement>(".site-header"),
+      document.querySelector<HTMLElement>("main"),
+      document.querySelector<HTMLElement>(".site-footer"),
+      document.querySelector<HTMLElement>(".mobile-donation-bar"),
+    ].filter((target): target is HTMLElement => Boolean(target));
+    const previousInertValues = inertTargets.map((target) => target.inert);
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         event.preventDefault();
@@ -51,17 +60,23 @@ export function GalleryLightbox({
     };
 
     document.body.style.overflow = "hidden";
+    inertTargets.forEach((target) => {
+      target.inert = true;
+    });
     window.addEventListener("keydown", onKeyDown);
     const focusFrame = window.requestAnimationFrame(() => closeButtonRef.current?.focus());
 
     return () => {
       window.cancelAnimationFrame(focusFrame);
       document.body.style.overflow = previousOverflow;
+      inertTargets.forEach((target, index) => {
+        target.inert = previousInertValues[index];
+      });
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [active, images.length, onClose, onIndexChange]);
 
-  return (
+  return createPortal(
     <div
       ref={dialogRef}
       className="lightbox"
@@ -130,6 +145,7 @@ export function GalleryLightbox({
           הבאה
         </button>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

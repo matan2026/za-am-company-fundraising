@@ -1403,15 +1403,19 @@ blockquote {
   display: none;
 }
 
-.faq-list summary::after {
+.faq-icon {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--paper);
   color: var(--red);
-  content: "+";
   font-size: 1.5rem;
   font-weight: 400;
-}
-
-.faq-list details[open] summary::after {
-  content: "−";
+  line-height: 1;
 }
 
 .faq-list p {
@@ -3358,9 +3362,7 @@ summary {
   outline-offset: 3px;
 }
 
-.amount-option:active,
-.amount-option.is-selected,
-.amount-option[data-selected="true"] {
+.amount-option:active {
   border-color: var(--olive-deep);
   background: #e9dfcc;
   box-shadow: inset 0 0 0 1px var(--olive-deep), 0 10px 24px rgb(43 51 43 / 10%);
@@ -3587,18 +3589,11 @@ summary {
   line-height: 1.45;
 }
 
-.faq-list summary::after {
-  display: grid;
-  width: 32px;
-  height: 32px;
-  flex: 0 0 32px;
-  place-items: center;
+.faq-icon {
   border: 1px solid #d4cabc;
-  border-radius: 50%;
   background: #f7f2e8;
   color: var(--red-dark);
   font-size: 22px;
-  line-height: 1;
 }
 
 .faq-list summary:focus-visible {
@@ -4794,9 +4789,7 @@ body {
   box-shadow: 0 8px 20px rgb(21 32 25 / 8%);
 }
 
-.amount-option:active,
-.amount-option.is-selected,
-.amount-option[data-selected="true"] {
+.amount-option:active {
   border-color: var(--olive-deep);
   background: #eee7da;
   box-shadow: inset 0 0 0 1px var(--olive-deep);
@@ -4834,7 +4827,7 @@ body {
   border-color: var(--border);
 }
 
-.faq-list summary::after {
+.faq-icon {
   border-color: var(--border);
   background: var(--paper);
   color: var(--red);

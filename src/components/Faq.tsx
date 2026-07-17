@@ -64,7 +64,10 @@ export function Faq() {
             aria-controls={`faq-answer-${index}`}
             aria-expanded={openIndex === index}
           >
-            {faq.question}
+            <span>{faq.question}</span>
+            <span className="faq-icon" aria-hidden="true">
+              {openIndex === index ? "−" : "+"}
+            </span>
           </summary>
           <div
             className="faq-answer"

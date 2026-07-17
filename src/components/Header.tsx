@@ -17,6 +17,36 @@ export function Header({ logo }: { logo: ApprovedImageAsset | null }) {
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
+  const closeMenuAndFocusSection = (href: string) => {
+    setOpen(false);
+    window.requestAnimationFrame(() => {
+      const section = document.querySelector<HTMLElement>(href);
+      const focusTarget = section?.querySelector<HTMLElement>("h1, h2, h3") ?? section;
+
+      if (!focusTarget) {
+        menuButtonRef.current?.focus();
+        return;
+      }
+
+      const previousTabIndex = focusTarget.getAttribute("tabindex");
+      focusTarget.setAttribute("tabindex", "-1");
+      focusTarget.focus({ preventScroll: true });
+      section?.scrollIntoView({ block: "start" });
+
+      focusTarget.addEventListener(
+        "blur",
+        () => {
+          if (previousTabIndex === null) {
+            focusTarget.removeAttribute("tabindex");
+          } else {
+            focusTarget.setAttribute("tabindex", previousTabIndex);
+          }
+        },
+        { once: true },
+      );
+    });
+  };
+
   useEffect(() => {
     if (!open) return;
 
@@ -137,7 +167,11 @@ export function Header({ logo }: { logo: ApprovedImageAsset | null }) {
         />
         <nav aria-label="ניווט לנייד">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} onClick={() => setOpen(false)}>
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={() => closeMenuAndFocusSection(item.href)}
+            >
               {item.label}
             </a>
           ))}
