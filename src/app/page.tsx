@@ -51,18 +51,6 @@ const needs = [
   },
 ];
 
-const donationAmounts = [
-  { amount: 50, label: "שותפים לדרך" },
-  { amount: 100, label: "מחזקים את הלוחמים" },
-  { amount: 180, label: "מסייעים לציוד וללוגיסטיקה" },
-  { amount: 360, label: "תומכים בחוסן הפלוגתי" },
-  { amount: 500, label: "מחזקים את המיגון והחוסן" },
-  { amount: 1000, label: "שותפים משמעותיים לפלוגה" },
-  { amount: 2000, label: "מעניקים מעטפת משמעותית" },
-  { amount: 5000, label: "שותפים מרכזיים במערכה" },
-  { amount: 10000, label: "שותפות יוצאת דופן" },
-];
-
 function JsonLd({ videoPoster }: { videoPoster: ApprovedImageAsset | null }) {
   const graph: Record<string, unknown>[] = [
     {
@@ -370,7 +358,7 @@ export default function Home() {
               הלוחמים ולתת לפלוגה את המעטפת שהיא זקוקה לה.
             </p>
             <p className="donation-grid-intro">כל סכום שתבחרו מחזק את הלוחמים ומקרב את הפלוגה ליעד.</p>
-            <DonationAmountSelector options={donationAmounts} />
+            <DonationAmountSelector />
             <DonationLink
               className="button button-large donation-primary-cta"
               sectionFallback={false}

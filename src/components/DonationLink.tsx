@@ -7,7 +7,7 @@ import { trackEvent } from "@/lib/analytics";
 type DonationLinkProps = {
   children: ReactNode;
   className?: string;
-  amount?: number | "other";
+  amount?: number | "custom";
   sectionFallback?: boolean;
   ariaLabel?: string;
   onNavigate?: () => void;
@@ -17,7 +17,7 @@ type DonationLinkProps = {
   selected?: boolean;
 };
 
-function donationHref(amount?: number | "other") {
+function donationHref(amount?: number | "custom") {
   if (!isValidExternalUrl(campaign.donationUrl)) return null;
   const url = new URL(campaign.donationUrl);
   if (typeof amount === "number" && campaign.donationAmountParam) {

@@ -1,6 +1,49 @@
 const OFFICIAL_DONATION_URL =
   "https://pay.grow.link/NDcyMTg~43ba563f25afc399352a239f7225899e-MzcwOTE2Mw";
 
+export const donationAmounts = [
+  {
+    amount: 180,
+    label: "180 ₪",
+    description: "מעניקים גב ללוחמים שנמצאים בחזית",
+  },
+  {
+    amount: 360,
+    label: "360 ₪",
+    description: "מחזקים את הפלוגה ושומרים על הלוחמים",
+  },
+  {
+    amount: 540,
+    label: "540 ₪",
+    description: "שותפים אמיתיים לציוד, חוסן וביטחון",
+  },
+  {
+    amount: 1800,
+    label: "1,800 ₪",
+    description: "מעניקים ללוחמים מעטפת שמצילה חיים",
+  },
+  {
+    amount: 3600,
+    label: "3,600 ₪",
+    description: "הופכים לחלק משמעותי מהכוח שלנו",
+  },
+  {
+    amount: 5400,
+    label: "5,400 ₪",
+    description: "מחזקים פלוגה שלמה בשטח ובכוננות",
+  },
+  {
+    amount: 9000,
+    label: "9,000 ₪",
+    description: "מעניקים ביטחון אמיתי ללוחמי הפלוגה",
+  },
+  {
+    amount: null,
+    label: "סכום אחר",
+    description: "כל תרומה מחזקת אותנו",
+  },
+] as const;
+
 export const campaign = {
   targetAmount: 47000,
   raisedAmount: 0,
