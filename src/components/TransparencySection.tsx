@@ -6,14 +6,15 @@ import {
   formatIls,
   isConfigured,
 } from "@/config/campaign";
+import { normalizeInternationalPhone } from "@/lib/contact";
 
 export function TransparencySection() {
   const nonprofitConfigured =
     isConfigured(campaign.nonprofitName) &&
     isConfigured(campaign.nonprofitNumber);
   const contactConfigured =
-    isConfigured(campaign.contactPhone) ||
-    isConfigured(campaign.contactWhatsapp);
+    Boolean(normalizeInternationalPhone(campaign.contactPhone)) ||
+    Boolean(normalizeInternationalPhone(campaign.contactWhatsapp));
 
   return (
     <section

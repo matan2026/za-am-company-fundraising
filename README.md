@@ -31,7 +31,7 @@ npm run build
 - `donationAmountParam` — נשאר ריק משום שלא אומתה תמיכה של Grow בבחירת סכום דרך URL.
 - `paymentEmbeddingAllowed` — נשאר `false` משום שכותרת CSP של Grow מאפשרת הטמעה רק בדומיינים של `grow.website`.
 - `videoUrl` — קישור YouTube או Vimeo רשמי ומאושר.
-- `contactPhone` ו־`contactWhatsapp` — פרטי קשר מאושרים בלבד.
+- `contactPhone` ו־`contactWhatsapp` — נקראים ממשתני הסביבה `NEXT_PUBLIC_CONTACT_PHONE` ו־`NEXT_PUBLIC_WHATSAPP_NUMBER`. יש להזין מספרי קמפיין מאושרים בפורמט בינלאומי E.164 בלבד, לדוגמה `+9725XXXXXXXX`.
 - `nonprofitName` ו־`nonprofitNumber` — פרטי הגוף המפעיל.
 - `taxDeductible` — יש לשנות ל־`true` רק לאחר אימות זכאות לפי סעיף 46.
 - `transparency` — נוסחי השקיפות, תחומי השימוש, הודעת החלוקה, ספק הסליקה וטקסט יצירת הקשר. אין להזין סכומי חלוקה לפני שאושרו.

@@ -12,8 +12,11 @@ export const campaign = {
   // Grow restricts frame-ancestors to grow.website, so Vercel cannot embed it.
   paymentEmbeddingAllowed: false,
   videoUrl: process.env.NEXT_PUBLIC_VIDEO_URL?.trim() || "",
-  contactPhone: "",
-  contactWhatsapp: "",
+  contactPhone: process.env.NEXT_PUBLIC_CONTACT_PHONE?.trim() || "",
+  contactWhatsapp:
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.trim() || "",
+  contactWhatsappMessage:
+    "היי, הגעתי דרך דף הגיוס של פלוגת זעם ואשמח לקבל פרטים נוספים.",
   nonprofitName: "",
   nonprofitNumber: "",
   // Set to true only after the operating nonprofit confirms Section 46 eligibility.
@@ -40,7 +43,13 @@ export const campaign = {
 } as const;
 
 export function isConfigured(value: string, placeholderPrefix = "REPLACE_WITH_") {
-  return Boolean(value && !value.startsWith(placeholderPrefix));
+  const normalized = value.trim().toUpperCase();
+  return Boolean(
+    normalized &&
+      !normalized.startsWith(placeholderPrefix) &&
+      !normalized.includes("PASTE") &&
+      !normalized.includes("PLACEHOLDER"),
+  );
 }
 
 export function isValidExternalUrl(value: string) {

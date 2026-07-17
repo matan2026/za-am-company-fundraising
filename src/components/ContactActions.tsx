@@ -1,7 +1,11 @@
 "use client";
 
-import { campaign, isConfigured } from "@/config/campaign";
+import { campaign } from "@/config/campaign";
 import { trackEvent } from "@/lib/analytics";
+import {
+  buildWhatsappUrl,
+  normalizeInternationalPhone,
+} from "@/lib/contact";
 
 export function ContactActions({
   showFloating = true,
@@ -10,40 +14,46 @@ export function ContactActions({
   showFloating?: boolean;
   className?: string;
 } = {}) {
-  const hasPhone = isConfigured(campaign.contactPhone);
-  const hasWhatsapp = isConfigured(campaign.contactWhatsapp);
-  const whatsappMessage = encodeURIComponent(
-    "היי, הגעתי דרך דף הגיוס של פלוגת \"זעם\" ואשמח לקבל פרטים נוספים.",
+  const phone = normalizeInternationalPhone(campaign.contactPhone);
+  const whatsappUrl = buildWhatsappUrl(
+    campaign.contactWhatsapp,
+    campaign.contactWhatsappMessage,
   );
 
-  if (!hasPhone && !hasWhatsapp) return null;
+  if (!phone && !whatsappUrl) return null;
 
   return (
     <>
       <div className={`contact-actions ${className}`.trim()}>
-        {hasPhone ? (
-          <a href={`tel:${campaign.contactPhone}`} onClick={() => trackEvent("phone_click")}>
-            טלפון: <bdi>{campaign.contactPhone}</bdi>
+        {phone ? (
+          <a
+            href={`tel:${phone.e164}`}
+            aria-label={`התקשרות לצוות הקמפיין בטלפון ${phone.e164}`}
+            onClick={() => trackEvent("phone_click")}
+          >
+            טלפון: <bdi>{phone.e164}</bdi>
           </a>
         ) : null}
-        {hasWhatsapp ? (
+        {whatsappUrl ? (
           <a
-            href={`https://wa.me/${campaign.contactWhatsapp}?text=${whatsappMessage}`}
+            href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="פתיחת שיחה עם צוות הקמפיין ב-WhatsApp"
             onClick={() => trackEvent("whatsapp_click")}
           >
             WhatsApp
           </a>
         ) : null}
       </div>
-      {showFloating && hasWhatsapp ? (
+      {showFloating && whatsappUrl ? (
         <a
           className="whatsapp-float"
-          href={`https://wa.me/${campaign.contactWhatsapp}?text=${whatsappMessage}`}
+          href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="יצירת קשר עם צוות הקמפיין ב-WhatsApp"
+          aria-label="פתיחת שיחה עם צוות הקמפיין ב-WhatsApp"
+          title="יצירת קשר ב-WhatsApp"
           onClick={() => trackEvent("whatsapp_click")}
         >
           WA
