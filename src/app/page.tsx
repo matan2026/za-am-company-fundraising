@@ -263,19 +263,25 @@ export default function Home() {
           <SectionContainer
             className={`memorial-inner ${memorialImage ? "has-memorial-image" : "memorial-text-only"}`}
           >
+            <div className="memorial-heading">
+              <h2 id="memorial-title">זוכרים את אחינו לנשק</h2>
+              <p className="memorial-lead">אנו נושאים בליבנו את זכרו של אחינו לנשק,</p>
+            </div>
             {memorialImage ? (
               <div className="memorial-image">
                 <Image
                   src={memorialImage.src}
                   alt={memorialImage.alt}
-                  fill
-                  sizes="(max-width: 640px) 140px, 180px"
+                  width={memorialImage.width}
+                  height={memorialImage.height}
+                  sizes="(max-width: 767px) calc(100vw - 84px), (max-width: 1180px) 42vw, 470px"
+                  loading="lazy"
+                  decoding="async"
+                  style={{ objectPosition: memorialImage.objectPosition }}
                 />
               </div>
             ) : null}
-            <div className="memorial-content">
-              <h2 id="memorial-title">זוכרים את אחינו לנשק</h2>
-              <p className="memorial-lead">אנו נושאים בליבנו את זכרו של אחינו לנשק,</p>
+            <div className="memorial-body">
               <p className="memorial-name"><strong>אוריאל אביעד סילברמן ז״ל</strong>,</p>
               <p className="memorial-fallen">שנפל בקרבות בחאן יונס.</p>
               <p>

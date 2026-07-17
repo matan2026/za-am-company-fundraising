@@ -103,6 +103,12 @@ export const campaignAssets: CampaignAssets = {
       objectPosition: "58% 50%",
     },
   ],
-  memorialImage: null,
+  memorialImage: {
+    src: "/images/memorial/oriel-aviad-silverman.webp",
+    alt: "אוריאל אביעד סילברמן ז״ל מחייך בתצלום לזכרו",
+    width: 740,
+    height: 555,
+    objectPosition: "50% 50%",
+  },
   socialImage: null,
 };
