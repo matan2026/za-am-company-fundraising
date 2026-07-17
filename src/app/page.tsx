@@ -475,10 +475,6 @@ export default function Home() {
             </nav>
           </div>
         </SectionContainer>
-        <SectionContainer className="security-note">
-          אין לפרסם באתר מידע מבצעי, מיקומים עדכניים, לוחות זמנים או פרטים אישיים
-          שלא אושרו לפרסום.
-        </SectionContainer>
         <SectionContainer className="copyright">
           © {new Date().getFullYear()} פלוגת ״זעם״. כל הזכויות שמורות.
         </SectionContainer>
