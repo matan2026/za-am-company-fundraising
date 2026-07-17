@@ -12,6 +12,7 @@
 | סרטון הקמפיין | מוגדר ומאומת | `public/videos/za-am-hero-video.mp4` + `campaign.videoFile` | אין. הקובץ הוא MP4 בקידוד H.264/AAC, ברזולוציית 1280×720. |
 | תמונת שער לווידאו | מוגדרת | `public/images/video-poster.webp` + `campaignAssets.videoPoster` | אין. הפוסטר הופק מתוך הסרטון המאושר ביחס 16:9. |
 | תמונות Hero | חסרות | `campaignAssets.heroImages` | להוסיף 3 תמונות מאושרות. פס התמונות מוסתר כל עוד הרשימה ריקה. |
+| תמונת הסיפור | מוגדרת ומאומתת | `public/images/story/za-am-story.webp` + `campaignAssets.storyImage` | אין. התמונה הומרה ל־WebP ללא EXIF/GPS ומוצגת ביחס המקורי. |
 | תמונות גלריה | 9 תמונות מוגדרות | `campaignAssets.galleryImages` | אין. התמונות שסופקו הומרו ל־WebP ללא חיתוך וללא EXIF/GPS. |
 | תמונת הנצחה | חסרה ולא חובה | `campaignAssets.memorialImage` | להוסיף רק צילום שאושר לפרסום. בלעדיו מוצג סימון נר מכובד ללא תמונה. |
 | סמל/לוגו | חסר | `campaignAssets.unitEmblem` | להוסיף סמל מאושר. בלעדיו מוצג סימן טקסטואלי, לא סמל מדומה. |
@@ -36,6 +37,7 @@
 | תמונת Hero 1 | `public/images/hero/hero-01.webp` | WebP | 1800×1200 פיקסלים | יחס 3:2 מומלץ, עד 400KB. |
 | תמונת Hero 2 | `public/images/hero/hero-02.webp` | WebP | 1800×1200 פיקסלים | יחס 3:2 מומלץ, עד 400KB. |
 | תמונת Hero 3 | `public/images/hero/hero-03.webp` | WebP | 1800×1200 פיקסלים | יחס 3:2 מומלץ, עד 400KB. |
+| תמונת הסיפור | `public/images/story/za-am-story.webp` | WebP | 1600×1200 פיקסלים | יחס 4:3 מקורי, 251KB, ללא EXIF/GPS. |
 | גלריה 1–12 | `public/images/gallery/*.webp` בשמות תיאוריים | WebP | לפחות 1600 פיקסלים בצלע הארוכה, כשקיים במקור | לשמור על היחס המקורי; 150–500KB לתמונה. אפשר לפרסם 8–12 תמונות. |
 | תמונת הנצחה | `public/images/memorial/oriel-aviad-silverman.webp` | WebP | 1200×1500 פיקסלים | יחס 4:5, עד 350KB, ורק באישור המשפחה/בעלי הזכויות. |
 | תמונת שיתוף | `public/images/social/og-cover.jpg` | JPEG איכותי | 1200×630 פיקסלים | יחס 1.91:1, עד 500KB; להשאיר אזור בטוח של כ־80 פיקסלים מכל צד. |

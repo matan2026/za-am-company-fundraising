@@ -108,6 +108,7 @@ export default function Home() {
   const logo = existingAsset(campaignAssets.unitEmblem);
   const videoPoster = existingAsset(campaignAssets.videoPoster);
   const heroImages = existingAssets(campaignAssets.heroImages);
+  const storyImage = existingAsset(campaignAssets.storyImage);
   const galleryImages = existingAssets(campaignAssets.galleryImages);
   const memorialImage = existingAsset(campaignAssets.memorialImage);
   const nonprofitConfigured =
@@ -213,7 +214,7 @@ export default function Home() {
         </section>
 
         <section className="section story-section" id="story" aria-labelledby="story-title">
-          <SectionContainer className="story-grid">
+          <SectionContainer className={`story-grid ${storyImage ? "has-story-image" : ""}`}>
             <div className="story-heading">
               <p className="eyebrow eyebrow-dark">הסיפור שלנו</p>
               <h2 id="story-title">מאז הבוקר של 8 באוקטובר אנחנו שם</h2>
@@ -222,6 +223,19 @@ export default function Home() {
                 עזבו את הבית, את מקומות העבודה ואת המשפחות והתייצבו בחזית.
               </p>
             </div>
+            {storyImage ? (
+              <figure className="story-image">
+                <Image
+                  src={storyImage.src}
+                  alt={storyImage.alt}
+                  width={storyImage.width}
+                  height={storyImage.height}
+                  sizes="(max-width: 1023px) calc(100vw - 40px), (max-width: 1280px) 42vw, 510px"
+                  loading="lazy"
+                  style={{ objectPosition: storyImage.objectPosition }}
+                />
+              </figure>
+            ) : null}
             <div className="story-copy prose">
               <p>
                 מרימאל ושג׳עאיה, דרך הקרבות העצימים בחאן יונס, המשימות בגזרת

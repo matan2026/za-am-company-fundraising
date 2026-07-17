@@ -10,6 +10,7 @@ type CampaignAssets = {
   unitEmblem: ApprovedImageAsset | null;
   videoPoster: ApprovedImageAsset | null;
   heroImages: readonly ApprovedImageAsset[];
+  storyImage: ApprovedImageAsset | null;
   galleryImages: readonly ApprovedImageAsset[];
   memorialImage: ApprovedImageAsset | null;
   socialImage: ApprovedImageAsset | null;
@@ -30,6 +31,13 @@ export const campaignAssets: CampaignAssets = {
     objectPosition: "50% 50%",
   },
   heroImages: [],
+  storyImage: {
+    src: "/images/story/za-am-story.webp",
+    alt: "לוחמי פלוגת זעם במהלך הפעילות, לצד כלי משוריין ומחזיקים בדגל ישראל",
+    width: 1600,
+    height: 1200,
+    objectPosition: "50% 50%",
+  },
   galleryImages: [
     {
       src: "/images/gallery/soldiers-with-israeli-flag.webp",

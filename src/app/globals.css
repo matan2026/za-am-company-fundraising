@@ -5866,6 +5866,107 @@ main.legal-page .legal-updated {
   }
 }
 
+/* Story section editorial layout */
+.story-section {
+  padding-block: 60px;
+}
+
+.story-section .story-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "heading"
+    "copy";
+  gap: 28px;
+  align-items: start;
+}
+
+.story-section .story-grid.has-story-image {
+  grid-template-areas:
+    "heading"
+    "image"
+    "copy";
+}
+
+.story-section .story-heading {
+  grid-area: heading;
+}
+
+.story-section .story-image {
+  grid-area: image;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid rgb(30 36 32 / 14%);
+  border-radius: 14px;
+  background: var(--sand-light);
+  box-shadow: 0 16px 36px rgb(21 32 25 / 10%);
+}
+
+.story-section .story-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.story-section .story-copy {
+  grid-area: copy;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .story-section .story-grid {
+    max-width: 720px;
+    gap: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .story-section {
+    padding-block: 96px;
+  }
+
+  .story-section .story-grid.has-story-image {
+    grid-template-columns: minmax(0, 1.27fr) minmax(360px, 1fr);
+    grid-template-areas:
+      "heading image"
+      "copy image";
+    column-gap: clamp(56px, 5vw, 72px);
+    row-gap: 30px;
+  }
+
+  .story-section .story-image {
+    align-self: start;
+    max-width: none;
+  }
+
+  .story-section .story-heading h2,
+  .story-section .story-intro,
+  .story-section .story-copy {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .story-section .story-grid {
+    gap: 26px;
+  }
+
+  .story-section .story-image {
+    width: 100%;
+    min-height: 240px;
+    max-height: 380px;
+    margin-block: 2px 4px;
+  }
+
+  .story-section .story-image img {
+    min-height: 240px;
+    max-height: 380px;
+  }
+}
+
 @media (min-width: 340px) and (max-width: 767px) {
   .gallery-grid .gallery-item:last-child:nth-child(odd) {
     grid-column: 1 / -1;
