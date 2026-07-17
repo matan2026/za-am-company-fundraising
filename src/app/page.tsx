@@ -335,10 +335,10 @@ export default function Home() {
         {galleryImages.length ? (
           <section className="section gallery-section" aria-labelledby="gallery-title">
             <SectionContainer>
-              <div className="section-heading">
-                <p className="eyebrow eyebrow-dark">הפלוגה שלנו</p>
-                <h2 id="gallery-title">האנשים שמאחורי המדים</h2>
-                <p className="section-intro align-right">
+              <div className="gallery-intro">
+                <p className="eyebrow eyebrow-dark gallery-label">הפלוגה שלנו</p>
+                <h2 id="gallery-title" className="gallery-title">האנשים שמאחורי המדים</h2>
+                <p className="gallery-description">
                   רגעים אמיתיים מהשירות, מהשטח ומהדרך הארוכה שעברנו יחד.
                 </p>
               </div>

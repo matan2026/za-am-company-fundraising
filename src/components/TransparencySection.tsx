@@ -1,5 +1,3 @@
-import Link from "next/link";
-import { ContactActions } from "@/components/ContactActions";
 import { DonationLink } from "@/components/DonationLink";
 import { CampaignProgress } from "@/components/Progress";
 import { SectionContainer } from "@/components/SectionContainer";
@@ -8,16 +6,11 @@ import {
   formatIls,
   isConfigured,
 } from "@/config/campaign";
-import { normalizeInternationalPhone } from "@/lib/contact";
 
 export function TransparencySection() {
   const nonprofitConfigured =
     isConfigured(campaign.nonprofitName) &&
     isConfigured(campaign.nonprofitNumber);
-  const contactConfigured =
-    Boolean(normalizeInternationalPhone(campaign.contactPhone)) ||
-    Boolean(normalizeInternationalPhone(campaign.contactWhatsapp));
-
   return (
     <section
       className="section transparency-section"
@@ -51,14 +44,7 @@ export function TransparencySection() {
               <CampaignProgress variant="target-card" />
 
               <div className="transparency-secure-message">
-                <span
-                  className="transparency-secure-mark"
-                  aria-hidden="true"
-                />
-                <p>
-                  {campaign.transparency.securePaymentMessage} ספק הסליקה:{" "}
-                  {campaign.transparency.paymentProvider}.
-                </p>
+                <p>כל שקל הופך לתמיכה אמיתית בחיילים 🤍</p>
               </div>
 
               {nonprofitConfigured ? (
@@ -103,21 +89,6 @@ export function TransparencySection() {
             </p>
           </div>
 
-          <div className="transparency-contact">
-            <h3>{campaign.transparency.contactHeading}</h3>
-            <p>{campaign.transparency.contactText}</p>
-            {contactConfigured ? (
-              <ContactActions
-                className="contact-actions-trust"
-                showFloating={false}
-              />
-            ) : (
-              <p className="contact-pending">
-                פרטי קשר מאושרים יעודכנו כאן. בינתיים אפשר לעיין ב־
-                <Link href="#faq">שאלות הנפוצות</Link>.
-              </p>
-            )}
-          </div>
         </div>
       </SectionContainer>
     </section>

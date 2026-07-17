@@ -84,9 +84,6 @@ export const campaign = {
     paymentProvider: "Grow",
     securePaymentMessage:
       "התרומה מתבצעת באמצעות עמוד סליקה מאובטח.",
-    contactHeading: "יש לכם שאלות על הקמפיין?",
-    contactText:
-      "צוות הקמפיין זמין להשיב על שאלות בנוגע ליעד הגיוס, לשימוש בכספים ולדרכי התרומה.",
   },
 } as const;
 
