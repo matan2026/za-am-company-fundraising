@@ -1577,6 +1577,15 @@ blockquote {
   text-underline-offset: 4px;
 }
 
+.legal-inline-link {
+  margin-inline: 4px;
+  color: var(--olive-deep);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgb(76 88 66 / 38%);
+  text-underline-offset: 4px;
+}
+
 .legal-warning {
   margin-top: 54px;
   border-radius: 8px;

@@ -1,6 +1,8 @@
 export const legalConfig = {
   // Use an approved ISO date (YYYY-MM-DD). Leave empty until the policy is reviewed.
   privacyLastUpdated: "",
+  // Use an approved ISO date (YYYY-MM-DD). Leave empty until the terms are reviewed.
+  termsLastUpdated: "",
   // Add only a verified HTTPS link published by the external payment provider.
   paymentProviderPrivacyUrl: "",
 } as const;
