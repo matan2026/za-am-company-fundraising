@@ -6,7 +6,7 @@ export function LegalPage({ title, children }: { title: string; children: ReactN
     <main className="legal-page">
       <article className="container legal-shell">
         <Link className="legal-back" href="/">
-          → חזרה לעמוד הקמפיין
+          → חזרה לעמוד הראשי
         </Link>
         <h1>{title}</h1>
         {children}
