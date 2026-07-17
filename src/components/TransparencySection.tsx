@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { ContactActions } from "@/components/ContactActions";
 import { DonationLink } from "@/components/DonationLink";
+import { CampaignProgress } from "@/components/Progress";
 import { SectionContainer } from "@/components/SectionContainer";
 import {
   campaign,
-  verifiedDonationProgress,
   formatIls,
   isConfigured,
 } from "@/config/campaign";
@@ -48,44 +48,7 @@ export function TransparencySection() {
                 הסכום שיגויס ישמש לחיזוק הפלוגה בשלושת התחומים שהוגדרו.
               </p>
 
-              <div
-                className={
-                  "transparency-progress " +
-                  (campaign.totalsVerified ? "is-verified" : "is-neutral")
-                }
-              >
-                {campaign.totalsVerified ? (
-                  <>
-                    <div className="transparency-progress-labels">
-                      <span>גויסו עד כה</span>
-                      <strong>{formatIls(campaign.raisedAmount)}</strong>
-                    </div>
-                    <div
-                      className="transparency-progress-track"
-                      role="progressbar"
-                      aria-label="התקדמות גיוס התרומות"
-                      aria-valuemin={0}
-                      aria-valuemax={campaign.targetAmount}
-                      aria-valuenow={campaign.raisedAmount}
-                    >
-                      <span style={{ width: verifiedDonationProgress + "%" }} />
-                    </div>
-                    <p className="transparency-donor-count">
-                      {campaign.donorCount} שותפים לדרך
-                    </p>
-                  </>
-                ) : (
-                  <>
-                    <div
-                      className="transparency-progress-track"
-                      aria-hidden="true"
-                    />
-                    <p>
-                      הסכום שגויס ומספר התורמים יוצגו רק לאחר אימות הנתונים.
-                    </p>
-                  </>
-                )}
-              </div>
+              <CampaignProgress variant="target-card" />
 
               <div className="transparency-secure-message">
                 <span

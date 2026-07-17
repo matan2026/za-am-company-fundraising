@@ -4,7 +4,15 @@ import { useEffect, useState } from "react";
 import { campaign } from "@/config/campaign";
 import { calculateCampaignProgress } from "@/lib/campaign-progress";
 
-export function Progress({ compact = false }: { compact?: boolean }) {
+type CampaignProgressProps = {
+  compact?: boolean;
+  variant?: "default" | "target-card";
+};
+
+export function CampaignProgress({
+  compact = false,
+  variant = "default",
+}: CampaignProgressProps) {
   const [progress, setProgress] = useState<number>(
     campaign.campaignProgressStartPercent,
   );
@@ -17,7 +25,15 @@ export function Progress({ compact = false }: { compact?: boolean }) {
   }, []);
 
   return (
-    <div className={compact ? "progress progress-compact" : "progress"}>
+    <div
+      className={[
+        "progress",
+        compact ? "progress-compact" : "",
+        variant === "target-card" ? "progress-target-card" : "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
       <div className="progress-head campaign-progress-head">
         <span>מד התקדמות הקמפיין</span>
         <strong className="campaign-progress-value">{progress}%</strong>

@@ -9,7 +9,7 @@ import { Header } from "@/components/Header";
 import { MobileDonationBar } from "@/components/MobileDonationBar";
 import { needIcons, type NeedIconName } from "@/components/NeedIcons";
 import { PaymentEmbed } from "@/components/PaymentEmbed";
-import { Progress } from "@/components/Progress";
+import { CampaignProgress } from "@/components/Progress";
 import { SectionContainer } from "@/components/SectionContainer";
 import { TransparencySection } from "@/components/TransparencySection";
 import { VideoCard } from "@/components/VideoCard";
@@ -156,7 +156,7 @@ export default function Home() {
 
               <div className="hero-progress">
                 <p className="goal-label">יעד הגיוס: {formatIls(campaign.targetAmount)}</p>
-                <Progress />
+                <CampaignProgress />
               </div>
 
               <div className="hero-trust">

@@ -110,11 +110,6 @@ export function isValidExternalUrl(value: string) {
   }
 }
 
-export const verifiedDonationProgress = Math.min(
-  100,
-  Math.max(0, (campaign.raisedAmount / campaign.targetAmount) * 100),
-);
-
 export const formatIls = (amount: number) =>
   new Intl.NumberFormat("he-IL", {
     style: "currency",

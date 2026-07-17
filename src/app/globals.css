@@ -2970,50 +2970,6 @@ summary {
   line-height: 1.7;
 }
 
-.transparency-progress {
-  margin-top: 28px;
-}
-
-.transparency-progress-labels {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 12px;
-  color: #eef0ed;
-  font-size: 16px;
-}
-
-.transparency-progress-labels strong {
-  color: var(--sand);
-  font-family: var(--font-heading), sans-serif;
-  font-size: 20px;
-}
-
-.transparency-progress-track {
-  position: relative;
-  height: 12px;
-  overflow: hidden;
-  border: 1px solid rgb(255 255 255 / 14%);
-  border-radius: 999px;
-  background: rgb(255 255 255 / 9%);
-}
-
-.transparency-progress-track > span {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-  background: var(--sand);
-}
-
-.transparency-progress.is-neutral > p,
-.transparency-donor-count {
-  margin: 13px 0 0;
-  color: #c9cec9;
-  font-size: 16px;
-  line-height: 1.65;
-}
-
 .transparency-secure-message {
   display: grid;
   grid-template-columns: 36px minmax(0, 1fr);
@@ -4945,7 +4901,7 @@ main.legal-page .legal-updated {
 }
 
 .trust-line,
-.transparency-progress p,
+.progress-target-card .campaign-progress-support,
 .transparency-secure-message p,
 .transparency-allocation-note,
 .payment-fallback p,
@@ -5249,7 +5205,7 @@ main.legal-page .legal-updated {
   }
 
   .trust-line,
-  .transparency-progress p,
+  .progress-target-card .campaign-progress-support,
   .transparency-secure-message p,
   .transparency-allocation-note,
   .payment-fallback p,
@@ -5500,8 +5456,7 @@ main.legal-page .legal-updated {
   }
 
   .progress-head,
-  .progress-meta,
-  .transparency-progress-labels {
+  .progress-meta {
     justify-content: center;
     text-align: center;
   }
@@ -5604,7 +5559,7 @@ main.legal-page .legal-updated {
 
   .transparency-goal,
   .transparency-target-explanation,
-  .transparency-progress,
+  .progress-target-card,
   .transparency-secure-message,
   .transparency-facts,
   .transparency-allocation-note {
@@ -6318,6 +6273,30 @@ main.legal-page .legal-updated {
   transition: width 240ms ease;
 }
 
+.progress-target-card {
+  width: 100%;
+  margin-top: 28px;
+  text-align: right;
+}
+
+.progress-target-card .campaign-progress-head {
+  margin-bottom: 14px;
+}
+
+.progress-target-card .campaign-progress-track {
+  height: 17px;
+  border: 1px solid rgb(255 255 255 / 18%);
+  background: rgb(255 255 255 / 12%);
+}
+
+.progress-target-card .campaign-progress-track > span {
+  background: var(--red);
+}
+
+.progress-target-card .campaign-progress-support {
+  color: #d9ddd7;
+}
+
 .progress-compact .campaign-progress-head {
   align-items: center;
   justify-content: space-between;
@@ -6350,8 +6329,15 @@ main.legal-page .legal-updated {
   }
 
   .hero-progress .campaign-progress-head,
-  .hero-progress .campaign-progress-support {
+  .hero-progress .campaign-progress-support,
+  .progress-target-card,
+  .progress-target-card .campaign-progress-head,
+  .progress-target-card .campaign-progress-support {
     text-align: center;
+  }
+
+  .progress-target-card .campaign-progress-head {
+    align-items: center;
   }
 }
 
