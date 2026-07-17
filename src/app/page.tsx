@@ -126,8 +126,7 @@ export default function Home() {
             <div className="hero-copy">
               <p className="eyebrow">פלוגת ״זעם״ | גדוד 7421 | חטיבה 4</p>
               <h1 id="hero-title" className="hero-title">
-                <span>פלוגת ״זעם״ צריכה אתכם</span>
-                <span>איתה בקו</span>
+                פלוגת &quot;זעם&quot; צריכה אתכם איתה בקו
               </h1>
               <div className="hero-lead">
                 <p>

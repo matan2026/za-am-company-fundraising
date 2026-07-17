@@ -4923,21 +4923,9 @@ body {
 }
 
 .hero-title {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  text-align: right;
-}
-
-.hero-title span {
   display: block;
-  white-space: normal;
-}
-
-@media (min-width: 768px) {
-  .hero-title span {
-    white-space: nowrap;
-  }
+  width: 100%;
+  text-align: right;
 }
 
 /* Responsive typography scale */
@@ -7443,17 +7431,10 @@ main.legal-page .legal-updated {
 
   .hero-copy .hero-title,
   h1.hero-title {
-    align-items: flex-end;
     font-size: clamp(58px, 5vw, 82px);
     line-height: 1.02;
     letter-spacing: -0.03em;
-  }
-
-  .hero-title span {
-    display: block;
-    width: 100%;
-    white-space: nowrap;
-    text-align: right;
+    white-space: normal;
   }
 
   .hero-copy .hero-actions {
@@ -7683,6 +7664,27 @@ main.legal-page .legal-updated {
   .hero-copy .hero-title,
   h1.hero-title {
     font-size: 56px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero .section-container {
+    max-width: 1920px;
+  }
+
+  .hero-grid,
+  .hero-grid:not(.has-photo-strip),
+  .hero-grid.has-photo-strip {
+    grid-template-columns: minmax(0, 1.7fr) minmax(360px, 0.85fr);
+    column-gap: clamp(48px, 4vw, 64px);
+  }
+
+  .hero-copy .hero-title,
+  h1.hero-title {
+    font-size: clamp(52px, 4vw, 78px);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    white-space: nowrap;
   }
 }
 
