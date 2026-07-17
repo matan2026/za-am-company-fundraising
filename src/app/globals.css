@@ -7392,3 +7392,142 @@ main.legal-page .legal-updated {
     padding-bottom: 36px;
   }
 }
+
+/* Final desktop Hero override: constrain the legacy full-bleed presentation. */
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 0;
+    padding-block: 64px;
+  }
+
+  .hero .section-container {
+    width: min(100% - 64px, 1320px);
+    max-width: 1320px;
+  }
+
+  .hero-grid,
+  .hero-grid:not(.has-photo-strip),
+  .hero-grid.has-photo-strip {
+    grid-template-columns: minmax(0, 1.35fr) minmax(420px, 0.95fr);
+    gap: 44px 48px;
+    align-items: start;
+  }
+
+  .hero-copy {
+    min-width: 0;
+  }
+
+  .hero-copy .eyebrow {
+    margin-bottom: 22px;
+    font-size: 16px;
+  }
+
+  .hero-copy .hero-title,
+  h1.hero-title {
+    max-width: 820px;
+    margin: 0;
+    text-align: right;
+    font-size: clamp(52px, 4.1vw, 68px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    white-space: normal;
+  }
+
+  .hero-lead {
+    max-width: 720px;
+    margin-top: 22px;
+    font-size: clamp(18px, 1.3vw, 20px);
+    line-height: 1.75;
+  }
+
+  .hero-lead p {
+    margin: 0 0 20px;
+  }
+
+  .hero-actions {
+    gap: 12px;
+    margin-block: 28px 0;
+  }
+
+  .hero-actions .button {
+    min-height: 54px;
+    padding-inline: 28px;
+  }
+
+  .hero-actions .text-link {
+    min-height: 54px;
+    padding-inline: 22px;
+  }
+
+  .hero-progress {
+    width: 100%;
+    max-width: 640px;
+    margin-top: 28px;
+  }
+
+  .hero-progress .goal-label {
+    margin-bottom: 12px;
+    font-size: clamp(22px, 1.6vw, 26px);
+    font-weight: 700;
+  }
+
+  .hero-trust {
+    max-width: 640px;
+    margin-top: 18px;
+  }
+
+  .secure-trust-line,
+  .trust-line {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .trust-line {
+    margin-top: 6px;
+  }
+
+  .hero-media {
+    width: 100%;
+    max-width: 600px;
+    justify-self: center;
+    margin-top: var(--hero-label-to-title-offset, 42px);
+  }
+
+  .hero-media::before {
+    display: none;
+  }
+
+  .hero-media .video-card {
+    box-shadow: 0 20px 50px rgb(0 0 0 / 32%);
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .hero .section-container {
+    width: min(100% - 48px, 1180px);
+  }
+
+  .hero-grid,
+  .hero-grid:not(.has-photo-strip),
+  .hero-grid.has-photo-strip {
+    grid-template-columns: minmax(0, 1.25fr) minmax(360px, 0.8fr);
+    gap: 36px;
+  }
+
+  .hero-copy .hero-title,
+  h1.hero-title {
+    font-size: clamp(48px, 4.5vw, 56px);
+  }
+
+  .hero-lead {
+    max-width: 660px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero {
+    padding-block: 68px;
+  }
+}
