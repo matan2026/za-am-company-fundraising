@@ -3785,6 +3785,62 @@ summary {
   }
 }
 
+/* Performance-safe video preview: the media element is mounted only after activation. */
+.video-poster-button {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  background: #050706;
+  color: var(--white);
+  cursor: pointer;
+  text-align: center;
+}
+
+.video-poster-button img {
+  object-fit: cover;
+  transition: scale 240ms ease;
+}
+
+.video-poster-fallback,
+.video-poster-shade {
+  position: absolute;
+  inset: 0;
+}
+
+.video-poster-shade {
+  z-index: 1;
+  background: linear-gradient(180deg, rgb(5 7 6 / 8%) 30%, rgb(5 7 6 / 74%));
+}
+
+.video-play-label {
+  color: var(--white);
+  font-family: var(--font-heading), Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-shadow: 0 2px 12px rgb(0 0 0 / 70%);
+}
+
+.video-poster-button:hover img {
+  scale: 1.015;
+}
+
+.video-poster-button:focus-visible {
+  outline: 3px solid var(--sand);
+  outline-offset: -5px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video-poster-button img,
+  .play-button {
+    transition: none;
+  }
+}
+
 @media (min-width: 640px) {
   .container,
   .section-container,

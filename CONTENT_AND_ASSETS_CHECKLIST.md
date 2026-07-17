@@ -9,7 +9,7 @@
 | פריט | סטטוס | מקור ההגדרה | פעולה נדרשת |
 | --- | --- | --- | --- |
 | קישור תרומה | מוגדר ומאומת | `NEXT_PUBLIC_DONATION_URL` ב־`.env.example`; fallback ב־`src/config/campaign.ts` | אין. הקישור הרשמי של Grow הוא `https://pay.grow.link/NDcyMTg~43ba563f25afc399352a239f7225899e-MzcwOTE2Mw`. |
-| סרטון הקמפיין | מוגדר ומאומת | `public/videos/za-am-hero-video.mp4` + `campaign.videoFile` | אין. הקובץ הוא MP4 בקידוד H.264/AAC, ברזולוציית 1280×720. |
+| סרטון הקמפיין | מוגדר ומאומת | `public/videos/za-am-hero-video-v2.mp4` + `campaign.videoFile` | אין. הקובץ הוא MP4 מותאם־Web בקידוד H.264/AAC, ברזולוציית 854×480, עם Fast Start. הוא נטען רק לאחר לחיצה. |
 | תמונת שער לווידאו | מוגדרת | `public/images/video-poster.webp` + `campaignAssets.videoPoster` | אין. הפוסטר הופק מתוך הסרטון המאושר ביחס 16:9. |
 | תמונות Hero | חסרות | `campaignAssets.heroImages` | להוסיף 3 תמונות מאושרות. פס התמונות מוסתר כל עוד הרשימה ריקה. |
 | תמונת הסיפור | מוגדרת ומאומתת | `public/images/story/za-am-story.webp` + `campaignAssets.storyImage` | אין. התמונה הומרה ל־WebP ללא EXIF/GPS ומוצגת ביחס המקורי. |
@@ -59,7 +59,7 @@ videoPoster: {
 
 ## תוכן שאינו תמונה
 
-- וידאו: הקובץ המאושר מוגדר ב־`campaign.videoFile` ומוגש מקומית מ־`public/videos/za-am-hero-video.mp4`. אין להחליף אותו בחומר שלא אושר לפרסום.
+- וידאו: הקובץ המאושר מוגדר ב־`campaign.videoFile` ומוגש מקומית מ־`public/videos/za-am-hero-video-v2.mp4`. אין להחליף אותו בחומר שלא אושר לפרסום.
 - כתוביות ותמלול: לפני הפעלת הווידאו יש לספק כתוביות בעברית ותמלול מלא ומאושר.
 - טלפון ו־WhatsApp: יש להשתמש במספר ייעודי לקמפיין, לא במספר פרטי של לוחם.
 - עמותה ומס: יש להזין רק פרטים משפטיים מאומתים. `taxDeductible` נשאר `false` עד אימות סעיף 46.

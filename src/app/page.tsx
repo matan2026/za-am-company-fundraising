@@ -230,7 +230,7 @@ export default function Home() {
                   alt={storyImage.alt}
                   width={storyImage.width}
                   height={storyImage.height}
-                  sizes="(max-width: 1023px) calc(100vw - 40px), (max-width: 1280px) 42vw, 510px"
+                  sizes="(max-width: 767px) calc((100vw - 40px) / 2), (max-width: 1023px) calc(100vw - 48px), (max-width: 1280px) 42vw, 510px"
                   loading="lazy"
                   style={{ objectPosition: storyImage.objectPosition }}
                 />

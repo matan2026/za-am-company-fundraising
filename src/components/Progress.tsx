@@ -10,14 +10,10 @@ export function Progress({ compact = false }: { compact?: boolean }) {
   );
 
   useEffect(() => {
-    const updateProgress = () => setProgress(calculateCampaignProgress());
-    const initialUpdate = window.setTimeout(updateProgress, 0);
-    const interval = window.setInterval(updateProgress, 60_000);
-
-    return () => {
-      window.clearTimeout(initialUpdate);
-      window.clearInterval(interval);
-    };
+    const updateFrame = window.requestAnimationFrame(() => {
+      setProgress(calculateCampaignProgress());
+    });
+    return () => window.cancelAnimationFrame(updateFrame);
   }, []);
 
   return (

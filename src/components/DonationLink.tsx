@@ -3,6 +3,7 @@
 import type { ReactNode } from "react";
 import { campaign, isValidExternalUrl } from "@/config/campaign";
 import { trackEvent } from "@/lib/analytics";
+import type { AnalyticsEvent } from "@/lib/analytics";
 
 type DonationLinkProps = {
   children: ReactNode;
@@ -15,6 +16,7 @@ type DonationLinkProps = {
   onPointerDown?: () => void;
   newTab?: boolean;
   selected?: boolean;
+  trackingEvent?: AnalyticsEvent;
 };
 
 function donationHref(amount?: number | "custom") {
@@ -37,6 +39,7 @@ export function DonationLink({
   onPointerDown,
   newTab = false,
   selected = false,
+  trackingEvent,
 }: DonationLinkProps) {
   const href = donationHref(amount);
 
@@ -72,6 +75,7 @@ export function DonationLink({
           donation_configured: Boolean(href),
         };
         trackEvent(href ? "donate_click" : "scroll_to_donation", eventParameters);
+        if (trackingEvent) trackEvent(trackingEvent, eventParameters);
         if (href) trackEvent("payment_page_open", eventParameters);
         if (amount !== undefined) {
           trackEvent("donation_amount_selected", { amount });

@@ -1,17 +1,27 @@
 "use client";
 
-import { useRef, useState } from "react";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import type { ApprovedImageAsset } from "@/config/assets";
 import { campaign } from "@/config/campaign";
 import { trackEvent } from "@/lib/analytics";
 
-export function VideoCard({
-  poster,
-}: {
+type VideoCardProps = {
   poster: ApprovedImageAsset | null;
-}) {
+};
+
+export function VideoCard({ poster }: VideoCardProps) {
+  const [activated, setActivated] = useState(false);
   const [failed, setFailed] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const hasTrackedPlay = useRef(false);
+
+  useEffect(() => {
+    if (!activated || failed) return;
+    void videoRef.current?.play().catch(() => {
+      // The native controls remain available if a browser rejects programmatic play.
+    });
+  }, [activated, failed]);
 
   if (failed) {
     return (
@@ -31,25 +41,52 @@ export function VideoCard({
 
   return (
     <div className="video-card">
-      <video
-        className="video-native"
-        controls
-        playsInline
-        preload="metadata"
-        poster={poster?.src ?? campaign.videoPoster}
-        title="סרטון פלוגת זעם"
-        aria-label="סרטון פלוגת זעם"
-        onError={() => setFailed(true)}
-        onPlay={() => {
-          if (!hasTrackedPlay.current) {
-            hasTrackedPlay.current = true;
-            trackEvent("video_play");
-          }
-        }}
-      >
-        <source src={campaign.videoFile} type="video/mp4" />
-        הדפדפן שלך אינו תומך בניגון וידאו.
-      </video>
+      {activated ? (
+        <video
+          ref={videoRef}
+          className="video-native"
+          controls
+          playsInline
+          preload="metadata"
+          poster={poster?.src ?? campaign.videoPoster}
+          title="סרטון פלוגת זעם"
+          aria-label="סרטון פלוגת זעם"
+          onError={() => setFailed(true)}
+          onPlay={() => {
+            if (!hasTrackedPlay.current) {
+              hasTrackedPlay.current = true;
+              trackEvent("video_play");
+            }
+          }}
+        >
+          <source src={campaign.videoFile} type="video/mp4" />
+          הדפדפן שלך אינו תומך בניגון וידאו.
+        </video>
+      ) : (
+        <button
+          className="video-poster-button"
+          type="button"
+          aria-label="צפו בסיפור הפלוגה — ניגון סרטון פלוגת זעם"
+          onClick={() => setActivated(true)}
+        >
+          {poster ? (
+            <Image
+              src={poster.src}
+              alt=""
+              fill
+              sizes="(max-width: 767px) calc((100vw - 40px) / 2), (max-width: 1279px) 52vw, 650px"
+              style={{ objectPosition: poster.objectPosition ?? "50% 50%" }}
+            />
+          ) : (
+            <span className="video-poster-fallback" aria-hidden="true" />
+          )}
+          <span className="video-poster-shade" aria-hidden="true" />
+          <span className="video-overlay" aria-hidden="true">
+            <span className="play-button"><span>▶</span></span>
+            <span className="video-play-label">צפו בסיפור הפלוגה</span>
+          </span>
+        </button>
+      )}
     </div>
   );
 }

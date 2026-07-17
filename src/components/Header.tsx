@@ -33,7 +33,7 @@ export function Header({ logo }: { logo: ApprovedImageAsset | null }) {
   return (
     <header className="site-header">
       <SectionContainer className="header-inner">
-        <a className="brand" href="#top" aria-label="פלוגת זעם — לראש העמוד">
+        <a className="brand" href="#top">
           {logo && !logoFailed ? (
             <Image
               src={logo.src}
@@ -50,6 +50,7 @@ export function Header({ logo }: { logo: ApprovedImageAsset | null }) {
             <strong>פלוגת ״זעם״</strong>
             <small>גדוד 7421 · חטיבה 4</small>
           </span>
+          <span className="sr-only">— לראש העמוד</span>
         </a>
 
         <nav className="desktop-nav" aria-label="ניווט ראשי">

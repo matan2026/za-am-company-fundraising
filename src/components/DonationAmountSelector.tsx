@@ -21,7 +21,6 @@ export function DonationAmountSelector() {
             className={`amount-option${option.amount === null ? " amount-other" : ""}${isSelected ? " is-selected" : ""}`}
             amount={analyticsAmount}
             sectionFallback={false}
-            ariaLabel={`תרומה: ${option.label} — ${option.description}`}
             selected={isSelected}
             onFocus={() => setSelectedAmount(analyticsAmount)}
             onPointerDown={() => setSelectedAmount(analyticsAmount)}
