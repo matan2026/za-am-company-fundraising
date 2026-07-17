@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Heebo, Rubik } from "next/font/google";
 import { AnalyticsScripts } from "@/components/AnalyticsScripts";
+import { AccessibilityMenu } from "@/components/AccessibilityMenu";
 import { campaignAssets } from "@/config/assets";
 import { siteUrl } from "@/config/site";
 import { existingAsset } from "@/lib/public-assets";
@@ -74,6 +75,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           דילוג לתוכן המרכזי
         </a>
         {children}
+        <AccessibilityMenu />
         <AnalyticsScripts />
       </body>
     </html>
