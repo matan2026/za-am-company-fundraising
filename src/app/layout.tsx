@@ -15,14 +15,14 @@ const unitEmblem = existingAsset(campaignAssets.unitEmblem);
 const heebo = Heebo({
   subsets: ["hebrew", "latin"],
   weight: ["400", "500", "600", "700"],
-  display: "optional",
+  display: "swap",
   variable: "--font-heebo",
 });
 
 const rubik = Rubik({
   subsets: ["hebrew", "latin"],
   weight: ["600", "700", "800"],
-  display: "optional",
+  display: "swap",
   variable: "--font-rubik",
 });
 
