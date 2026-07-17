@@ -147,24 +147,24 @@ export default function Home() {
                   צפו בסיפור שלנו <span aria-hidden="true">←</span>
                 </a>
               </div>
+
+              <div className="hero-progress">
+                <p className="goal-label">יעד הגיוס: {formatIls(campaign.targetAmount)}</p>
+                <Progress />
+              </div>
+
+              <div className="hero-trust">
+                <p className="secure-trust-line">
+                  התרומה מתבצעת באמצעות מערכת סליקה מאובטחת.
+                </p>
+                <p className="trust-line">
+                  כל תרומה, קטנה כגדולה, הופכת לחלק מהביטחון של כולנו.
+                </p>
+              </div>
             </div>
 
             <div className="hero-media" id="hero-video">
               <VideoCard poster={videoPoster} />
-            </div>
-
-            <div className="hero-progress">
-              <p className="goal-label">יעד הגיוס: {formatIls(campaign.targetAmount)}</p>
-              <Progress />
-            </div>
-
-            <div className="hero-trust">
-              <p className="secure-trust-line">
-                התרומה מתבצעת באמצעות מערכת סליקה מאובטחת.
-              </p>
-              <p className="trust-line">
-                כל תרומה, קטנה כגדולה, הופכת לחלק מהביטחון של כולנו.
-              </p>
             </div>
 
             {heroImages.length ? (

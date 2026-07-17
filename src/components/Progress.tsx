@@ -23,10 +23,7 @@ export function Progress({ compact = false }: { compact?: boolean }) {
   return (
     <div className={compact ? "progress progress-compact" : "progress"}>
       <div className="progress-head campaign-progress-head">
-        <div className="campaign-progress-copy">
-          <span>מד התקדמות הקמפיין</span>
-          <small>מתקדמים יחד לעבר היעד</small>
-        </div>
+        <span>מד התקדמות הקמפיין</span>
         <strong className="campaign-progress-value">{progress}%</strong>
       </div>
       <div
@@ -40,6 +37,7 @@ export function Progress({ compact = false }: { compact?: boolean }) {
       >
         <span style={{ width: `${progress}%` }} />
       </div>
+      <p className="campaign-progress-support">מתקדמים יחד לעבר היעד</p>
     </div>
   );
 }
