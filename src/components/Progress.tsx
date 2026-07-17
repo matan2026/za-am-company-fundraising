@@ -1,50 +1,45 @@
-import {
-  campaign,
-  campaignProgress,
-  formatIls,
-} from "@/config/campaign";
+"use client";
+
+import { useEffect, useState } from "react";
+import { campaign } from "@/config/campaign";
+import { calculateCampaignProgress } from "@/lib/campaign-progress";
 
 export function Progress({ compact = false }: { compact?: boolean }) {
-  if (!campaign.totalsVerified) {
-    return (
-      <div className={`${compact ? "progress progress-compact" : "progress"} progress-unverified`}>
-        <div className="progress-head">
-          <span>{compact ? "יעד הקמפיין" : "נתוני הגיוס"}</span>
-          <strong>{compact ? formatIls(campaign.targetAmount) : "יעודכנו"}</strong>
-        </div>
-        {!compact ? (
-          <p className="progress-placeholder">
-            הסכום שגויס ומספר השותפים יוצגו לאחר אימות הנתונים.
-          </p>
-        ) : null}
-      </div>
-    );
-  }
+  const [progress, setProgress] = useState<number>(
+    campaign.campaignProgressStartPercent,
+  );
+
+  useEffect(() => {
+    const updateProgress = () => setProgress(calculateCampaignProgress());
+    const initialUpdate = window.setTimeout(updateProgress, 0);
+    const interval = window.setInterval(updateProgress, 60_000);
+
+    return () => {
+      window.clearTimeout(initialUpdate);
+      window.clearInterval(interval);
+    };
+  }, []);
 
   return (
     <div className={compact ? "progress progress-compact" : "progress"}>
-      <div className="progress-head">
-        <span>{compact ? "התקדמות הקמפיין" : "גויסו עד כה"}</span>
-        <strong>{formatIls(campaign.raisedAmount)}</strong>
+      <div className="progress-head campaign-progress-head">
+        <div className="campaign-progress-copy">
+          <span>מד התקדמות הקמפיין</span>
+          <small>מתקדמים יחד לעבר היעד</small>
+        </div>
+        <strong className="campaign-progress-value">{progress}%</strong>
       </div>
       <div
-        className="progress-track"
+        className="progress-track campaign-progress-track"
         role="progressbar"
-        aria-label="התקדמות גיוס התרומות"
+        aria-label="מד התקדמות הקמפיין"
         aria-valuemin={0}
-        aria-valuemax={campaign.targetAmount}
-        aria-valuenow={campaign.raisedAmount}
+        aria-valuemax={campaign.campaignProgressMaxPercent}
+        aria-valuenow={progress}
+        aria-valuetext={`${progress}% — התקדמות כללית של הקמפיין`}
       >
-        <span style={{ width: `${campaignProgress}%` }} />
+        <span style={{ width: `${progress}%` }} />
       </div>
-      {!compact ? (
-        <div className="progress-meta">
-          <span>מתוך יעד של {formatIls(campaign.targetAmount)}</span>
-          <span>
-            <strong>{campaign.donorCount}</strong> שותפים לדרך
-          </span>
-        </div>
-      ) : null}
     </div>
   );
 }

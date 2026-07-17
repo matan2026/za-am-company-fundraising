@@ -27,6 +27,7 @@ npm run build
 - `raisedAmount` — הסכום שגויס בפועל. נשאר 0 עד להזנה מאומתת.
 - `donorCount` — מספר התורמים בפועל. נשאר 0 עד להזנה מאומתת.
 - `totalsVerified` — נשאר `false` עד שהסכום ומספר התורמים אומתו; כל עוד הוא כבוי, ערכי 0 אינם מוצגים לציבור.
+- `campaignProgressStartDate`, `campaignProgressStartPercent`, `campaignProgressDailyIncrease` ו־`campaignProgressMaxPercent` — שולטים במד ההתקדמות הכללי של הקמפיין. המד אינו מייצג סכום תרומות או מספר תורמים.
 - `donationUrl` — קישור רשמי למערכת הסליקה.
 - `donationAmountParam` — נשאר ריק משום שלא אומתה תמיכה של Grow בבחירת סכום דרך URL.
 - `paymentEmbeddingAllowed` — נשאר `false` משום שכותרת CSP של Grow מאפשרת הטמעה רק בדומיינים של `grow.website`.

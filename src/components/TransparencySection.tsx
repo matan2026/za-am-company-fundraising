@@ -4,7 +4,7 @@ import { DonationLink } from "@/components/DonationLink";
 import { SectionContainer } from "@/components/SectionContainer";
 import {
   campaign,
-  campaignProgress,
+  verifiedDonationProgress,
   formatIls,
   isConfigured,
 } from "@/config/campaign";
@@ -68,7 +68,7 @@ export function TransparencySection() {
                       aria-valuemax={campaign.targetAmount}
                       aria-valuenow={campaign.raisedAmount}
                     >
-                      <span style={{ width: campaignProgress + "%" }} />
+                      <span style={{ width: verifiedDonationProgress + "%" }} />
                     </div>
                     <p className="transparency-donor-count">
                       {campaign.donorCount} שותפים לדרך

@@ -49,6 +49,10 @@ export const campaign = {
   raisedAmount: 0,
   donorCount: 0,
   totalsVerified: false,
+  campaignProgressStartDate: "2026-07-17",
+  campaignProgressStartPercent: 1,
+  campaignProgressDailyIncrease: 1,
+  campaignProgressMaxPercent: 100,
   donationUrl:
     process.env.NEXT_PUBLIC_DONATION_URL?.trim() || OFFICIAL_DONATION_URL,
   donationAmountParam: "",
@@ -106,7 +110,7 @@ export function isValidExternalUrl(value: string) {
   }
 }
 
-export const campaignProgress = Math.min(
+export const verifiedDonationProgress = Math.min(
   100,
   Math.max(0, (campaign.raisedAmount / campaign.targetAmount) * 100),
 );
