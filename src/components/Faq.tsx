@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { campaign, isConfigured } from "@/config/campaign";
 
 const taxDeductionVerified =
@@ -39,12 +42,38 @@ const faqs = [
 ];
 
 export function Faq() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
   return (
     <div className="faq-list">
       {faqs.map((faq, index) => (
-        <details key={faq.question} open={index === 0}>
-          <summary>{faq.question}</summary>
-          <p>{faq.answer}</p>
+        <details
+          key={faq.question}
+          open={openIndex === index}
+          onToggle={(event) => {
+            if (event.currentTarget.open) {
+              setOpenIndex(index);
+              return;
+            }
+
+            setOpenIndex((current) => (current === index ? null : current));
+          }}
+        >
+          <summary
+            id={`faq-question-${index}`}
+            aria-controls={`faq-answer-${index}`}
+            aria-expanded={openIndex === index}
+          >
+            {faq.question}
+          </summary>
+          <div
+            className="faq-answer"
+            id={`faq-answer-${index}`}
+            role="region"
+            aria-labelledby={`faq-question-${index}`}
+          >
+            <p>{faq.answer}</p>
+          </div>
         </details>
       ))}
     </div>

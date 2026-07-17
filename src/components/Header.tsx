@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { DonationLink } from "@/components/DonationLink";
+import { SectionContainer } from "@/components/SectionContainer";
 import type { ApprovedImageAsset } from "@/config/assets";
 
 const navItems = [
@@ -31,7 +32,7 @@ export function Header({ logo }: { logo: ApprovedImageAsset | null }) {
 
   return (
     <header className="site-header">
-      <div className="container header-inner">
+      <SectionContainer className="header-inner">
         <a className="brand" href="#top" aria-label="פלוגת זעם — לראש העמוד">
           {logo && !logoFailed ? (
             <Image
@@ -73,7 +74,7 @@ export function Header({ logo }: { logo: ApprovedImageAsset | null }) {
           <span />
           <span />
         </button>
-      </div>
+      </SectionContainer>
 
       <nav
         id="mobile-menu"

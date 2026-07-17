@@ -2,12 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { ContactActions } from "@/components/ContactActions";
 import { DonationLink } from "@/components/DonationLink";
+import { DonationAmountSelector } from "@/components/DonationAmountSelector";
 import { Faq } from "@/components/Faq";
 import { Gallery } from "@/components/Gallery";
 import { Header } from "@/components/Header";
 import { MobileDonationBar } from "@/components/MobileDonationBar";
 import { PaymentEmbed } from "@/components/PaymentEmbed";
 import { Progress } from "@/components/Progress";
+import { SectionContainer } from "@/components/SectionContainer";
 import { TransparencySection } from "@/components/TransparencySection";
 import { VideoCard } from "@/components/VideoCard";
 import { campaignAssets, type ApprovedImageAsset } from "@/config/assets";
@@ -23,7 +25,7 @@ import { siteUrl } from "@/config/site";
 
 const needs = [
   {
-    number: "01",
+    icon: "protection",
     title: "מיגון וציוד אישי",
     text: [
       "רכישת מדים טקטיים מעכבי בעירה, קסדות טקטיות מתקדמות וציוד אישי נוסף המותאם לפעילות המבצעית.",
@@ -32,7 +34,7 @@ const needs = [
     highlight: "ציוד טוב יותר מאפשר לנו לפעול בביטחון רב יותר.",
   },
   {
-    number: "02",
+    icon: "resilience",
     title: "חוסן ולכידות פלוגתית",
     text: [
       "קיום ערבי מחלקה ופלוגה שמאפשרים לנו לעצור לרגע, לעבד את התקופה המורכבת, לחזק את החיבור בין הלוחמים ולאגור כוחות לקראת המשימה הבאה.",
@@ -41,7 +43,7 @@ const needs = [
     highlight: "כוח לוחם מתחיל באנשים שסומכים זה על זה.",
   },
   {
-    number: "03",
+    icon: "logistics",
     title: "תמיכה לוגיסטית בימי כוננות",
     text: [
       "סיוע ברכישת ציוד עזר, מזון, שתייה, מוצרי נוחות וציוד נוסף לימי הכוננות הארוכים בתוך הכלים המשוריינים ובשטח.",
@@ -139,7 +141,7 @@ export default function Home() {
       <main id="main-content" tabIndex={-1}>
         <section className="hero section-dark" id="top" aria-labelledby="hero-title">
           <div className="hero-texture" aria-hidden="true" />
-          <div className={`container hero-grid ${heroImages.length ? "has-photo-strip" : ""}`}>
+          <SectionContainer className={`hero-grid ${heroImages.length ? "has-photo-strip" : ""}`}>
             <div className="hero-copy">
               <p className="eyebrow">פלוגת ״זעם״ | גדוד 7421 | חטיבה 4</p>
               <h1 id="hero-title">פלוגת ״זעם״ צריכה אתכם איתה בקו</h1>
@@ -154,34 +156,32 @@ export default function Home() {
                   בלוחמים במהלך ימי הכוננות הממושכים.
                 </p>
               </div>
-              <p className="goal-label hero-goal-inline" aria-hidden="true">
-                יעד הגיוס: {formatIls(campaign.targetAmount)}
-              </p>
               <div className="hero-actions">
                 <DonationLink className="button button-large">
                   אני רוצה לחזק את הלוחמים
                 </DonationLink>
-                {videoConfigured ? (
-                  <a className="text-link" href="#video">
-                    צפו בסיפור שלנו <span aria-hidden="true">←</span>
-                  </a>
-                ) : null}
+                <a className="text-link" href="#hero-video">
+                  צפו בסיפור שלנו <span aria-hidden="true">←</span>
+                </a>
               </div>
-              <p className="secure-trust-line">
-                התרומה מתבצעת באמצעות מערכת סליקה מאובטחת.
-              </p>
-              <p className="trust-line">
-                כל תרומה, קטנה כגדולה, הופכת לחלק מהביטחון של כולנו.
-              </p>
             </div>
 
-            <div className="hero-media">
+            <div className="hero-media" id="hero-video">
               <VideoCard eager poster={videoPoster} />
             </div>
 
             <div className="hero-progress">
               <p className="goal-label">יעד הגיוס: {formatIls(campaign.targetAmount)}</p>
               <Progress />
+            </div>
+
+            <div className="hero-trust">
+              <p className="secure-trust-line">
+                התרומה מתבצעת באמצעות מערכת סליקה מאובטחת.
+              </p>
+              <p className="trust-line">
+                כל תרומה, קטנה כגדולה, הופכת לחלק מהביטחון של כולנו.
+              </p>
             </div>
 
             {heroImages.length ? (
@@ -198,20 +198,20 @@ export default function Home() {
                 ))}
               </div>
             ) : null}
-          </div>
+          </SectionContainer>
         </section>
 
         {videoConfigured ? (
           <section className="section video-section" id="video" aria-labelledby="video-title">
-          <div className="container narrow centered">
+          <SectionContainer className="narrow centered">
             <p className="eyebrow eyebrow-dark">פנים. קולות. סיפור אחד.</p>
             <h2 id="video-title">הכירו את פלוגת ״זעם״</h2>
             <p className="section-intro">
               צפו בסיפור של הלוחמים, בדרך שעברנו מאז תחילת המלחמה ובסיבה
               שבגללה אנחנו זקוקים לכם איתנו עכשיו.
             </p>
-          </div>
-          <div className="container video-feature">
+          </SectionContainer>
+          <SectionContainer className="video-feature">
             <VideoCard eager poster={videoPoster} />
             <div className="video-caption">
               <p>
@@ -227,21 +227,21 @@ export default function Home() {
                 </p>
               </details>
             </div>
-          </div>
+          </SectionContainer>
           </section>
         ) : null}
 
         <section className="section story-section" id="story" aria-labelledby="story-title">
-          <div className="container story-grid">
+          <SectionContainer className="story-grid">
             <div className="story-heading">
               <p className="eyebrow eyebrow-dark">הסיפור שלנו</p>
               <h2 id="story-title">מאז הבוקר של 8 באוקטובר אנחנו שם</h2>
-            </div>
-            <div className="story-copy prose">
-              <p>
+              <p className="story-intro">
                 מאז הבוקר של 8 באוקטובר 2023, לוחמי המילואים של פלוגת ״זעם״
                 עזבו את הבית, את מקומות העבודה ואת המשפחות והתייצבו בחזית.
               </p>
+            </div>
+            <div className="story-copy prose">
               <p>
                 מרימאל ושג׳עאיה, דרך הקרבות העצימים בחאן יונס, המשימות בגזרת
                 סוריה ועד לגזרת לבנון – התייצבנו בכל מקום שבו נדרשנו כדי להגן
@@ -261,11 +261,13 @@ export default function Home() {
                 אחת ולכוח לוחם אחד.
               </blockquote>
             </div>
-          </div>
+          </SectionContainer>
         </section>
 
         <section className="section memorial" aria-labelledby="memorial-title">
-          <div className="container memorial-inner">
+          <SectionContainer
+            className={`memorial-inner ${memorialImage ? "has-memorial-image" : "memorial-text-only"}`}
+          >
             {memorialImage ? (
               <div className="memorial-image">
                 <Image
@@ -275,18 +277,12 @@ export default function Home() {
                   sizes="(max-width: 640px) 140px, 180px"
                 />
               </div>
-            ) : (
-              <div className="memorial-mark" aria-hidden="true">נר</div>
-            )}
-            <div>
+            ) : null}
+            <div className="memorial-content">
               <h2 id="memorial-title">זוכרים את אחינו לנשק</h2>
-              <p>
-                אנו נושאים בליבנו את זכרו של אחינו לנשק,
-                <br />
-                <strong>אוריאל אביעד סילברמן ז״ל</strong>,
-                <br />
-                שנפל בקרבות בחאן יונס.
-              </p>
+              <p className="memorial-lead">אנו נושאים בליבנו את זכרו של אחינו לנשק,</p>
+              <p className="memorial-name"><strong>אוריאל אביעד סילברמן ז״ל</strong>,</p>
+              <p className="memorial-fallen">שנפל בקרבות בחאן יונס.</p>
               <p>
                 אנו מחזקים את חברינו שנפצעו במהלך הלחימה וממשיכים בתהליך
                 השיקום.
@@ -297,11 +293,11 @@ export default function Home() {
               </p>
               <p className="memorial-closing">יהי זכרו ברוך.</p>
             </div>
-          </div>
+          </SectionContainer>
         </section>
 
         <section className="section needs-section" id="needs" aria-labelledby="needs-title">
-          <div className="container">
+          <SectionContainer>
             <div className="section-heading centered narrow">
               <p className="eyebrow eyebrow-dark">למה אנחנו מגייסים?</p>
               <h2 id="needs-title">שלושה צרכים קריטיים. מטרה אחת: לחזור הביתה בשלום</h2>
@@ -313,23 +309,29 @@ export default function Home() {
             <div className="needs-grid">
               {needs.map((need) => (
                 <article className="need-card" key={need.title}>
-                  <span className="card-number">{need.number}</span>
-                  <h3>{need.title}</h3>
-                  {need.text.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
+                  <div className="need-card-heading">
+                    <span className={`need-icon need-icon-${need.icon}`} aria-hidden="true">
+                      <span className="need-icon-glyph" />
+                    </span>
+                    <h3>{need.title}</h3>
+                  </div>
+                  <div className="need-card-copy">
+                    {need.text.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
                   <strong>{need.highlight}</strong>
                 </article>
               ))}
             </div>
-          </div>
+          </SectionContainer>
         </section>
 
         <TransparencySection />
 
         {galleryImages.length ? (
           <section className="section gallery-section" aria-labelledby="gallery-title">
-            <div className="container">
+            <SectionContainer>
               <div className="section-heading">
                 <p className="eyebrow eyebrow-dark">הפלוגה שלנו</p>
                 <h2 id="gallery-title">האנשים שמאחורי המדים</h2>
@@ -338,17 +340,17 @@ export default function Home() {
                 </p>
               </div>
               <Gallery images={galleryImages} />
-            </div>
+            </SectionContainer>
           </section>
         ) : null}
 
         <section className="section urgency section-dark" aria-labelledby="urgency-title">
-          <div className="container urgency-inner">
-            <div>
+          <SectionContainer className="urgency-inner">
+            <div className="urgency-heading">
               <p className="eyebrow">המשימה נמשכת</p>
               <h2 id="urgency-title">המלחמה אולי ירדה מהכותרות. עבורנו היא עדיין נמשכת.</h2>
             </div>
-            <div className="prose">
+            <div className="urgency-content prose">
               <p>
                 אנחנו ממשיכים להיקרא למשימות, ממשיכים לעזוב את המשפחות וממשיכים
                 להתייצב בכל פעם מחדש.
@@ -363,60 +365,47 @@ export default function Home() {
               </p>
               <DonationLink className="button">אני איתכם</DonationLink>
             </div>
-          </div>
+          </SectionContainer>
         </section>
 
         <section className="section donation-section" id="donation" aria-labelledby="donation-title">
-          <div className="container donation-inner">
+          <SectionContainer className="donation-inner">
             <p className="eyebrow eyebrow-dark">כל סכום הוא שותפות</p>
             <h2 id="donation-title">מצטרפים ומחזקים את פלוגת זעם</h2>
             <p className="section-intro donation-supporting-text">
               כל תרומה, קטנה כגדולה, מסייעת לנו לרכוש ציוד ומיגון, לחזק את חוסן
               הלוחמים ולתת לפלוגה את המעטפת שהיא זקוקה לה.
             </p>
-            <div className="amount-grid">
-              {donationAmounts.map((option) => (
-                <DonationLink
-                  key={option.amount}
-                  className="amount-option"
-                  amount={option.amount}
-                  sectionFallback={false}
-                  ariaLabel={`תרומה בסך ${option.amount} שקלים — ${option.label}`}
-                >
-                  <strong>{option.amount.toLocaleString("he-IL")} ₪</strong>
-                  <span>{option.label}</span>
-                </DonationLink>
-              ))}
-              <DonationLink
-                className="amount-option amount-other"
-                amount="other"
-                sectionFallback={false}
-                ariaLabel="תרומה בסכום אחר"
-              >
-                <strong>סכום אחר</strong>
-                <span>כל תרומה מחזקת</span>
-              </DonationLink>
-            </div>
+            <p className="donation-grid-intro">כל סכום שתבחרו מחזק את הלוחמים ומקרב את הפלוגה ליעד.</p>
+            <DonationAmountSelector options={donationAmounts} />
             <DonationLink
-              className="button button-large"
+              className="button button-large donation-primary-cta"
               sectionFallback={false}
               ariaLabel="מעבר לתרומה מאובטחת"
             >
               מעבר לתרומה מאובטחת
             </DonationLink>
-            <p className="trust-small">התרומה מתבצעת באמצעות מערכת סליקה מאובטחת.</p>
-            <PaymentEmbed />
+            <div className="payment-stage" aria-labelledby="payment-stage-title">
+              <div className="payment-stage-heading">
+                <span className="payment-stage-lock" aria-hidden="true">✓</span>
+                <div>
+                  <h3 id="payment-stage-title">תרומה מאובטחת באמצעות Grow</h3>
+                  <p>התרומה מתבצעת באמצעות עמוד סליקה מאובטח של Grow.</p>
+                </div>
+              </div>
+              <PaymentEmbed />
+            </div>
             {nonprofitConfigured ? (
               <p className="nonprofit-details">
                 {campaign.nonprofitName} · מספר גוף: <bdi>{campaign.nonprofitNumber}</bdi>
                 {campaign.taxDeductible ? " · התרומה מוכרת לפי סעיף 46" : ""}
               </p>
             ) : null}
-          </div>
+          </SectionContainer>
         </section>
 
         <section className="section closing-section" aria-labelledby="closing-title">
-          <div className="container closing-inner">
+          <SectionContainer className="closing-inner">
             <h2 id="closing-title">אנחנו עושים את שלנו בחזית. עכשיו אנחנו צריכים אתכם איתנו.</h2>
             <div className="prose">
               <p>
@@ -431,46 +420,62 @@ export default function Home() {
                 <strong>לוחמי פלוגת ״זעם״</strong>
               </p>
             </div>
-            <DonationLink className="button button-large">תרמו עכשיו לפלוגת ״זעם״</DonationLink>
-            <p className="trust-small">התרומה מתבצעת באמצעות מערכת סליקה מאובטחת.</p>
-          </div>
+            <div className="closing-actions">
+              <DonationLink className="button button-large">תרמו עכשיו לפלוגת ״זעם״</DonationLink>
+              <p className="trust-small">התרומה מתבצעת באמצעות מערכת סליקה מאובטחת.</p>
+            </div>
+          </SectionContainer>
         </section>
 
         <section className="section faq-section" id="faq" aria-labelledby="faq-title">
-          <div className="container faq-grid">
+          <SectionContainer className="faq-grid">
             <div>
               <p className="eyebrow eyebrow-dark">חשוב לדעת</p>
               <h2 id="faq-title">שאלות נפוצות</h2>
             </div>
             <Faq />
-          </div>
+          </SectionContainer>
         </section>
       </main>
 
       <footer className="site-footer">
-        <div className="container footer-grid">
-          <div>
+        <SectionContainer className="footer-grid">
+          <div className="footer-unit">
             <strong className="footer-brand">פלוגת ״זעם״</strong>
             <p>גדוד 7421 · חטיבה 4</p>
             <p>האתר הוקם למען חיזוק לוחמי פלוגת ״זעם״.</p>
-            <ContactActions />
+            <ContactActions className="footer-contact-actions" />
           </div>
-          <div>
-            <DonationLink className="button">תרמו עכשיו</DonationLink>
-            <nav className="footer-links" aria-label="קישורים משפטיים">
-              <Link href="/privacy">מדיניות פרטיות</Link>
-              <Link href="/accessibility">הצהרת נגישות</Link>
-              <Link href="/terms">תנאי שימוש</Link>
+
+          <nav className="footer-nav" aria-label="ניווט באתר">
+            <h3>ניווט באתר</h3>
+            <div className="footer-links">
+              <Link href="#story">סיפור הפלוגה</Link>
+              <Link href="#needs">לאן התרומה הולכת</Link>
+              <Link href="#faq">שאלות נפוצות</Link>
+              <Link href="#top">חזרה לראש העמוד</Link>
+            </div>
+          </nav>
+
+          <div className="footer-action-group">
+            <DonationLink className="button footer-donation-button">תרמו עכשיו</DonationLink>
+            <nav className="footer-nav footer-legal" aria-label="קישורים משפטיים">
+              <h3>מידע משפטי</h3>
+              <div className="footer-links">
+                <Link href="/privacy">מדיניות פרטיות</Link>
+                <Link href="/accessibility">הצהרת נגישות</Link>
+                <Link href="/terms">תנאי שימוש</Link>
+              </div>
             </nav>
           </div>
-        </div>
-        <div className="container security-note">
+        </SectionContainer>
+        <SectionContainer className="security-note">
           אין לפרסם באתר מידע מבצעי, מיקומים עדכניים, לוחות זמנים או פרטים אישיים
           שלא אושרו לפרסום.
-        </div>
-        <div className="container copyright">
+        </SectionContainer>
+        <SectionContainer className="copyright">
           © {new Date().getFullYear()} פלוגת ״זעם״. כל הזכויות שמורות.
-        </div>
+        </SectionContainer>
       </footer>
       <MobileDonationBar />
     </>

@@ -20,16 +20,18 @@ export function PaymentEmbed() {
 
   if (status === "fallback") {
     return (
-      <div className="payment-fallback" role="status">
-        <span className="payment-lock" aria-hidden="true">✓</span>
-        <p>עמוד התרומה המאובטח ייפתח כעת בחלון נפרד.</p>
+      <div className="payment-fallback">
+        <div className="payment-fallback-copy">
+          <span className="payment-lock" aria-hidden="true">✓</span>
+          <p role="status">עמוד התרומה המאובטח ייפתח בחלון נפרד.</p>
+        </div>
         <DonationLink
           className="button button-large"
-          ariaLabel="מעבר לעמוד תרומה מאובטח"
+          ariaLabel="פתיחת עמוד התרומה המאובטח של Grow בחלון חדש"
           newTab
           onNavigate={() => trackEvent("payment_fallback_click")}
         >
-          מעבר לעמוד תרומה מאובטח
+          פתיחת עמוד התרומה
         </DonationLink>
       </div>
     );

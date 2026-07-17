@@ -3,6 +3,7 @@ export type ApprovedImageAsset = {
   alt: string;
   width: number;
   height: number;
+  objectPosition?: string;
 };
 
 type CampaignAssets = {
@@ -29,54 +30,63 @@ export const campaignAssets: CampaignAssets = {
       alt: "לוחמי הפלוגה לצד כלי משוריין, מחזיקים בדגל ישראל",
       width: 1600,
       height: 1200,
+      objectPosition: "50% 50%",
     },
     {
       src: "/images/gallery/rainbow-over-coast.webp",
       alt: "קשת כפולה מעל קו החוף כפי שנצפתה מתוך כלי משוריין",
       width: 1600,
       height: 1200,
+      objectPosition: "50% 50%",
     },
     {
       src: "/images/gallery/armored-company-in-field.webp",
       alt: "מבט רחב על שטח הפעילות וכלים משוריינים של הפלוגה",
       width: 1600,
       height: 1200,
-    },
-    {
-      src: "/images/gallery/view-from-armored-vehicle.webp",
-      alt: "מבט מתוך כלי משוריין במהלך פעילות הפלוגה בשטח",
-      width: 1600,
-      height: 1200,
-    },
-    {
-      src: "/images/gallery/soldier-beside-tank.webp",
-      alt: "לוחם הפלוגה עומד לצד טנק במהלך הפעילות",
-      width: 1600,
-      height: 1200,
-    },
-    {
-      src: "/images/gallery/tank-during-operational-activity.webp",
-      alt: "טנק של הפלוגה במהלך פעילות מבצעית בשטח",
-      width: 1080,
-      height: 576,
+      objectPosition: "50% 55%",
     },
     {
       src: "/images/gallery/tank-under-cloudy-sky.webp",
       alt: "טנק של הפלוגה בשטח תחת שמיים מעוננים",
       width: 1200,
       height: 1600,
+      objectPosition: "50% 48%",
     },
     {
       src: "/images/gallery/soldier-at-protected-entrance.webp",
       alt: "לוחם הפלוגה לצד כניסה מוגנת במהלך פעילות בשטח",
       width: 1200,
       height: 1600,
+      objectPosition: "50% 45%",
     },
     {
       src: "/images/gallery/tank-at-sunset.webp",
       alt: "טנק של הפלוגה בתנועה באור השקיעה",
       width: 1200,
       height: 1600,
+      objectPosition: "50% 50%",
+    },
+    {
+      src: "/images/gallery/view-from-armored-vehicle.webp",
+      alt: "מבט מתוך כלי משוריין במהלך פעילות הפלוגה בשטח",
+      width: 1600,
+      height: 1200,
+      objectPosition: "48% 50%",
+    },
+    {
+      src: "/images/gallery/soldier-beside-tank.webp",
+      alt: "לוחם הפלוגה עומד לצד טנק במהלך הפעילות",
+      width: 1600,
+      height: 1200,
+      objectPosition: "56% 50%",
+    },
+    {
+      src: "/images/gallery/tank-during-operational-activity.webp",
+      alt: "טנק של הפלוגה במהלך פעילות מבצעית בשטח",
+      width: 1080,
+      height: 576,
+      objectPosition: "58% 50%",
     },
   ],
   memorialImage: null,

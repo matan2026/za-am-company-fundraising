@@ -10,6 +10,7 @@ export function Gallery({ images: gallery }: { images: readonly ApprovedImageAss
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
+  const touchStartRef = useRef<number | null>(null);
   const isOpen = active !== null;
 
   useEffect(() => {
@@ -61,33 +62,38 @@ export function Gallery({ images: gallery }: { images: readonly ApprovedImageAss
   return (
     <>
       <div className="gallery-grid">
-        {gallery.map((image, index) => (
-          <button
-            type="button"
-            className="gallery-item"
-            key={image.src}
-            onClick={(event) => {
-              previousFocusRef.current = event.currentTarget;
-              setActive(index);
-              trackEvent("gallery_interaction", { image_index: index + 1 });
-            }}
-            aria-label={`פתיחת תמונה בתצוגה מוגדלת: ${image.alt}`}
-          >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              width={image.width}
-              height={image.height}
-              sizes="(max-width: 640px) 50vw, (max-width: 980px) 33vw, 380px"
-              loading="lazy"
-              decoding="async"
-              onError={(event) => {
-                event.currentTarget.closest("button")?.setAttribute("hidden", "");
+        {gallery.map((image, index) => {
+          const ratio = image.width / image.height;
+          const aspect = ratio > 1.55 ? "wide" : ratio < 0.85 ? "portrait" : "landscape";
+
+          return (
+            <button
+              type="button"
+              className={`gallery-item gallery-item-${aspect}`}
+              key={image.src}
+              onClick={(event) => {
+                previousFocusRef.current = event.currentTarget;
+                setActive(index);
+                trackEvent("gallery_interaction", { image_index: index + 1 });
               }}
-            />
-            <span>פתיחת התמונה</span>
-          </button>
-        ))}
+              aria-label={`פתיחת תמונה בתצוגה מוגדלת: ${image.alt}`}
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                sizes="(max-width: 339px) calc(100vw - 32px), (max-width: 767px) calc(50vw - 24px), 330px"
+                loading="lazy"
+                decoding="async"
+                style={{ objectPosition: image.objectPosition ?? "50% 50%" }}
+                onError={(event) => {
+                  event.currentTarget.closest("button")?.setAttribute("hidden", "");
+                }}
+              />
+              <span>פתיחת התמונה</span>
+            </button>
+          );
+        })}
       </div>
 
       {active !== null ? (
@@ -108,7 +114,28 @@ export function Gallery({ images: gallery }: { images: readonly ApprovedImageAss
           >
             ×
           </button>
-          <div className="lightbox-image" onClick={(event) => event.stopPropagation()}>
+          <div
+            className="lightbox-image"
+            onClick={(event) => event.stopPropagation()}
+            onTouchStart={(event) => {
+              touchStartRef.current = event.changedTouches[0]?.clientX ?? null;
+            }}
+            onTouchEnd={(event) => {
+              const start = touchStartRef.current;
+              touchStartRef.current = null;
+              if (start === null) return;
+
+              const delta = (event.changedTouches[0]?.clientX ?? start) - start;
+              if (Math.abs(delta) < 50) return;
+
+              setActive((value) => {
+                const current = value ?? 0;
+                return delta < 0
+                  ? (current + 1) % gallery.length
+                  : (current - 1 + gallery.length) % gallery.length;
+              });
+            }}
+          >
             <Image
               src={gallery[active].src}
               alt={gallery[active].alt}
