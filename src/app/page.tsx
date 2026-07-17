@@ -144,7 +144,10 @@ export default function Home() {
           <SectionContainer className={`hero-grid ${heroImages.length ? "has-photo-strip" : ""}`}>
             <div className="hero-copy">
               <p className="eyebrow">פלוגת ״זעם״ | גדוד 7421 | חטיבה 4</p>
-              <h1 id="hero-title">פלוגת ״זעם״ צריכה אתכם איתה בקו</h1>
+              <h1 id="hero-title" className="hero-title">
+                <span>פלוגת ״זעם״ צריכה אתכם</span>
+                <span>איתה בקו</span>
+              </h1>
               <div className="hero-lead">
                 <p>
                   מאז 8 באוקטובר 2023 אנחנו עוזבים שוב ושוב את הבית, את העבודה

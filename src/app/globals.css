@@ -4864,6 +4864,1030 @@ body {
   }
 }
 
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.hero-title span {
+  display: block;
+  white-space: normal;
+}
+
+@media (min-width: 768px) {
+  .hero-title span {
+    white-space: nowrap;
+  }
+}
+
+/* Responsive typography scale */
+.hero-title,
+h1.hero-title {
+  max-width: none;
+  font-size: 44px;
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+h1:not(.hero-title),
+.legal-page h1 {
+  font-size: 44px;
+  line-height: 1.12;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+h2,
+.section-title {
+  font-size: 34px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.legal-page .legal-shell > section h2 {
+  font-size: 34px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h3,
+.need-card h3,
+.payment-stage h3,
+.transparency-contact h3 {
+  font-size: 22px;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+main p,
+main li,
+main .section p,
+main .section li,
+.legal-page p,
+.legal-page li,
+.body-large {
+  font-size: 18px;
+  line-height: 1.75;
+  font-weight: 400;
+}
+
+.story-copy,
+.story-intro,
+.memorial-content,
+.need-card-copy,
+.transparency-intro,
+.transparency-target-explanation,
+.transparency-area,
+.urgency-content,
+.donation-grid-intro,
+.faq-answer,
+.closing-inner .prose,
+.legal-shell {
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.section-intro,
+.hero-lead {
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.eyebrow,
+.secure-trust-line,
+.trust-small,
+.nonprofit-details,
+.contact-pending,
+.transparency-target-actions > p,
+.legal-updated,
+.gallery-item > span,
+.amount-option > span,
+.video-card span,
+.video-caption,
+.progress-meta {
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+main .section :is(
+  .eyebrow,
+  .secure-trust-line,
+  .trust-small,
+  .nonprofit-details,
+  .contact-pending,
+  .video-caption,
+  .progress-meta
+),
+main .section .transparency-target-actions > p,
+main .section .gallery-item > span,
+main .section .amount-option > span,
+main.legal-page .legal-updated {
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.trust-line,
+.progress-placeholder,
+.transparency-progress p,
+.transparency-secure-message p,
+.transparency-allocation-note,
+.payment-fallback p,
+.payment-stage-heading p {
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.button,
+.button-small,
+.button-large,
+.hero-actions .text-link,
+.hero-actions .button,
+.donation-section .button,
+.closing-actions .button,
+.urgency .button,
+.payment-fallback .button,
+.transparency-target-actions .button,
+.site-footer .button {
+  min-height: 54px;
+  padding-inline: 24px;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.desktop-nav {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.mobile-nav a {
+  min-height: 54px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.menu-button {
+  width: 54px;
+  height: 54px;
+  min-width: 54px;
+  min-height: 54px;
+}
+
+.amount-option strong {
+  font-size: 26px;
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.transparency-goal strong {
+  font-size: 40px;
+  line-height: 1.08;
+  font-weight: 800;
+}
+
+.goal-label {
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+.faq-list summary {
+  min-height: 58px;
+  padding-block: 20px;
+  font-size: 19px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.faq-answer p {
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.needs-section .need-card .need-card-copy p,
+.faq-section .faq-list .faq-answer p {
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.need-card {
+  padding: 26px;
+}
+
+.transparency-card,
+.payment-stage,
+.memorial-inner {
+  padding: 28px;
+}
+
+.transparency-area {
+  padding: 22px;
+}
+
+.amount-option {
+  min-height: 94px;
+  padding: 16px;
+}
+
+.section {
+  padding-block: 68px;
+}
+
+.site-footer,
+.site-footer p,
+.site-footer a,
+.footer-links a {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.footer-brand {
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+.security-note,
+.security-note p,
+.copyright,
+.copyright p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.mobile-donation-bar .button {
+  min-height: 54px;
+  font-size: 17px;
+}
+
+.legal-toc h2 {
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+@media (max-width: 359px) {
+  .hero-title,
+  h1.hero-title,
+  h1:not(.hero-title),
+  .legal-page h1 {
+    font-size: 38px;
+  }
+
+  h2,
+  .section-title {
+    font-size: 30px;
+  }
+
+  .legal-page .legal-shell > section h2 {
+    font-size: 30px;
+  }
+
+  .need-card,
+  .transparency-card,
+  .payment-stage,
+  .memorial-inner {
+    padding: 22px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-title,
+  h1.hero-title {
+    font-size: 58px;
+    line-height: 1.04;
+  }
+
+  h1:not(.hero-title),
+  .legal-page h1 {
+    font-size: 54px;
+  }
+
+  h2,
+  .section-title {
+    font-size: 40px;
+    line-height: 1.15;
+  }
+
+  .legal-page .legal-shell > section h2 {
+    font-size: 40px;
+    line-height: 1.15;
+  }
+
+  main p,
+  main li,
+  main .section p,
+  main .section li,
+  .legal-page p,
+  .legal-page li,
+  .body-large,
+  .story-copy,
+  .story-intro,
+  .memorial-content,
+  .need-card-copy,
+  .transparency-intro,
+  .transparency-target-explanation,
+  .transparency-area,
+  .urgency-content,
+  .donation-grid-intro,
+  .faq-answer,
+  .closing-inner .prose,
+  .legal-shell,
+  .section-intro,
+  .hero-lead {
+    font-size: 19px;
+    line-height: 1.8;
+  }
+
+  .section {
+    padding-block: 88px;
+  }
+
+  .needs-section .need-card .need-card-copy p,
+  .faq-section .faq-list .faq-answer p {
+    font-size: 19px;
+    line-height: 1.8;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero .section-container {
+    max-width: 1420px;
+  }
+
+  .hero-grid,
+  .hero-grid:not(.has-photo-strip),
+  .hero-grid.has-photo-strip {
+    grid-template-columns: minmax(0, 0.69fr) minmax(0, 0.31fr);
+    column-gap: 32px;
+  }
+
+  h2,
+  .section-title {
+    font-size: 48px;
+  }
+
+  .legal-page .legal-shell > section h2 {
+    font-size: 48px;
+  }
+
+  h3,
+  .need-card h3,
+  .payment-stage h3,
+  .transparency-contact h3 {
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  main p,
+  main li,
+  main .section p,
+  main .section li,
+  .legal-page p,
+  .legal-page li,
+  .body-large,
+  .story-copy,
+  .story-intro,
+  .memorial-content,
+  .need-card-copy,
+  .transparency-intro,
+  .transparency-target-explanation,
+  .transparency-area,
+  .urgency-content,
+  .donation-grid-intro,
+  .faq-answer,
+  .closing-inner .prose,
+  .legal-shell,
+  .section-intro,
+  .hero-lead {
+    font-size: 20px;
+    line-height: 1.8;
+  }
+
+  .eyebrow,
+  .secure-trust-line,
+  .trust-small,
+  .nonprofit-details,
+  .contact-pending,
+  .transparency-target-actions > p,
+  .legal-updated,
+  .gallery-item > span,
+  .amount-option > span,
+  .video-card span,
+  .video-caption,
+  .progress-meta {
+    font-size: 16px;
+  }
+
+  main .section :is(
+    .eyebrow,
+    .secure-trust-line,
+    .trust-small,
+    .nonprofit-details,
+    .contact-pending,
+    .video-caption,
+    .progress-meta
+  ),
+  main .section .transparency-target-actions > p,
+  main .section .gallery-item > span,
+  main .section .amount-option > span,
+  main.legal-page .legal-updated {
+    font-size: 16px;
+  }
+
+  .trust-line,
+  .progress-placeholder,
+  .transparency-progress p,
+  .transparency-secure-message p,
+  .transparency-allocation-note,
+  .payment-fallback p,
+  .payment-stage-heading p {
+    font-size: 18px;
+  }
+
+  .button,
+  .button-small,
+  .button-large,
+  .hero-actions .text-link,
+  .hero-actions .button,
+  .donation-section .button,
+  .closing-actions .button,
+  .urgency .button,
+  .payment-fallback .button,
+  .transparency-target-actions .button,
+  .site-footer .button,
+  .desktop-nav .button {
+    min-height: 56px;
+    padding-inline: 28px;
+    font-size: 18px;
+  }
+
+  .amount-option strong {
+    font-size: 30px;
+  }
+
+  .transparency-goal strong {
+    font-size: 52px;
+  }
+
+  .goal-label {
+    font-size: 20px;
+  }
+
+  .faq-list summary {
+    padding-block: 22px;
+    font-size: 20px;
+  }
+
+  .faq-answer p {
+    font-size: 20px;
+    line-height: 1.8;
+  }
+
+  .needs-section .need-card .need-card-copy p,
+  .faq-section .faq-list .faq-answer p {
+    font-size: 20px;
+    line-height: 1.8;
+  }
+
+  .need-card {
+    padding: 34px;
+  }
+
+  .transparency-card,
+  .payment-stage,
+  .memorial-inner {
+    padding: 36px;
+  }
+
+  .transparency-area {
+    padding: 26px;
+  }
+
+  .amount-option {
+    min-height: 104px;
+    padding: 18px;
+  }
+
+  .section {
+    padding-block: 104px;
+  }
+
+  .site-footer,
+  .site-footer p,
+  .site-footer a,
+  .footer-links a {
+    font-size: 16px;
+  }
+
+  .legal-toc h2 {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-title,
+  h1.hero-title {
+    font-size: 72px;
+    line-height: 1.02;
+  }
+
+  .hero-grid,
+  .hero-grid:not(.has-photo-strip),
+  .hero-grid.has-photo-strip {
+    grid-template-columns: minmax(0, 0.67fr) minmax(0, 0.33fr);
+    column-gap: 44px;
+  }
+}
+
+@media (min-width: 1400px) and (max-width: 1440px) {
+  .hero-grid,
+  .hero-grid:not(.has-photo-strip),
+  .hero-grid.has-photo-strip {
+    grid-template-columns: minmax(0, 0.6fr) minmax(0, 0.4fr);
+    column-gap: 48px;
+  }
+}
+
+@media (min-width: 1441px) {
+  .hero .section-container {
+    max-width: 1600px;
+  }
+
+  .hero-title,
+  h1.hero-title {
+    font-size: 82px;
+  }
+
+  .hero-grid,
+  .hero-grid:not(.has-photo-strip),
+  .hero-grid.has-photo-strip {
+    grid-template-columns: minmax(0, 0.68fr) minmax(0, 0.32fr);
+    column-gap: 56px;
+  }
+}
+
+/* Mobile alignment system */
+.mobile-center {
+  width: 100%;
+  margin-inline: auto;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .section-container,
+  .container,
+  .header-inner {
+    width: 100%;
+    max-width: 520px;
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+
+  .section {
+    padding-block: 64px;
+  }
+
+  .header-inner {
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .brand,
+  .menu-button {
+    align-self: center;
+  }
+
+  .mobile-nav {
+    width: 100%;
+    max-width: 520px;
+    margin-inline: auto;
+    padding-inline: 20px;
+    text-align: center;
+  }
+
+  .mobile-nav a,
+  .mobile-nav .button {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .section-heading,
+  .section-heading.align-right,
+  .story-heading,
+  .transparency-heading,
+  .urgency-heading,
+  .faq-grid > :first-child {
+    width: 100%;
+    max-width: 520px;
+    margin-inline: auto;
+    text-align: center;
+    align-items: center;
+  }
+
+  .eyebrow,
+  .section-intro,
+  .section-intro.align-right,
+  .goal-label,
+  .trust-line,
+  .secure-trust-line,
+  .trust-small {
+    margin-inline: auto;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .hero-grid,
+  .hero-grid.has-photo-strip,
+  .hero-grid:not(.has-photo-strip) {
+    width: 100%;
+    max-width: 520px;
+    margin-inline: auto;
+    justify-items: center;
+  }
+
+  .hero-copy,
+  .hero-title,
+  .hero-lead,
+  .hero-progress,
+  .hero-trust {
+    width: 100%;
+    max-width: 520px;
+    margin-inline: auto;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-title {
+    align-items: center;
+  }
+
+  .hero-lead p {
+    text-align: center;
+  }
+
+  .hero-actions {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-actions .button,
+  .hero-actions .text-link {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-media,
+  .hero-media .video-card,
+  .hero-photo-strip {
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .progress-head,
+  .progress-meta,
+  .transparency-progress-labels {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .progress-head > *,
+  .progress-meta > * {
+    text-align: center;
+  }
+
+  .story-grid,
+  .story-heading,
+  .story-copy {
+    width: 100%;
+    max-width: 520px;
+    margin-inline: auto;
+  }
+
+  .story-intro {
+    text-align: center;
+  }
+
+  .story-copy {
+    text-align: right;
+  }
+
+  .story-copy blockquote {
+    width: 100%;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .memorial-inner {
+    width: calc(100% - 40px);
+    max-width: 480px;
+    margin-inline: auto;
+    padding: 26px;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .memorial-image,
+  .memorial-content {
+    margin-inline: auto;
+  }
+
+  .memorial-content,
+  .memorial-content p,
+  .memorial-name,
+  .memorial-closing {
+    text-align: center;
+  }
+
+  .needs-section > .section-container,
+  .needs-grid,
+  .need-card {
+    width: 100%;
+    max-width: 520px;
+    margin-inline: auto;
+  }
+
+  .needs-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .need-card {
+    align-items: center;
+    justify-content: center;
+    padding: 26px;
+    text-align: center;
+  }
+
+  .need-card-heading {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .need-icon,
+  .need-card h3,
+  .need-card-copy,
+  .need-card strong,
+  .need-card p {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .transparency-layout,
+  .transparency-heading,
+  .transparency-target-column,
+  .transparency-card,
+  .transparency-areas,
+  .transparency-contact {
+    width: 100%;
+    max-width: 520px;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .transparency-heading,
+  .transparency-card,
+  .transparency-contact {
+    align-items: center;
+  }
+
+  .transparency-goal,
+  .transparency-target-explanation,
+  .transparency-progress,
+  .transparency-secure-message,
+  .transparency-facts,
+  .transparency-allocation-note {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .transparency-secure-message {
+    justify-content: center;
+  }
+
+  .transparency-target-actions,
+  .contact-actions-trust {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .transparency-target-actions .button,
+  .contact-actions-trust .button,
+  .contact-actions-trust a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .transparency-areas {
+    display: grid;
+    gap: 14px;
+  }
+
+  .transparency-area {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .transparency-area > span,
+  .transparency-area h3,
+  .transparency-area p {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .gallery-section .section-heading,
+  .gallery-grid {
+    width: 100%;
+    max-width: 520px;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .gallery-grid {
+    justify-content: center;
+  }
+
+  .gallery-item {
+    justify-self: center;
+  }
+
+  .urgency-inner,
+  .urgency-heading,
+  .urgency-content {
+    width: 100%;
+    max-width: 520px;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .urgency-content .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .donation-inner,
+  .amount-grid,
+  .payment-stage,
+  .payment-fallback,
+  .closing-inner,
+  .faq-grid,
+  .faq-list {
+    width: 100%;
+    max-width: 520px;
+    margin-inline: auto;
+  }
+
+  .donation-inner,
+  .payment-stage,
+  .payment-fallback,
+  .closing-inner {
+    text-align: center;
+    align-items: center;
+  }
+
+  .amount-grid {
+    justify-content: center;
+  }
+
+  .amount-option,
+  .amount-option strong,
+  .amount-option span {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .donation-primary-cta,
+  .payment-fallback .button,
+  .closing-actions .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .payment-stage-heading,
+  .payment-fallback-copy,
+  .closing-actions {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .payment-stage-heading {
+    flex-direction: column;
+  }
+
+  .faq-grid {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .faq-list {
+    text-align: right;
+  }
+
+  .faq-list summary,
+  .faq-answer,
+  .faq-answer p {
+    text-align: right;
+  }
+
+  .footer-grid,
+  .footer-unit,
+  .footer-nav,
+  .footer-action-group,
+  .footer-links,
+  .footer-contact-actions,
+  .security-note,
+  .copyright {
+    width: 100%;
+    max-width: 520px;
+    margin-inline: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-grid {
+    justify-items: center;
+    gap: 34px;
+  }
+
+  .footer-action-group,
+  .footer-links,
+  .footer-contact-actions {
+    flex-direction: column;
+  }
+
+  .footer-links a,
+  .footer-contact-actions a,
+  .footer-donation-button {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-donation-button {
+    min-height: 54px;
+  }
+
+  .security-note,
+  .copyright {
+    padding-inline: 20px;
+  }
+}
+
+@media (min-width: 340px) and (max-width: 767px) {
+  .gallery-grid .gallery-item:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 359px) {
+  .section-container,
+  .container,
+  .header-inner,
+  .mobile-nav {
+    padding-inline: 16px;
+  }
+
+  .memorial-inner {
+    width: calc(100% - 32px);
+    padding: 22px;
+  }
+
+  .need-card,
+  .transparency-card,
+  .payment-stage {
+    padding: 22px;
+  }
+
+  .security-note,
+  .copyright {
+    padding-inline: 16px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
