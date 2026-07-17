@@ -3263,10 +3263,6 @@ summary {
   aspect-ratio: 16 / 9;
 }
 
-.gallery-item-wide:last-child {
-  column-span: all;
-}
-
 .gallery-item img {
   width: 100%;
   height: 100%;
@@ -5968,10 +5964,39 @@ main.legal-page .legal-updated {
 }
 
 @media (min-width: 340px) and (max-width: 767px) {
-  .gallery-grid .gallery-item:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    width: 100%;
-    aspect-ratio: 16 / 9;
+  .gallery-grid {
+    columns: 2;
+    column-fill: balance;
+    column-gap: 10px;
+  }
+
+  .gallery-grid .gallery-item {
+    column-span: none;
+    margin: 0 0 10px;
+  }
+
+  .gallery-grid .gallery-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .gallery-grid.gallery-grid-balanced-mobile {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    columns: auto;
+    align-items: start;
+  }
+
+  .gallery-grid-balanced-mobile .gallery-column {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .gallery-grid-balanced-mobile .gallery-item,
+  .gallery-grid-balanced-mobile .gallery-item:last-child {
+    margin: 0;
   }
 }
 
