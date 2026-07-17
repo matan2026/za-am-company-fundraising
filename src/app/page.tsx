@@ -17,9 +17,7 @@ import {
   campaign,
   formatIls,
   isConfigured,
-  isValidExternalUrl,
 } from "@/config/campaign";
-import { getVideoEmbedUrl } from "@/lib/video";
 import { existingAsset, existingAssets } from "@/lib/public-assets";
 import { siteUrl } from "@/config/site";
 
@@ -66,9 +64,6 @@ const donationAmounts = [
 ];
 
 function JsonLd({ videoPoster }: { videoPoster: ApprovedImageAsset | null }) {
-  const videoEmbed = isValidExternalUrl(campaign.videoUrl)
-    ? getVideoEmbedUrl(campaign.videoUrl)
-    : null;
   const graph: Record<string, unknown>[] = [
     {
       "@type": "Organization",
@@ -98,13 +93,13 @@ function JsonLd({ videoPoster }: { videoPoster: ApprovedImageAsset | null }) {
     },
   ];
 
-  if (videoEmbed && videoPoster) {
+  if (videoPoster) {
     graph.push({
       "@type": "VideoObject",
       name: "הכירו את פלוגת זעם",
       description: "הסיפור הרשמי של לוחמי פלוגת זעם.",
       thumbnailUrl: [`${siteUrl}${videoPoster.src}`],
-      embedUrl: videoEmbed,
+      contentUrl: `${siteUrl}${campaign.videoFile}`,
     });
   }
 
@@ -127,9 +122,6 @@ export default function Home() {
   const heroImages = existingAssets(campaignAssets.heroImages);
   const galleryImages = existingAssets(campaignAssets.galleryImages);
   const memorialImage = existingAsset(campaignAssets.memorialImage);
-  const videoConfigured = Boolean(
-    isValidExternalUrl(campaign.videoUrl) && getVideoEmbedUrl(campaign.videoUrl),
-  );
   const nonprofitConfigured =
     isConfigured(campaign.nonprofitName) &&
     isConfigured(campaign.nonprofitNumber);
@@ -170,7 +162,7 @@ export default function Home() {
             </div>
 
             <div className="hero-media" id="hero-video">
-              <VideoCard eager poster={videoPoster} />
+              <VideoCard poster={videoPoster} />
             </div>
 
             <div className="hero-progress">
@@ -204,8 +196,7 @@ export default function Home() {
           </SectionContainer>
         </section>
 
-        {videoConfigured ? (
-          <section className="section video-section" id="video" aria-labelledby="video-title">
+        <section className="section video-section" id="video" aria-labelledby="video-title">
           <SectionContainer className="narrow centered">
             <p className="eyebrow eyebrow-dark">פנים. קולות. סיפור אחד.</p>
             <h2 id="video-title">הכירו את פלוגת ״זעם״</h2>
@@ -215,7 +206,7 @@ export default function Home() {
             </p>
           </SectionContainer>
           <SectionContainer className="video-feature">
-            <VideoCard eager poster={videoPoster} />
+            <VideoCard poster={videoPoster} />
             <div className="video-caption">
               <p>
                 אנחנו עושים את מה שצריך בחזית. התמיכה שלכם מאפשרת לנו לעשות זאת
@@ -225,14 +216,13 @@ export default function Home() {
               <details className="transcript">
                 <summary>תמלול והנגשת הסרטון</summary>
                 <p>
-                  תמלול מלא יתווסף יחד עם הסרטון הרשמי המאושר, לפני פרסום
-                  הקמפיין לציבור.
+                  לסרטון אין בשלב זה תמלול או כתוביות מאושרים. הם יתווספו
+                  כאשר יימסרו חומרי נגישות מאושרים.
                 </p>
               </details>
             </div>
           </SectionContainer>
-          </section>
-        ) : null}
+        </section>
 
         <section className="section story-section" id="story" aria-labelledby="story-title">
           <SectionContainer className="story-grid">

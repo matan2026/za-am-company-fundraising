@@ -1,75 +1,55 @@
 "use client";
 
-import Image from "next/image";
-import { useState } from "react";
-import { campaign, isValidExternalUrl } from "@/config/campaign";
+import { useRef, useState } from "react";
 import type { ApprovedImageAsset } from "@/config/assets";
+import { campaign } from "@/config/campaign";
 import { trackEvent } from "@/lib/analytics";
-import { getVideoEmbedUrl } from "@/lib/video";
 
 export function VideoCard({
-  eager = false,
   poster,
 }: {
-  eager?: boolean;
   poster: ApprovedImageAsset | null;
 }) {
-  const [playing, setPlaying] = useState(false);
-  const [posterFailed, setPosterFailed] = useState(false);
-  const embedUrl = isValidExternalUrl(campaign.videoUrl)
-    ? getVideoEmbedUrl(campaign.videoUrl)
-    : null;
+  const [failed, setFailed] = useState(false);
+  const hasTrackedPlay = useRef(false);
 
-  if (!embedUrl) {
+  if (failed) {
     return (
-      <div className="video-card video-unavailable" role="status">
-        <div className="video-unavailable-content">
-          <span aria-hidden="true">סיפור הפלוגה</span>
-          <p>הסרטון הרשמי יוצג כאן לאחר קבלת הקישור והחומרים המאושרים.</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (playing && embedUrl) {
-    return (
-      <div className="video-card">
-        <iframe
-          src={`${embedUrl}?autoplay=1`}
-          title="סיפורה של פלוגת זעם"
-          allow="autoplay; encrypted-media; picture-in-picture"
-          allowFullScreen
-        />
+      <div className="video-card video-error" role="alert">
+        <p>לא ניתן לנגן את הסרטון בדפדפן זה.</p>
+        <a
+          className="button button-light"
+          href={campaign.videoFile}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          פתיחת הסרטון בחלון חדש
+        </a>
       </div>
     );
   }
 
   return (
-    <div className={`video-card ${poster && !posterFailed ? "video-poster" : "video-poster-fallback"}`}>
-      {poster && !posterFailed ? (
-        <Image
-          src={poster.src}
-          alt={poster.alt}
-          fill
-          loading={eager ? "eager" : "lazy"}
-          sizes="(max-width: 900px) 100vw, 50vw"
-          onError={() => setPosterFailed(true)}
-        />
-      ) : null}
-      <div className="video-overlay">
-        <button
-          type="button"
-          className="play-button"
-          aria-label="נגינת הסרטון"
-          onClick={() => {
-            setPlaying(true);
+    <div className="video-card">
+      <video
+        className="video-native"
+        controls
+        playsInline
+        preload="metadata"
+        poster={poster?.src ?? campaign.videoPoster}
+        title="סרטון פלוגת זעם"
+        aria-label="סרטון פלוגת זעם"
+        onError={() => setFailed(true)}
+        onPlay={() => {
+          if (!hasTrackedPlay.current) {
+            hasTrackedPlay.current = true;
             trackEvent("video_play");
-          }}
-        >
-          <span aria-hidden="true">▶</span>
-        </button>
-        {!poster || posterFailed ? <p>נגינת הסרטון הרשמי</p> : null}
-      </div>
+          }
+        }}
+      >
+        <source src={campaign.videoFile} type="video/mp4" />
+        הדפדפן שלך אינו תומך בניגון וידאו.
+      </video>
     </div>
   );
 }

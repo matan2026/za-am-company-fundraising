@@ -30,7 +30,8 @@ npm run build
 - `donationUrl` — קישור רשמי למערכת הסליקה.
 - `donationAmountParam` — נשאר ריק משום שלא אומתה תמיכה של Grow בבחירת סכום דרך URL.
 - `paymentEmbeddingAllowed` — נשאר `false` משום שכותרת CSP של Grow מאפשרת הטמעה רק בדומיינים של `grow.website`.
-- `videoUrl` — קישור YouTube או Vimeo רשמי ומאושר.
+- `videoFile` — הנתיב המקומי לקובץ MP4 המאושר (`/videos/za-am-hero-video.mp4`).
+- `videoPoster` — הנתיב לתמונת השער שהופקה מתוך הסרטון (`/images/video-poster.webp`).
 - `contactPhone` ו־`contactWhatsapp` — נקראים ממשתני הסביבה `NEXT_PUBLIC_CONTACT_PHONE` ו־`NEXT_PUBLIC_WHATSAPP_NUMBER`. יש להזין מספרי קמפיין מאושרים בפורמט בינלאומי E.164 בלבד, לדוגמה `+9725XXXXXXXX`.
 - `nonprofitName` ו־`nonprofitNumber` — פרטי הגוף המפעיל.
 - `taxDeductible` — יש לשנות ל־`true` רק לאחר אימות זכאות לפי סעיף 46.
@@ -50,7 +51,7 @@ npm run build
 
 ## וידאו, נגישות ופרטיות
 
-- הווידאו נטען רק בלחיצה ואינו מופעל אוטומטית.
+- הווידאו משתמש בנגן HTML5 מקורי, נטען עם `preload="metadata"` ואינו מופעל אוטומטית.
 - יש להוסיף כתוביות ותמלול מלא יחד עם הסרטון הרשמי.
 - Analytics נטען רק כאשר מזהי GA4 או Meta Pixel מוגדרים.
 - לפני הפעלת כלי מדידה יש להשלים מנגנון הסכמה ולעדכן את מדיניות הפרטיות.

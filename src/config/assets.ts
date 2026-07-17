@@ -22,7 +22,13 @@ type CampaignAssets = {
  */
 export const campaignAssets: CampaignAssets = {
   unitEmblem: null,
-  videoPoster: null,
+  videoPoster: {
+    src: "/images/video-poster.webp",
+    alt: "ניצן לוי בראיון חדשות הבוקר על פעילות הפלוגה",
+    width: 1280,
+    height: 720,
+    objectPosition: "50% 50%",
+  },
   heroImages: [],
   galleryImages: [
     {
