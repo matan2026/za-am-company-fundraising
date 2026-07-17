@@ -689,9 +689,40 @@ h3 {
   background: var(--sand-light);
 }
 
+.video-section-intro {
+  display: flex;
+  width: 100%;
+  max-width: 820px;
+  align-items: center;
+  flex-direction: column;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.video-section-intro .eyebrow {
+  width: auto;
+  margin: 0 auto 20px;
+  justify-content: center;
+  text-align: center;
+}
+
+.video-section-intro h2 {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto 22px;
+  text-align: center;
+}
+
+.video-section-intro .section-intro {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .video-feature {
   max-width: 920px;
-  margin-top: 44px;
+  margin-top: 50px;
 }
 
 .video-feature .video-card {
@@ -7654,6 +7685,32 @@ main.legal-page .legal-updated {
     font-size: clamp(52px, 4vw, 78px);
     line-height: 1.05;
     letter-spacing: -0.035em;
+    white-space: nowrap;
+  }
+}
+
+.story-title {
+  width: 100%;
+  max-width: none;
+  text-align: right;
+  white-space: normal;
+}
+
+@media (min-width: 1200px) {
+  .story-section > .section-container {
+    max-width: 1600px;
+  }
+
+  .story-section .story-grid.has-story-image {
+    grid-template-columns: minmax(0, 1.55fr) minmax(360px, 0.85fr);
+    column-gap: clamp(48px, 4vw, 56px);
+  }
+
+  .story-section .story-title {
+    font-size: clamp(40px, 3.2vw, 54px);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
     white-space: nowrap;
   }
 }

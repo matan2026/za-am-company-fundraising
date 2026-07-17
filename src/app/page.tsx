@@ -188,13 +188,15 @@ export default function Home() {
         </section>
 
         <section className="section video-section" id="video" aria-labelledby="video-title">
-          <SectionContainer className="narrow centered">
-            <p className="eyebrow eyebrow-dark">פנים. קולות. סיפור אחד.</p>
-            <h2 id="video-title">הכירו את פלוגת ״זעם״</h2>
-            <p className="section-intro">
-              צפו בסיפור של הלוחמים, בדרך שעברנו מאז תחילת המלחמה ובסיבה
-              שבגללה אנחנו זקוקים לכם איתנו עכשיו.
-            </p>
+          <SectionContainer>
+            <div className="video-section-intro">
+              <p className="eyebrow eyebrow-dark">פנים. קולות. סיפור אחד.</p>
+              <h2 id="video-title">הכירו את פלוגת ״זעם״</h2>
+              <p className="section-intro">
+                צפו בסיפור של הלוחמים, בדרך שעברנו מאז תחילת המלחמה ובסיבה
+                שבגללה אנחנו זקוקים לכם איתנו עכשיו.
+              </p>
+            </div>
           </SectionContainer>
           <SectionContainer className="video-feature">
             <VideoCard
@@ -222,7 +224,7 @@ export default function Home() {
           <SectionContainer className={`story-grid ${storyImage ? "has-story-image" : ""}`}>
             <div className="story-heading">
               <p className="eyebrow eyebrow-dark">הסיפור שלנו</p>
-              <h2 id="story-title">מאז הבוקר של 8 באוקטובר אנחנו שם</h2>
+              <h2 id="story-title" className="story-title">מאז הבוקר של 8 באוקטובר אנחנו שם</h2>
               <p className="story-intro">
                 מאז הבוקר של 8 באוקטובר 2023, לוחמי המילואים של פלוגת ״זעם״
                 עזבו את הבית, את מקומות העבודה ואת המשפחות והתייצבו בחזית.
