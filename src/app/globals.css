@@ -70,8 +70,16 @@ img {
 }
 
 :focus-visible {
-  outline: 3px solid #e2b25f;
+  outline: 3px solid #8a2d27;
   outline-offset: 4px;
+}
+
+.section-dark :focus-visible,
+.site-header :focus-visible,
+.site-footer :focus-visible,
+.lightbox :focus-visible,
+.transparency-card :focus-visible {
+  outline-color: #f3c96f;
 }
 
 .skip-link {
@@ -1584,6 +1592,16 @@ blockquote {
   text-decoration: underline;
   text-decoration-color: rgb(76 88 66 / 38%);
   text-underline-offset: 4px;
+}
+
+.legal-donation-link {
+  margin-top: 10px;
+}
+
+.legal-link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
 }
 
 .legal-warning {

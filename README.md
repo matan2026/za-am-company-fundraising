@@ -36,7 +36,7 @@ npm run build
 - `taxDeductible` — יש לשנות ל־`true` רק לאחר אימות זכאות לפי סעיף 46.
 - `transparency` — נוסחי השקיפות, תחומי השימוש, הודעת החלוקה, ספק הסליקה וטקסט יצירת הקשר. אין להזין סכומי חלוקה לפני שאושרו.
 
-ערכי העמודים המשפטיים נמצאים ב־`src/config/legal.ts`. יש להגדיר את `privacyLastUpdated` ואת `termsLastUpdated` רק לאחר בדיקה ואישור, בפורמט `YYYY-MM-DD`, ולהוסיף `paymentProviderPrivacyUrl` רק אם קיים קישור HTTPS מאומת של ספק הסליקה.
+ערכי העמודים המשפטיים נמצאים ב־`src/config/legal.ts`. יש להגדיר את `privacyLastUpdated`, את `termsLastUpdated` ואת `accessibilityLastUpdated` רק לאחר בדיקה ואישור, בפורמט `YYYY-MM-DD`. מגבלות הנגישות ניתנות לעריכה במערך `accessibilityKnownLimitations`. יש להוסיף `paymentProviderPrivacyUrl` רק אם קיים קישור HTTPS מאומת של ספק הסליקה.
 
 עמוד התרומה הרשמי של Grow מוגדר בקובץ הקמפיין וב־`.env.example`. כל פעולות התרומה באתר פותחות את אותו עמוד רשמי בחלון חדש, ללא איסוף או שמירת פרטי תשלום באתר.
 

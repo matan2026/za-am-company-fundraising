@@ -71,7 +71,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="he" dir="rtl" className={`${heebo.variable} ${rubik.variable}`}>
       <body className={`${heebo.variable} ${rubik.variable}`}>
         <a className="skip-link" href="#main-content">
-          דילוג לתוכן הראשי
+          דילוג לתוכן המרכזי
         </a>
         {children}
         <AnalyticsScripts />

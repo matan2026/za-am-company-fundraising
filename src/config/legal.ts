@@ -3,6 +3,12 @@ export const legalConfig = {
   privacyLastUpdated: "",
   // Use an approved ISO date (YYYY-MM-DD). Leave empty until the terms are reviewed.
   termsLastUpdated: "",
+  // Use an approved ISO date (YYYY-MM-DD). Leave empty until a real audit is reviewed.
+  accessibilityLastUpdated: "",
+  accessibilityKnownLimitations: [
+    "למרות המאמצים לשמור על אתר נגיש, ייתכן שחלק מהתכנים החיצוניים, הסרטונים, המסמכים או עמודי הסליקה אינם נמצאים בשליטה מלאה של מפעילי האתר.",
+    "אם נתקלתם ברכיב שאינו נגיש או בקושי להשתמש באתר, נשמח לקבל דיווח ולפעול לתיקון ככל האפשר.",
+  ],
   // Add only a verified HTTPS link published by the external payment provider.
   paymentProviderPrivacyUrl: "",
 } as const;

@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 
 export function LegalPage({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <main className="legal-page">
+    <main className="legal-page" id="main-content" tabIndex={-1}>
       <article className="container legal-shell">
         <Link className="legal-back" href="/">
           → חזרה לעמוד הראשי
