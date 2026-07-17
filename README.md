@@ -19,6 +19,16 @@ npm run typecheck
 npm run build
 ```
 
+## Post-payment thank-you page
+
+The `/thank-you` page is a direct-accessible, noindex route for a verified payment-provider success redirect. The fundraising site does not redirect donors there after a donation button click and does not claim a payment has succeeded.
+
+If Grow supports a verified post-payment success redirect, the campaign manager must configure this exact production URL in Grow:
+
+`https://za-am-company-fundraising.vercel.app/thank-you`
+
+Only configure this setting after confirming it is supported by Grow. No card or payment details are collected, stored, or handled by this site.
+
 ## הגדרת הקמפיין
 
 כל נתוני הקמפיין נמצאים בקובץ `src/config/campaign.ts`:

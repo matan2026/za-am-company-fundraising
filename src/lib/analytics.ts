@@ -6,7 +6,12 @@ export type AnalyticsEvent =
   | "whatsapp_click"
   | "phone_click"
   | "gallery_interaction"
-  | "scroll_to_donation";
+  | "scroll_to_donation"
+  | "thank_you_page_view"
+  | "share_whatsapp"
+  | "share_facebook"
+  | "copy_campaign_link"
+  | "return_to_campaign";
 
 declare global {
   interface Window {
