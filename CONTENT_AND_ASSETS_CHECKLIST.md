@@ -15,7 +15,7 @@
 | תמונת הסיפור | מוגדרת ומאומתת | `public/images/story/za-am-story.webp` + `campaignAssets.storyImage` | אין. התמונה הומרה ל־WebP ללא EXIF/GPS ומוצגת ביחס המקורי. |
 | תמונות גלריה | 9 תמונות מוגדרות | `campaignAssets.galleryImages` | אין. התמונות שסופקו הומרו ל־WebP ללא חיתוך וללא EXIF/GPS. |
 | תמונת הנצחה | מוגדרת ומאומתת | `public/images/memorial/oriel-aviad-silverman.webp` + `campaignAssets.memorialImage` | אין. התמונה שסופקה הומרה ל־WebP ללא EXIF/GPS. |
-| סמל/לוגו | חסר | `campaignAssets.unitEmblem` | להוסיף סמל מאושר. בלעדיו מוצג סימן טקסטואלי, לא סמל מדומה. |
+| סמל/לוגו | מוגדר ומאומת | `public/images/logo/zaam-logo.png` + `campaignAssets.unitEmblem` | אין. מוצג בכותרת באמצעות `next/image` וב־CSS לבן על הרקע הכהה, ללא שינוי בעיצוב המקורי. |
 | טלפון ליצירת קשר | חסר | `NEXT_PUBLIC_CONTACT_PHONE` | להזין רק מספר קמפיין מאושר בפורמט E.164, לדוגמה `+9725XXXXXXXX`. הקישור מוסתר עד שיוגדר מספר תקין. |
 | מספר WhatsApp | חסר | `NEXT_PUBLIC_WHATSAPP_NUMBER` | להזין מספר בינלאומי בפורמט E.164, לדוגמה `+9725XXXXXXXX`. הכפתור המרחף מוסתר עד שיוגדר מספר תקין. |
 | שם עמותה/גוף מפעיל | חסר | `campaign.nonprofitName` | להזין שם משפטי מאומת. הפרטים מוסתרים כעת. |
@@ -32,7 +32,7 @@
 
 | נכס | נתיב מדויק | פורמט | ממדים מומלצים | הערות |
 | --- | --- | --- | --- | --- |
-| סמל הפלוגה/הקמפיין | `public/images/branding/unit-emblem.webp` | WebP; לחלופין PNG שקוף | 512×512 פיקסלים | יחס 1:1, רקע שקוף, עד 150KB. |
+| סמל הפלוגה/הקמפיין | `public/images/logo/zaam-logo.png` | PNG שקוף | 566×441 פיקסלים | הנכס המאושר מוגדר ומוצג ביחס המקורי. |
 | תמונת שער לווידאו | `public/images/video-poster.webp` | WebP | 1280×720 פיקסלים | יחס 16:9, עד 350KB. הנכס הנוכחי הופק מתוך הסרטון. |
 | תמונת Hero 1 | `public/images/hero/hero-01.webp` | WebP | 1800×1200 פיקסלים | יחס 3:2 מומלץ, עד 400KB. |
 | תמונת Hero 2 | `public/images/hero/hero-02.webp` | WebP | 1800×1200 פיקסלים | יחס 3:2 מומלץ, עד 400KB. |

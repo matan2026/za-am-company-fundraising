@@ -14,7 +14,6 @@ const navItems = [
 
 export function Header({ logo }: { logo: ApprovedImageAsset | null }) {
   const [open, setOpen] = useState(false);
-  const [logoFailed, setLogoFailed] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -34,22 +33,17 @@ export function Header({ logo }: { logo: ApprovedImageAsset | null }) {
     <header className="site-header">
       <SectionContainer className="header-inner">
         <a className="brand" href="#top">
-          {logo && !logoFailed ? (
+          {logo ? (
             <Image
               src={logo.src}
-              alt={logo.alt}
-              width={48}
-              height={48}
+              alt="לוגו פלוגת זעם"
+              width={logo.width}
+              height={logo.height}
+              sizes="(max-width: 1023px) 67px, 88px"
+              className="header-logo logo-dark"
               loading="eager"
-              onError={() => setLogoFailed(true)}
             />
-          ) : (
-            <span className="brand-mark" aria-hidden="true">זעם</span>
-          )}
-          <span>
-            <strong>פלוגת ״זעם״</strong>
-            <small>גדוד 7421 · חטיבה 4</small>
-          </span>
+          ) : null}
           <span className="sr-only">— לראש העמוד</span>
         </a>
 

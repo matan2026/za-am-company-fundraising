@@ -23,7 +23,12 @@ type CampaignAssets = {
  * See CONTENT_AND_ASSETS_CHECKLIST.md for exact filenames and dimensions.
  */
 export const campaignAssets: CampaignAssets = {
-  unitEmblem: null,
+  unitEmblem: {
+    src: "/images/logo/zaam-logo.png",
+    alt: "לוגו פלוגת זעם",
+    width: 566,
+    height: 441,
+  },
   videoPoster: {
     src: "/images/video-poster.webp",
     alt: "ניצן לוי בראיון חדשות הבוקר על פעילות הפלוגה",
