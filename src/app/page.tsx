@@ -8,7 +8,6 @@ import { Gallery } from "@/components/Gallery";
 import { Header } from "@/components/Header";
 import { MobileDonationBar } from "@/components/MobileDonationBar";
 import { needIcons, type NeedIconName } from "@/components/NeedIcons";
-import { PaymentEmbed } from "@/components/PaymentEmbed";
 import { CampaignProgress } from "@/components/Progress";
 import { SectionContainer } from "@/components/SectionContainer";
 import { TransparencySection } from "@/components/TransparencySection";
@@ -388,16 +387,6 @@ export default function Home() {
             >
               מעבר לתרומה מאובטחת
             </DonationLink>
-            <div className="payment-stage" aria-labelledby="payment-stage-title">
-              <div className="payment-stage-heading">
-                <span className="payment-stage-lock" aria-hidden="true">✓</span>
-                <div>
-                  <h3 id="payment-stage-title">תרומה מאובטחת באמצעות Grow</h3>
-                  <p>התרומה מתבצעת באמצעות עמוד סליקה מאובטח של Grow.</p>
-                </div>
-              </div>
-              <PaymentEmbed />
-            </div>
             {nonprofitConfigured ? (
               <p className="nonprofit-details">
                 {campaign.nonprofitName} · מספר גוף: <bdi>{campaign.nonprofitNumber}</bdi>

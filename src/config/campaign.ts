@@ -56,8 +56,6 @@ export const campaign = {
   donationUrl:
     process.env.NEXT_PUBLIC_DONATION_URL?.trim() || OFFICIAL_DONATION_URL,
   donationAmountParam: "",
-  // Grow restricts frame-ancestors to grow.website, so Vercel cannot embed it.
-  paymentEmbeddingAllowed: false,
   videoFile: "/videos/za-am-hero-video-v2.mp4",
   videoPoster: "/images/video-poster.webp",
   contactPhone: process.env.NEXT_PUBLIC_CONTACT_PHONE?.trim() || "",

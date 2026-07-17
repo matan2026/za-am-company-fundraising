@@ -1233,102 +1233,6 @@ blockquote {
   font-size: 0.82rem;
 }
 
-.payment-embed-shell,
-.payment-fallback {
-  width: min(100%, 760px);
-  margin: 46px auto 0;
-}
-
-.payment-embed-shell {
-  position: relative;
-  min-height: 850px;
-  overflow: hidden;
-  border-radius: 10px;
-  background: var(--sand-light);
-}
-
-.payment-frame {
-  display: block;
-  width: 100%;
-  min-height: 850px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--white);
-  transition: opacity 180ms ease;
-}
-
-.payment-frame.is-loading {
-  opacity: 0;
-}
-
-.payment-loading {
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 16px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  color: var(--olive-deep);
-}
-
-.payment-loading p {
-  margin: 0;
-  font-weight: 600;
-}
-
-.payment-spinner {
-  width: 42px;
-  height: 42px;
-  border: 4px solid rgb(89 98 74 / 20%);
-  border-top-color: var(--olive);
-  border-radius: 50%;
-  animation: payment-spin 900ms linear infinite;
-}
-
-.payment-fallback {
-  display: flex;
-  min-height: 280px;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 20px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--sand-light);
-  padding: 38px;
-  box-shadow: 0 18px 45px rgb(35 46 36 / 8%);
-}
-
-.payment-fallback p {
-  margin: 0;
-  color: var(--olive-deep);
-  font-size: 1.08rem;
-  font-weight: 600;
-}
-
-.payment-lock {
-  display: grid;
-  width: 54px;
-  height: 54px;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--olive-deep);
-  color: var(--white);
-  font-family: var(--font-heading), sans-serif;
-  font-size: 1.25rem;
-  font-weight: 800;
-}
-
-@keyframes payment-spin {
-  to {
-    rotate: 360deg;
-  }
-}
-
 .closing-section {
   background: var(--sand-light);
 }
@@ -2087,25 +1991,6 @@ blockquote {
     white-space: nowrap;
   }
 
-  .payment-embed-shell,
-  .payment-frame {
-    min-height: 950px;
-  }
-
-  .payment-embed-shell,
-  .payment-fallback {
-    margin-bottom: calc(92px + env(safe-area-inset-bottom));
-  }
-
-  .payment-fallback {
-    min-height: 320px;
-    padding: 32px 20px;
-  }
-
-  .payment-fallback .button {
-    width: 100%;
-  }
-
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 28px;
@@ -2522,8 +2407,7 @@ summary {
 }
 
 .video-card,
-.video-card iframe,
-.payment-frame {
+.video-card iframe {
   max-width: 100%;
 }
 
@@ -2579,8 +2463,7 @@ summary {
 .video-caption .button,
 .donation-inner > .button,
 .closing-inner > .button,
-.urgency .button,
-.payment-fallback .button {
+.urgency .button {
   width: 100%;
 }
 
@@ -3169,103 +3052,6 @@ summary {
   box-shadow: 0 15px 32px rgb(112 36 30 / 24%);
 }
 
-.payment-stage {
-  width: 100%;
-  max-width: 760px;
-  margin: 46px auto 0;
-  border: 1px solid #d7ccba;
-  border-radius: 16px;
-  background: #f4ecde;
-  padding: 24px 18px 18px;
-  text-align: right;
-  box-shadow: 0 18px 44px rgb(40 47 39 / 8%);
-}
-
-.payment-stage-heading {
-  display: grid;
-  grid-template-columns: 46px minmax(0, 1fr);
-  gap: 14px;
-  align-items: start;
-  margin-bottom: 22px;
-}
-
-.payment-stage-lock {
-  display: grid;
-  width: 44px;
-  height: 44px;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--olive-deep);
-  color: var(--white);
-  font-family: var(--font-heading), sans-serif;
-  font-size: 20px;
-  font-weight: 800;
-}
-
-.payment-stage-heading h3 {
-  margin: 0;
-  color: var(--charcoal);
-  font-size: 23px;
-  line-height: 1.3;
-}
-
-.payment-stage-heading p {
-  margin: 7px 0 0;
-  color: #595f56;
-  font-size: 16px;
-  line-height: 1.65;
-}
-
-.payment-embed-shell,
-.payment-fallback {
-  width: 100%;
-  margin-bottom: 0;
-}
-
-.payment-stage .payment-embed-shell,
-.payment-stage .payment-fallback {
-  margin: 0;
-}
-
-.payment-stage .payment-fallback {
-  min-height: 0;
-  gap: 22px;
-  border-color: #d8cfbf;
-  border-radius: 12px;
-  background: #fffdf9;
-  padding: 24px 20px;
-  box-shadow: none;
-}
-
-.payment-fallback-copy {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.payment-stage .payment-fallback p {
-  max-width: 34ch;
-  color: var(--charcoal);
-  font-size: 17px;
-  line-height: 1.6;
-  text-align: right;
-}
-
-.payment-stage .payment-fallback .payment-lock {
-  width: 46px;
-  height: 46px;
-  flex: 0 0 46px;
-  background: #e9dfcc;
-  color: var(--olive-deep);
-}
-
-.payment-stage .payment-fallback .button {
-  width: 100%;
-  min-height: 56px;
-  margin: 0;
-  font-size: 17px;
-}
-
 .closing-section {
   background: #f2eadc;
   padding-block: 64px;
@@ -3750,43 +3536,6 @@ summary {
     width: min(100%, 420px);
   }
 
-  .payment-stage {
-    margin-top: 54px;
-    padding: 30px;
-  }
-
-  .payment-stage-heading {
-    grid-template-columns: 54px minmax(0, 1fr);
-    gap: 18px;
-    margin-bottom: 26px;
-  }
-
-  .payment-stage-lock {
-    width: 52px;
-    height: 52px;
-  }
-
-  .payment-stage-heading h3 {
-    font-size: 27px;
-  }
-
-  .payment-stage-heading p {
-    font-size: 17px;
-  }
-
-  .payment-stage .payment-fallback {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 28px;
-    align-items: center;
-    padding: 28px;
-  }
-
-  .payment-stage .payment-fallback .button {
-    width: auto;
-    min-width: 210px;
-  }
-
   .needs-section .section-heading {
     margin-bottom: 56px;
   }
@@ -3996,8 +3745,7 @@ summary {
   .video-caption .button,
   .donation-inner > .button,
   .closing-inner > .button,
-  .urgency .button,
-  .payment-fallback .button {
+  .urgency .button {
     width: auto;
   }
 
@@ -4467,8 +4215,6 @@ body {
 
 .memorial-inner,
 .need-card,
-.payment-stage,
-.payment-fallback,
 .amount-option {
   border: 1px solid var(--border);
   border-radius: var(--card-radius);
@@ -4543,16 +4289,6 @@ body {
   border-color: var(--olive-deep);
   background: #eee7da;
   box-shadow: inset 0 0 0 1px var(--olive-deep);
-}
-
-.payment-stage {
-  background: var(--white);
-  box-shadow: 0 10px 26px rgb(21 32 25 / 7%);
-}
-
-.payment-stage .payment-fallback {
-  background: var(--paper);
-  box-shadow: none;
 }
 
 .closing-inner h2 {
@@ -4710,8 +4446,7 @@ h2,
 }
 
 h3,
-.need-card h3,
-.payment-stage h3 {
+.need-card h3 {
   font-size: 22px;
   line-height: 1.35;
   font-weight: 700;
@@ -4789,9 +4524,7 @@ main.legal-page .legal-updated {
 .trust-line,
 .progress-target-card .campaign-progress-support,
 .transparency-secure-message p,
-.transparency-allocation-note,
-.payment-fallback p,
-.payment-stage-heading p {
+.transparency-allocation-note {
   font-size: 17px;
   line-height: 1.65;
 }
@@ -4804,7 +4537,6 @@ main.legal-page .legal-updated {
 .donation-section .button,
 .closing-actions .button,
 .urgency .button,
-.payment-fallback .button,
 .transparency-target-actions .button,
 .site-footer .button {
   min-height: 54px;
@@ -4874,7 +4606,6 @@ main.legal-page .legal-updated {
 }
 
 .transparency-card,
-.payment-stage,
 .memorial-inner {
   padding: 28px;
 }
@@ -4940,7 +4671,6 @@ main.legal-page .legal-updated {
 
   .need-card,
   .transparency-card,
-  .payment-stage,
   .memorial-inner {
     padding: 22px;
   }
@@ -5027,8 +4757,7 @@ main.legal-page .legal-updated {
   }
 
   h3,
-  .need-card h3,
-  .payment-stage h3 {
+  .need-card h3 {
     font-size: 26px;
     line-height: 1.3;
   }
@@ -5090,9 +4819,7 @@ main.legal-page .legal-updated {
   .trust-line,
   .progress-target-card .campaign-progress-support,
   .transparency-secure-message p,
-  .transparency-allocation-note,
-  .payment-fallback p,
-  .payment-stage-heading p {
+  .transparency-allocation-note {
     font-size: 18px;
   }
 
@@ -5104,7 +4831,6 @@ main.legal-page .legal-updated {
   .donation-section .button,
   .closing-actions .button,
   .urgency .button,
-  .payment-fallback .button,
   .transparency-target-actions .button,
   .site-footer .button,
   .desktop-nav .button {
@@ -5146,7 +4872,6 @@ main.legal-page .legal-updated {
   }
 
   .transparency-card,
-  .payment-stage,
   .memorial-inner {
     padding: 36px;
   }
@@ -5516,8 +5241,6 @@ main.legal-page .legal-updated {
 
   .donation-inner,
   .amount-grid,
-  .payment-stage,
-  .payment-fallback,
   .closing-inner,
   .faq-grid,
   .faq-list {
@@ -5527,8 +5250,6 @@ main.legal-page .legal-updated {
   }
 
   .donation-inner,
-  .payment-stage,
-  .payment-fallback,
   .closing-inner {
     text-align: center;
     align-items: center;
@@ -5547,23 +5268,16 @@ main.legal-page .legal-updated {
   }
 
   .donation-primary-cta,
-  .payment-fallback .button,
   .closing-actions .button {
     width: 100%;
     justify-content: center;
   }
 
-  .payment-stage-heading,
-  .payment-fallback-copy,
   .closing-actions {
     width: 100%;
     align-items: center;
     justify-content: center;
     text-align: center;
-  }
-
-  .payment-stage-heading {
-    flex-direction: column;
   }
 
   .faq-grid {
@@ -5777,8 +5491,7 @@ main.legal-page .legal-updated {
   }
 
   .need-card,
-  .transparency-card,
-  .payment-stage {
+  .transparency-card {
     padding: 22px;
   }
 
@@ -6667,8 +6380,7 @@ main.legal-page .legal-updated {
   .memorial .memorial-image,
   .gallery-grid,
   .faq-list,
-  .payment-stage,
-  .payment-fallback {
+  .faq-list {
     width: 100%;
     margin-inline: auto;
   }
@@ -6861,14 +6573,11 @@ main.legal-page .legal-updated {
   }
 
   .donation-primary-cta,
-  .payment-fallback .button,
   .closing-actions .button {
     width: 100%;
     justify-content: center;
   }
 
-  .payment-stage-heading,
-  .payment-fallback-copy,
   .closing-actions {
     width: 100%;
     align-items: center;
@@ -7228,8 +6937,7 @@ main.legal-page .legal-updated {
   }
 
   .need-card h3,
-  .transparency-area h3,
-  .payment-stage-heading h3 {
+  .transparency-area h3 {
     font-size: clamp(24px, 2vw, 26px);
   }
 
@@ -7670,6 +7378,17 @@ main.legal-page .legal-updated {
 
 @media (max-width: 767px) {
   .transparency-section {
+    padding-bottom: 36px;
+  }
+}
+
+/* The removed payment panel no longer needs reserved vertical space. */
+.donation-section {
+  padding-bottom: 56px;
+}
+
+@media (max-width: 767px) {
+  .donation-section {
     padding-bottom: 36px;
   }
 }
