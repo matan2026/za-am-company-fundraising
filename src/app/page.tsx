@@ -7,6 +7,7 @@ import { Faq } from "@/components/Faq";
 import { Gallery } from "@/components/Gallery";
 import { Header } from "@/components/Header";
 import { MobileDonationBar } from "@/components/MobileDonationBar";
+import { needIcons, type NeedIconName } from "@/components/NeedIcons";
 import { PaymentEmbed } from "@/components/PaymentEmbed";
 import { Progress } from "@/components/Progress";
 import { SectionContainer } from "@/components/SectionContainer";
@@ -21,7 +22,12 @@ import {
 import { existingAsset, existingAssets } from "@/lib/public-assets";
 import { siteUrl } from "@/config/site";
 
-const needs = [
+const needs: Array<{
+  icon: NeedIconName;
+  title: string;
+  text: string[];
+  highlight: string;
+}> = [
   {
     icon: "protection",
     title: "מיגון וציוד אישי",
@@ -318,19 +324,7 @@ export default function Home() {
             </div>
             <div className="needs-grid">
               {needs.map((need) => (
-                <article className="need-card" key={need.title}>
-                  <span className={`need-icon need-card-icon need-icon-${need.icon}`} aria-hidden="true">
-                    <span className="need-icon-glyph" />
-                  </span>
-                  <h3 className="need-card-title">{need.title}</h3>
-                  <div className="need-card-copy need-card-body">
-                    {need.text.map((paragraph) => (
-                      <p key={paragraph}>{paragraph}</p>
-                    ))}
-                  </div>
-                  <div className="need-card-divider" aria-hidden="true" />
-                  <strong className="need-card-highlight">{need.highlight}</strong>
-                </article>
+                <NeedCard key={need.title} {...need} />
               ))}
             </div>
           </SectionContainer>
@@ -484,5 +478,25 @@ export default function Home() {
       </footer>
       <MobileDonationBar />
     </>
+  );
+}
+
+function NeedCard({ icon, title, text, highlight }: (typeof needs)[number]) {
+  const Icon = needIcons[icon];
+
+  return (
+    <article className="need-card">
+      <span className="need-card-icon" aria-hidden="true">
+        <Icon />
+      </span>
+      <h3 className="need-card-title">{title}</h3>
+      <div className="need-card-copy need-card-body">
+        {text.map((paragraph) => (
+          <p key={paragraph}>{paragraph}</p>
+        ))}
+      </div>
+      <div className="need-card-divider" aria-hidden="true" />
+      <strong className="need-card-highlight">{highlight}</strong>
+    </article>
   );
 }
