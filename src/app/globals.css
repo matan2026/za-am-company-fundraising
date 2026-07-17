@@ -7724,3 +7724,22 @@ main.legal-page .legal-updated {
     line-height: 1.75;
   }
 }
+
+/* Align the video card with the H1, not with the campaign label above it. */
+@media (min-width: 1024px) {
+  .hero-grid {
+    --hero-label-to-title-offset: 42px;
+  }
+
+  .hero-media {
+    align-self: start;
+    margin-top: var(--hero-label-to-title-offset);
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-media {
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
