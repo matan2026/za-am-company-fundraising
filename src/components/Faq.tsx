@@ -1,4 +1,9 @@
-import { campaign } from "@/config/campaign";
+import { campaign, isConfigured } from "@/config/campaign";
+
+const taxDeductionVerified =
+  campaign.taxDeductible &&
+  isConfigured(campaign.nonprofitName) &&
+  isConfigured(campaign.nonprofitNumber);
 
 const faqs = [
   {
@@ -17,7 +22,7 @@ const faqs = [
   },
   {
     question: "האם התרומה מוכרת לצורכי מס?",
-    answer: campaign.taxDeductible
+    answer: taxDeductionVerified
       ? "כן. התרומה מוכרת לצורכי מס בהתאם לסעיף 46, באמצעות הגוף המפעיל את הקמפיין."
       : "פרטי ההכרה לצורכי מס יעודכנו בהתאם לגוף המפעיל את הקמפיין.",
   },

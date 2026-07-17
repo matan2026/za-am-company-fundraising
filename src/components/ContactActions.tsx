@@ -3,7 +3,13 @@
 import { campaign, isConfigured } from "@/config/campaign";
 import { trackEvent } from "@/lib/analytics";
 
-export function ContactActions() {
+export function ContactActions({
+  showFloating = true,
+  className = "",
+}: {
+  showFloating?: boolean;
+  className?: string;
+} = {}) {
   const hasPhone = isConfigured(campaign.contactPhone);
   const hasWhatsapp = isConfigured(campaign.contactWhatsapp);
   const whatsappMessage = encodeURIComponent(
@@ -14,7 +20,7 @@ export function ContactActions() {
 
   return (
     <>
-      <div className="contact-actions">
+      <div className={`contact-actions ${className}`.trim()}>
         {hasPhone ? (
           <a href={`tel:${campaign.contactPhone}`} onClick={() => trackEvent("phone_click")}>
             טלפון: <bdi>{campaign.contactPhone}</bdi>
@@ -31,7 +37,7 @@ export function ContactActions() {
           </a>
         ) : null}
       </div>
-      {hasWhatsapp ? (
+      {showFloating && hasWhatsapp ? (
         <a
           className="whatsapp-float"
           href={`https://wa.me/${campaign.contactWhatsapp}?text=${whatsappMessage}`}

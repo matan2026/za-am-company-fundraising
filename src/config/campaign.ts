@@ -16,7 +16,27 @@ export const campaign = {
   contactWhatsapp: "",
   nonprofitName: "",
   nonprofitNumber: "",
+  // Set to true only after the operating nonprofit confirms Section 46 eligibility.
   taxDeductible: false,
+  transparency: {
+    title: "שקיפות לפני הכול",
+    fundingStatement:
+      "כספי התרומות מיועדים לחיזוק הפלוגה בשלושה תחומים מרכזיים: ציוד ומיגון אישי, חוסן ולכידות פלוגתית ותמיכה לוגיסטית במהלך ימי הכוננות והפעילות.",
+    allocationNote:
+      "החלוקה הסופית תיקבע בהתאם לצרכים המבצעיים, לסדרי העדיפויות ולסכום שיגויס בפועל.",
+    fundingAreas: [
+      "ציוד ומיגון אישי",
+      "חוסן ולכידות פלוגתית",
+      "תמיכה לוגיסטית",
+    ],
+    allocationStatus: "הסכום ייקבע בהתאם לצורך",
+    paymentProvider: "Grow",
+    securePaymentMessage:
+      "התרומה מתבצעת באמצעות עמוד סליקה מאובטח.",
+    contactHeading: "יש לכם שאלות על הקמפיין?",
+    contactText:
+      "צוות הקמפיין זמין להשיב על שאלות בנוגע ליעד הגיוס, לשימוש בכספים ולדרכי התרומה.",
+  },
 } as const;
 
 export function isConfigured(value: string, placeholderPrefix = "REPLACE_WITH_") {

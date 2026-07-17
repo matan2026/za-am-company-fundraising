@@ -8,6 +8,7 @@ import { Header } from "@/components/Header";
 import { MobileDonationBar } from "@/components/MobileDonationBar";
 import { PaymentEmbed } from "@/components/PaymentEmbed";
 import { Progress } from "@/components/Progress";
+import { TransparencySection } from "@/components/TransparencySection";
 import { VideoCard } from "@/components/VideoCard";
 import { campaignAssets, type ApprovedImageAsset } from "@/config/assets";
 import {
@@ -324,33 +325,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section budget-section" aria-labelledby="budget-title">
-          <div className="container budget-grid">
-            <div>
-              <p className="eyebrow eyebrow-dark">שקיפות ואחריות</p>
-              <h2 id="budget-title">היעד שלנו: {formatIls(campaign.targetAmount)}</h2>
-              <p className="section-intro align-right">
-                הסכום שיגויס ישמש לחיזוק הפלוגה בשלושת התחומים שהוגדרו: ציוד
-                ומיגון, חוסן ולכידות ותמיכה לוגיסטית.
-              </p>
-              <p className="budget-note">
-                החלוקה הסופית תיקבע בהתאם לצרכים המבצעיים ולסכום שיגויס בפועל.
-              </p>
-              <DonationLink className="button">עזרו לנו להגיע ליעד</DonationLink>
-            </div>
-            <div className="budget-list" aria-label="חלוקת תקציב מתוכננת">
-              {["מיגון וציוד אישי", "חוסן ולכידות פלוגתית", "תמיכה לוגיסטית"].map(
-                (item, index) => (
-                  <div className="budget-row" key={item}>
-                    <span>0{index + 1}</span>
-                    <strong>{item}</strong>
-                    <em>סכום יעודכן</em>
-                  </div>
-                ),
-              )}
-            </div>
-          </div>
-        </section>
+        <TransparencySection />
 
         {galleryImages.length ? (
           <section className="section gallery-section" aria-labelledby="gallery-title">
