@@ -63,10 +63,10 @@ export const campaign = {
     process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.trim() || "",
   contactWhatsappMessage:
     "היי, הגעתי דרך דף הגיוס של פלוגת זעם ואשמח לקבל פרטים נוספים.",
-  nonprofitName: "",
-  nonprofitNumber: "",
-  // Set to true only after the operating nonprofit confirms Section 46 eligibility.
-  taxDeductible: false,
+  nonprofitName: "עמותת חסדי ערן",
+  nonprofitNumber: "580502086",
+  // Verified Section 46 eligibility for the operating nonprofit through 2026-12-31.
+  taxDeductible: true,
   transparency: {
     title: "שקיפות לפני הכול",
     fundingStatement:
