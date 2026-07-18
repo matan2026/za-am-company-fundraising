@@ -7353,6 +7353,26 @@ main.legal-page .legal-updated {
   .transparency-section {
     padding-bottom: 36px;
   }
+
+  .transparency-card,
+  .transparency-card .transparency-target-explanation,
+  .transparency-card .transparency-secure-message,
+  .transparency-card .transparency-facts,
+  .transparency-card .campaign-progress-support {
+    text-align: center;
+  }
+
+  .transparency-card .transparency-goal,
+  .transparency-card .progress-target-card .campaign-progress-head {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .transparency-card .transparency-facts > div {
+    justify-items: center;
+    text-align: center;
+  }
 }
 
 /* The removed payment panel no longer needs reserved vertical space. */
