@@ -7373,6 +7373,10 @@ main.legal-page .legal-updated {
     justify-items: center;
     text-align: center;
   }
+
+  .transparency-allocation-note {
+    text-align: center;
+  }
 }
 
 /* The removed payment panel no longer needs reserved vertical space. */
