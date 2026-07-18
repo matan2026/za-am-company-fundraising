@@ -7092,6 +7092,12 @@ main.legal-page .legal-updated {
   white-space: normal;
 }
 
+@media (max-width: 767px) {
+  .story-title {
+    text-align: center;
+  }
+}
+
 .story-quote-text {
   display: flex;
   align-items: center;
