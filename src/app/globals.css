@@ -743,25 +743,6 @@ h3 {
   font-weight: 600;
 }
 
-.transcript {
-  grid-column: 1 / -1;
-  border-top: 1px solid #cfc6b6;
-  padding-top: 14px;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.transcript summary {
-  width: fit-content;
-  cursor: pointer;
-  font-family: var(--font-heading), sans-serif;
-  font-weight: 600;
-}
-
-.transcript p {
-  margin: 12px 0 0;
-}
-
 .story-section {
   background: var(--paper);
 }
@@ -1883,10 +1864,6 @@ blockquote {
     width: 100%;
   }
 
-  .transcript {
-    text-align: right;
-  }
-
   blockquote {
     margin-top: 32px;
     padding: 22px 20px;
@@ -2148,7 +2125,6 @@ summary {
 .nonprofit-details,
 .progress-head,
 .progress-meta,
-.transcript,
 .need-card p,
 .transparency-area p,
 .transparency-goal span,
@@ -6400,15 +6376,6 @@ main.legal-page .legal-updated {
   .video-caption .button {
     width: 100%;
     justify-content: center;
-  }
-
-  .transcript summary {
-    display: inline-flex;
-    min-height: 48px;
-    align-items: center;
-    justify-content: center;
-    padding-block: 10px;
-    font-size: 17px;
   }
 
   .section-heading,

@@ -8,10 +8,9 @@ import { trackEvent } from "@/lib/analytics";
 
 type VideoCardProps = {
   poster: ApprovedImageAsset | null;
-  descriptionId?: string;
 };
 
-export function VideoCard({ poster, descriptionId }: VideoCardProps) {
+export function VideoCard({ poster }: VideoCardProps) {
   const [activated, setActivated] = useState(false);
   const [failed, setFailed] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -52,7 +51,6 @@ export function VideoCard({ poster, descriptionId }: VideoCardProps) {
           poster={poster?.src ?? campaign.videoPoster}
           title="סרטון פלוגת זעם"
           aria-label="סרטון פלוגת זעם"
-          aria-describedby={descriptionId}
           onError={() => setFailed(true)}
           onPlay={() => {
             if (!hasTrackedPlay.current) {
@@ -69,7 +67,6 @@ export function VideoCard({ poster, descriptionId }: VideoCardProps) {
           className="video-poster-button"
           type="button"
           aria-label="צפו בסיפור הפלוגה — ניגון סרטון פלוגת זעם"
-          aria-describedby={descriptionId}
           onClick={() => setActivated(true)}
         >
           {poster ? (
