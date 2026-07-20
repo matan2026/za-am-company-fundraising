@@ -7163,6 +7163,32 @@ main.legal-page .legal-updated {
   }
 }
 
+@media (min-width: 1024px) {
+  .story-section .story-heading {
+    text-align: right;
+  }
+
+  .story-section .story-heading .eyebrow,
+  .story-section .story-title {
+    margin-inline-start: 0;
+    margin-inline-end: auto;
+    text-align: right;
+  }
+
+  .story-section .story-heading .eyebrow {
+    width: max-content;
+    justify-content: flex-start;
+  }
+
+  .story-section .story-intro,
+  .story-section .story-copy {
+    max-width: 78ch;
+    margin-inline-start: clamp(34px, 4.5vw, 86px);
+    margin-inline-end: auto;
+    text-align: right;
+  }
+}
+
 @media (min-width: 1440px) {
   .hero {
     padding-block: 76px 80px;
