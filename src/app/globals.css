@@ -3862,15 +3862,17 @@ summary {
   .urgency-inner {
     grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
     gap: 64px;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .urgency-heading {
     grid-column: 1;
+    align-self: start;
   }
 
   .urgency-content {
     grid-column: 2;
+    align-self: start;
   }
 
   .urgency-heading h2 {
