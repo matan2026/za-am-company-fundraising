@@ -115,7 +115,6 @@ export default function Home() {
   const heroImages = existingAssets(campaignAssets.heroImages);
   const storyImage = existingAsset(campaignAssets.storyImage);
   const galleryImages = existingAssets(campaignAssets.galleryImages);
-  const memorialImage = existingAsset(campaignAssets.memorialImage);
   const nonprofitConfigured =
     isConfigured(campaign.nonprofitName) &&
     isConfigured(campaign.nonprofitNumber);
@@ -257,44 +256,6 @@ export default function Home() {
                 <span>אנשים שונים שהפכו למשפחה אחת ולכוח לוחם אחד.</span>
               </p>
             </blockquote>
-          </SectionContainer>
-        </section>
-
-        <section className="section memorial" aria-labelledby="memorial-title">
-          <SectionContainer
-            className={`memorial-inner ${memorialImage ? "has-memorial-image" : "memorial-text-only"}`}
-          >
-            <div className="memorial-heading">
-              <h2 id="memorial-title">זוכרים את אחינו לנשק</h2>
-              <p className="memorial-lead">אנו נושאים בליבנו את זכרו של אחינו לנשק,</p>
-            </div>
-            {memorialImage ? (
-              <div className="memorial-image">
-                <Image
-                  src={memorialImage.src}
-                  alt={memorialImage.alt}
-                  width={memorialImage.width}
-                  height={memorialImage.height}
-                  sizes="(max-width: 767px) calc(100vw - 84px), (max-width: 1180px) 42vw, 470px"
-                  loading="lazy"
-                  decoding="async"
-                  style={{ objectPosition: memorialImage.objectPosition }}
-                />
-              </div>
-            ) : null}
-            <div className="memorial-body">
-              <p className="memorial-name"><strong>אוריאל אביעד סילברמן ז״ל</strong>,</p>
-              <p className="memorial-fallen">שנפל בקרבות בחאן יונס.</p>
-              <p>
-                אנו מחזקים את חברינו שנפצעו במהלך הלחימה וממשיכים בתהליך
-                השיקום.
-              </p>
-              <p>
-                למרות הכאב, אנחנו ממשיכים להיות במקום שבו צריכים אותנו – מתוך
-                תחושת אחריות עמוקה לביטחון המדינה ואזרחיה.
-              </p>
-              <p className="memorial-closing">יהי זכרו ברוך.</p>
-            </div>
           </SectionContainer>
         </section>
 
