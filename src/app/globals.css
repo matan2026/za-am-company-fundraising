@@ -7023,7 +7023,9 @@ main.legal-page .legal-updated {
   }
 
   .gallery-grid:not(.gallery-grid-balanced-mobile) .gallery-item-wide img {
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .faq-grid {
