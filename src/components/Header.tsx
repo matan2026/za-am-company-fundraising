@@ -7,7 +7,7 @@ import { SectionContainer } from "@/components/SectionContainer";
 import type { ApprovedImageAsset } from "@/config/assets";
 
 const navItems = [
-  { href: "#story", label: "סיפור הפלוגה" },
+  { href: "#our-story", label: "סיפור הפלוגה" },
   { href: "#needs", label: "לאן התרומה הולכת" },
   { href: "#faq", label: "שאלות נפוצות" },
 ];

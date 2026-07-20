@@ -148,7 +148,7 @@ export default function Home() {
                 <DonationLink className="button button-large">
                   אני רוצה לחזק את הלוחמים
                 </DonationLink>
-                <a className="text-link" href="#hero-video">
+                <a className="text-link" href="#our-story">
                   צפו בסיפור שלנו <span aria-hidden="true">←</span>
                 </a>
               </div>
@@ -212,7 +212,7 @@ export default function Home() {
           </SectionContainer>
         </section>
 
-        <section className="section story-section" id="story" aria-labelledby="story-title">
+        <section className="section story-section" id="our-story" aria-labelledby="story-title">
           <SectionContainer className={`story-grid ${storyImage ? "has-story-image" : ""}`}>
             <div className="story-heading">
               <p className="eyebrow eyebrow-dark">הסיפור שלנו</p>

@@ -35,6 +35,10 @@ html {
   scroll-padding-top: 86px;
 }
 
+#our-story {
+  scroll-margin-top: 100px;
+}
+
 html,
 body,
 input,
