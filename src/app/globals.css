@@ -3972,7 +3972,6 @@ body {
 }
 
 .story-section,
-.needs-section,
 .gallery-section,
 .faq-section {
   background: var(--white);
@@ -7397,6 +7396,16 @@ main.legal-page .legal-updated {
   font-size: clamp(18px, 1.45vw, 20px);
   font-weight: 600;
   line-height: 1.6;
+}
+
+/* Keep the story-to-needs transition distinct after the memorial section removal. */
+.needs-section {
+  background: var(--sand-light);
+  padding-block: clamp(84px, 9vw, 126px);
+}
+
+.needs-section + .transparency-section {
+  border-top: clamp(16px, 2vw, 28px) solid var(--white);
 }
 
 /* The contact block was intentionally removed; keep this transition compact. */
