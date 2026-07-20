@@ -7088,8 +7088,13 @@ main.legal-page .legal-updated {
 .story-title {
   width: 100%;
   max-width: none;
+  margin-inline: auto;
   text-align: center;
   white-space: normal;
+}
+
+.story-heading .story-title {
+  max-width: none;
 }
 
 @media (max-width: 767px) {
