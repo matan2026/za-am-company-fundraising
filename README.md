@@ -25,7 +25,7 @@ The `/thank-you` page is a direct-accessible, noindex route for a verified payme
 
 If Grow supports a verified post-payment success redirect, the campaign manager must configure this exact production URL in Grow:
 
-`https://za-am-company-fundraising.vercel.app/thank-you`
+`https://plogat-zaam.vercel.app/thank-you`
 
 Only configure this setting after confirming it is supported by Grow. No card or payment details are collected, stored, or handled by this site.
 
