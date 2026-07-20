@@ -7195,6 +7195,22 @@ main.legal-page .legal-updated {
   }
 }
 
+@media (max-width: 767px) {
+  .story-section .story-heading,
+  .story-section .story-intro,
+  .story-section .story-copy,
+  .story-section .story-copy p {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .story-section .story-copy {
+    justify-self: center;
+  }
+}
+
 @media (min-width: 1440px) {
   .hero {
     padding-block: 76px 80px;
