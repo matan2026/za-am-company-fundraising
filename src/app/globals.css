@@ -14,6 +14,7 @@
   --olive-deep: #202a23;
   --sand: #d7c5a5;
   --sand-light: #f4efe5;
+  --sage-light: #edf4f0;
   --paper: #faf7f0;
   --white: #ffffff;
   --red: #b74237;
@@ -836,7 +837,7 @@ blockquote {
 }
 
 .needs-section {
-  background: var(--white);
+  background: var(--sand-light);
 }
 
 .section-heading {
@@ -890,7 +891,7 @@ blockquote {
 }
 
 .transparency-section {
-  background: var(--sand-light);
+  background: var(--sage-light);
 }
 
 .transparency-heading {
@@ -3977,9 +3978,12 @@ body {
   background: var(--white);
 }
 
-.memorial,
-.transparency-section {
+.memorial {
   background: var(--sand-light);
+}
+
+.transparency-section {
+  background: var(--sage-light);
 }
 
 .donation-section {
@@ -7398,24 +7402,35 @@ main.legal-page .legal-updated {
   line-height: 1.6;
 }
 
-/* Keep the story-to-needs transition distinct after the memorial section removal. */
+/* Keep the middle-page rhythm distinct after the memorial section removal. */
 .needs-section {
   background: var(--sand-light);
-  padding-block: clamp(84px, 9vw, 126px);
+  padding-block: clamp(96px, 8vw, 112px);
 }
 
-.needs-section + .transparency-section {
-  border-top: clamp(16px, 2vw, 28px) solid var(--white);
+.needs-section .need-card {
+  border-color: rgb(30 36 32 / 14%);
+  background: #fbfaf7;
+  box-shadow: 0 12px 30px rgb(35 46 36 / 7%);
 }
 
-/* The contact block was intentionally removed; keep this transition compact. */
 .transparency-section {
-  padding-bottom: 56px;
+  border-top: 1px solid rgb(32 42 35 / 14%);
+  background: var(--sage-light);
+  padding-block: clamp(96px, 8vw, 112px);
+}
+
+.transparency-card {
+  box-shadow: 0 24px 54px rgb(21 32 25 / 18%);
 }
 
 @media (max-width: 767px) {
+  .needs-section {
+    padding-block: 68px;
+  }
+
   .transparency-section {
-    padding-bottom: 36px;
+    padding-block: 68px 56px;
   }
 
   .transparency-card,
