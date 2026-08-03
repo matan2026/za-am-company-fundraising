@@ -66,7 +66,7 @@ export function VideoCard({ poster }: VideoCardProps) {
         <button
           className="video-poster-button"
           type="button"
-          aria-label="צפו בסיפור הפלוגה — ניגון סרטון פלוגת זעם"
+          aria-label="צפו בסיפור הפלוגה - ניגון סרטון פלוגת זעם"
           onClick={() => setActivated(true)}
         >
           {poster ? (

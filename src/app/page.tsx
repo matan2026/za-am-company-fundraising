@@ -25,34 +25,25 @@ const needs: Array<{
   icon: NeedIconName;
   title: string;
   text: string[];
-  highlight: string;
 }> = [
   {
     icon: "protection",
-    title: "מיגון וציוד אישי",
-    text: [
-      "רכישת מדים טקטיים מעכבי בעירה, קסדות טקטיות מתקדמות וציוד אישי נוסף המותאם לפעילות המבצעית.",
-      "זה אינו ציוד מותרות. מדובר בציוד שמגן על הלוחמים, משפר את יכולת התפקוד בשטח ועשוי להציל חיים.",
-    ],
-    highlight: "ציוד טוב יותר מאפשר לנו לפעול בביטחון רב יותר.",
+    title: "ציוד אישי",
+    text: ["קסדות ומדים טקטיים וציוד אישי המותאם באופן אישי לפעילות מבצעית."],
   },
   {
     icon: "resilience",
     title: "חוסן ולכידות פלוגתית",
     text: [
-      "קיום ערבי מחלקה ופלוגה שמאפשרים לנו לעצור לרגע, לעבד את התקופה המורכבת, לחזק את החיבור בין הלוחמים ולאגור כוחות לקראת המשימה הבאה.",
-      "הלכידות שלנו היא הדבק שמחזיק את הפלוגה ואחד מסודות הכוח שלנו בשדה הקרב.",
+      "קיום ערבי מחלקה ופלוגה שמאפשרים לנו לעצור רגע, לעבד את התקופה המורכבת, לחזק את החיבור בין הלוחמים ולאגור כוחות למשימה הבאה. הלכידות היא הדבק שמחזיק את הפלוגה ואחד מסודות הכוח שלנו.",
     ],
-    highlight: "כוח לוחם מתחיל באנשים שסומכים זה על זה.",
   },
   {
-    icon: "logistics",
-    title: "תמיכה לוגיסטית בימי כוננות",
+    icon: "homeFront",
+    title: "תמיכה בעורף הפלוגתי",
     text: [
-      "סיוע ברכישת ציוד עזר, מזון, שתייה, מוצרי נוחות וציוד נוסף לימי הכוננות הארוכים בתוך הכלים המשוריינים ובשטח.",
-      "ימי הכוננות מציבים בפני הלוחמים אתגרים פיזיים ומנטליים מורכבים, והתמיכה הזו מאפשרת להם לשמור על תפקוד וריכוז לאורך זמן.",
+      "המשפחה, הילדים והקריירה מהווים את הבסיס שלנו, וללא תמיכתם אין אפשרות להמשיך במילואים. תמיכתכם תאפשר לנו לתמוך במשפחות ובילדי הפלוגה ולעזור ללוחמים המתמודדים עם מצוקת קריירה עקב המילואים.",
     ],
-    highlight: "גם הדברים הקטנים הופכים למשמעותיים אחרי שעות וימים בשטח.",
   },
 ];
 
@@ -61,7 +52,7 @@ function JsonLd({ videoPoster }: { videoPoster: ApprovedImageAsset | null }) {
     {
       "@type": "Organization",
       "@id": "#organization",
-      name: "פלוגת זעם — גדוד 7421, חטיבה 4",
+      name: "פלוגת זעם - גדוד 7421, חטיבה 4",
     },
     {
       "@type": "WebPage",
@@ -71,7 +62,7 @@ function JsonLd({ videoPoster }: { videoPoster: ApprovedImageAsset | null }) {
       inLanguage: "he-IL",
       about: { "@id": "#organization" },
       description:
-        "דף גיוס ציוד, חוסן ותמיכה לוגיסטית ללוחמי המילואים של פלוגת זעם.",
+        "דף גיוס לציוד אישי, חוסן ולכידות פלוגתית ותמיכה בעורף הפלוגתי של פלוגת זעם.",
     },
     {
       "@type": "BreadcrumbList",
@@ -134,13 +125,7 @@ export default function Home() {
               </h1>
               <div className="hero-lead">
                 <p>
-                  מאז 8 באוקטובר 2023 אנחנו עוזבים שוב ושוב את הבית, את העבודה
-                  ואת המשפחות ומתייצבים בכל מקום שבו מדינת ישראל זקוקה לנו.
-                </p>
-                <p>
-                  אחרי תקופה ארוכה של לחימה ומשימות מבצעיות, אנחנו מבקשים את
-                  עזרתכם ברכישת ציוד מציל חיים, בחיזוק החוסן הפלוגתי ובתמיכה
-                  בלוחמים במהלך ימי הכוננות הממושכים.
+                  אחרי תקופה ארוכה של לחימה ומשימות מבצעיות בעזה, לבנון וסוריה, אנחנו מבקשים את עזרתכם בתמיכה בפלוגה, בציוד, בחיזוק החוסן הפלוגתי, בתמיכה בעורף, במשפחות ובילדי הפלוגה ובתמיכה בלוחמים במהלך ימי הלחימה הממושכים.
                 </p>
               </div>
               <div className="hero-actions">
@@ -237,7 +222,7 @@ export default function Home() {
             <div className="story-copy prose">
               <p>
                 מרימאל ושג׳עאיה, דרך הקרבות העצימים בחאן יונס, המשימות בגזרת
-                סוריה ועד לגזרת לבנון – התייצבנו בכל מקום שבו נדרשנו כדי להגן
+                סוריה ועד לגזרת לבנון - התייצבנו בכל מקום שבו נדרשנו כדי להגן
                 על מדינת ישראל ועל אזרחיה.
               </p>
               <p>
@@ -252,7 +237,7 @@ export default function Home() {
             </div>
             <blockquote className="story-quote">
               <p className="story-quote-text">
-                <span>הפלוגה שלנו היא רקמת חיים ישראלית –</span>
+                <span>הפלוגה שלנו היא רקמת חיים ישראלית -</span>
                 <span>אנשים שונים שהפכו למשפחה אחת ולכוח לוחם אחד.</span>
               </p>
             </blockquote>
@@ -262,8 +247,7 @@ export default function Home() {
         <section className="section needs-section" id="needs" aria-labelledby="needs-title">
           <SectionContainer>
             <div className="section-heading centered narrow">
-              <p className="eyebrow eyebrow-dark">למה אנחנו מגייסים?</p>
-              <h2 id="needs-title">שלושה צרכים קריטיים. מטרה אחת: לחזור הביתה בשלום</h2>
+              <p className="eyebrow eyebrow-dark" id="needs-title">למה אנחנו מגייסים?</p>
               <p className="section-intro">
                 כדי שנוכל להמשיך לבצע את המשימות שלנו בצורה הטובה והבטוחה
                 ביותר, אנו מבקשים את עזרתכם בשלושה תחומים מרכזיים.
@@ -306,7 +290,7 @@ export default function Home() {
                 להתייצב בכל פעם מחדש.
               </p>
               <p>
-                כדי שנוכל לעמוד במשימות, לשמור זה על זה ולחזור הביתה בשלום –
+                כדי שנוכל לעמוד במשימות, לשמור זה על זה ולחזור הביתה בשלום -
                 אנחנו זקוקים לשותפים.
               </p>
               <p>
@@ -418,7 +402,7 @@ export default function Home() {
   );
 }
 
-function NeedCard({ icon, title, text, highlight }: (typeof needs)[number]) {
+function NeedCard({ icon, title, text }: (typeof needs)[number]) {
   const Icon = needIcons[icon];
 
   return (
@@ -432,8 +416,6 @@ function NeedCard({ icon, title, text, highlight }: (typeof needs)[number]) {
           <p key={paragraph}>{paragraph}</p>
         ))}
       </div>
-      <div className="need-card-divider" aria-hidden="true" />
-      <strong className="need-card-highlight">{highlight}</strong>
     </article>
   );
 }

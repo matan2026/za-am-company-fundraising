@@ -5810,7 +5810,7 @@ main.legal-page .legal-updated {
   }
 }
 
-/* General campaign progress — intentionally separate from donation totals. */
+/* General campaign progress - intentionally separate from donation totals. */
 .campaign-progress-head {
   align-items: flex-end;
   margin-bottom: 12px;
@@ -7225,6 +7225,7 @@ main.legal-page .legal-updated {
   display: flex;
   min-height: 100%;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   padding: 34px 30px 30px;
   text-align: center;
@@ -7259,7 +7260,7 @@ main.legal-page .legal-updated {
   display: grid;
   width: 100%;
   max-width: 320px;
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   gap: 16px;
   margin: 0 auto;
   text-align: center;
@@ -7271,28 +7272,6 @@ main.legal-page .legal-updated {
   text-align: center;
   font-size: 18px;
   line-height: 1.8;
-}
-
-.need-card-divider {
-  width: 100%;
-  max-width: 300px;
-  height: 1px;
-  flex: 0 0 auto;
-  margin: 28px auto 22px;
-  background: #ddd8ce;
-}
-
-.need-card > .need-card-highlight {
-  width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
-  border: 0;
-  padding-top: 0;
-  color: var(--olive-deep);
-  text-align: center;
-  font-size: 17px;
-  font-weight: 700;
-  line-height: 1.6;
 }
 
 @media (hover: hover) and (pointer: fine) {

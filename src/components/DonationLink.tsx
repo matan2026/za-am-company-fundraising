@@ -43,7 +43,7 @@ export function DonationLink({
         type="button"
         className={`${className} is-disabled`}
         disabled
-        aria-label={`${ariaLabel || "תרומה"} — קישור התרומה טרם הוגדר`}
+        aria-label={`${ariaLabel || "תרומה"} - קישור התרומה טרם הוגדר`}
         title="קישור התרומה הרשמי טרם הוגדר"
       >
         {children}
@@ -75,7 +75,7 @@ export function DonationLink({
       {children}
       {href && !ariaLabel ? (
         <span className="sr-only">
-          {" "}— מעבר לעמוד התרומה המאובטח של Grow
+          {" "}- מעבר לעמוד התרומה המאובטח של Grow
         </span>
       ) : null}
     </a>

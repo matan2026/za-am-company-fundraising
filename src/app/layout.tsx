@@ -9,7 +9,7 @@ import "./globals.css";
 
 const title = "מחזקים את פלוגת \"זעם\" | גיוס ציוד וחוסן ללוחמי המילואים";
 const description =
-  "פלוגת \"זעם\" מגדוד 7421 בחטיבה 4 מגייסת 47,000 ₪ עבור ציוד מציל חיים, חוסן פלוגתי ותמיכה לוגיסטית. הצטרפו וחזקו את הלוחמים.";
+  "פלוגת \"זעם\" מגדוד 7421 בחטיבה 4 מגייסת 47,000 ₪ עבור ציוד אישי, חוסן ולכידות פלוגתית ותמיכה בעורף הפלוגתי. הצטרפו וחזקו את הלוחמים.";
 const socialImage = existingAsset(campaignAssets.socialImage);
 const unitEmblem = existingAsset(campaignAssets.unitEmblem);
 
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "פלוגת \"זעם\" צריכה אתכם איתה בקו",
     description:
-      "עזרו לנו לרכוש ציוד מציל חיים, לחזק את החוסן הפלוגתי ולתמוך בלוחמים שממשיכים להתייצב מאז אוקטובר 2023.",
+      "עזרו לנו לצייד את הלוחמים, לחזק את החוסן והלכידות הפלוגתית ולתמוך בעורף הפלוגתי.",
     locale: "he_IL",
     type: "website",
     images: socialImage
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     card: socialImage ? "summary_large_image" : "summary",
     title: "פלוגת \"זעם\" צריכה אתכם איתה בקו",
     description:
-      "עזרו לנו לרכוש ציוד מציל חיים, לחזק את החוסן הפלוגתי ולתמוך בלוחמים.",
+      "עזרו לנו לצייד את הלוחמים, לחזק את החוסן והלכידות הפלוגתית ולתמוך בעורף הפלוגתי.",
     images: socialImage ? [socialImage.src] : undefined,
   },
   icons: unitEmblem ? { icon: unitEmblem.src } : undefined,

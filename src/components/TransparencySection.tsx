@@ -76,17 +76,14 @@ export function TransparencySection() {
             aria-label="תחומי השימוש בכספי התרומות"
           >
             {campaign.transparency.fundingAreas.map((area, index) => (
-              <article className="transparency-area" key={area}>
+              <article className="transparency-area" key={area.title}>
                 <span aria-hidden="true">0{index + 1}</span>
                 <div>
-                  <h3>{area}</h3>
-                  <p>{campaign.transparency.allocationStatus}</p>
+                  <h3>{area.title}</h3>
+                  <p>{area.description}</p>
                 </div>
               </article>
             ))}
-            <p className="transparency-allocation-note">
-              {campaign.transparency.allocationNote}
-            </p>
           </div>
 
         </div>

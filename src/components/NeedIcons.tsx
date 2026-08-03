@@ -1,4 +1,4 @@
-export type NeedIconName = "protection" | "resilience" | "logistics";
+export type NeedIconName = "protection" | "resilience" | "homeFront";
 
 export function ProtectionIcon() {
   return (
@@ -65,7 +65,7 @@ export function ResilienceIcon() {
   );
 }
 
-export function LogisticsIcon() {
+export function HomeFrontIcon() {
   return (
     <svg
       viewBox="0 0 48 48"
@@ -76,17 +76,20 @@ export function LogisticsIcon() {
       aria-hidden="true"
       focusable="false"
     >
-      <rect x="8" y="13" width="32" height="26" rx="3" stroke="currentColor" strokeWidth="2.4" />
-      <path d="M8 21H40" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
       <path
-        d="M18 13V9H30V13"
+        d="M7 23.5L24 9L41 23.5V39H29V29H19V39H7V23.5Z"
         stroke="currentColor"
         strokeWidth="2.4"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path d="M24 25V33" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
-      <path d="M20 29H28" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
+      <path
+        d="M24 22.5C21.7 19.8 17.2 21.1 17.2 24.7C17.2 28.2 21.5 30.7 24 33C26.5 30.7 30.8 28.2 30.8 24.7C30.8 21.1 26.3 19.8 24 22.5Z"
+        stroke="currentColor"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
@@ -94,5 +97,5 @@ export function LogisticsIcon() {
 export const needIcons = {
   protection: ProtectionIcon,
   resilience: ResilienceIcon,
-  logistics: LogisticsIcon,
+  homeFront: HomeFrontIcon,
 } satisfies Record<NeedIconName, typeof ProtectionIcon>;

@@ -119,7 +119,7 @@ export function Header({ logo }: { logo: ApprovedImageAsset | null }) {
               loading="eager"
             />
           ) : null}
-          <span className="sr-only">— לראש העמוד</span>
+          <span className="sr-only">- לראש העמוד</span>
         </a>
 
         <nav className="desktop-nav" aria-label="ניווט ראשי">

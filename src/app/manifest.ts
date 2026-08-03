@@ -8,7 +8,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "מחזקים את פלוגת זעם",
     short_name: "פלוגת זעם",
-    description: "קמפיין גיוס ציוד, חוסן ותמיכה לוגיסטית ללוחמי המילואים.",
+    description: "קמפיין גיוס לציוד אישי, חוסן ולכידות פלוגתית ותמיכה בעורף הפלוגתי.",
     start_url: "/",
     display: "standalone",
     background_color: "#faf9f5",

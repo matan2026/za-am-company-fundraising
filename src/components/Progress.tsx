@@ -45,7 +45,7 @@ export function CampaignProgress({
         aria-valuemin={0}
         aria-valuemax={campaign.campaignProgressMaxPercent}
         aria-valuenow={progress}
-        aria-valuetext={`${progress}% — התקדמות כללית של הקמפיין`}
+        aria-valuetext={`${progress}% - התקדמות כללית של הקמפיין`}
       >
         <span style={{ width: `${progress}%` }} />
       </div>
