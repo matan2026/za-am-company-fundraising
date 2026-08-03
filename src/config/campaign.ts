@@ -49,9 +49,9 @@ export const campaign = {
   raisedAmount: 0,
   donorCount: 0,
   totalsVerified: false,
-  campaignProgressStartDate: "2026-07-17",
-  campaignProgressStartPercent: 1,
-  campaignProgressDailyIncrease: 1,
+  campaignProgressStartDate: "2026-08-03T00:00:00+03:00",
+  campaignProgressStartPercent: 5,
+  campaignProgressDaysPerIncrease: 3,
   campaignProgressMaxPercent: 100,
   donationUrl:
     process.env.NEXT_PUBLIC_DONATION_URL?.trim() || OFFICIAL_DONATION_URL,
