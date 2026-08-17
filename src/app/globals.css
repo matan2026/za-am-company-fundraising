@@ -4281,6 +4281,21 @@ body {
   color: var(--white);
 }
 
+.closing-image {
+  width: min(100%, 620px);
+  margin: 0 auto clamp(34px, 5vw, 48px);
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 14%);
+  border-radius: var(--card-radius);
+  box-shadow: 0 18px 42px rgb(0 0 0 / 24%);
+}
+
+.closing-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .closing-inner .prose {
   color: #dce2dd;
 }

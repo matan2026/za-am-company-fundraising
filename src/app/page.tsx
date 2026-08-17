@@ -325,6 +325,18 @@ export default function Home() {
 
         <section className="section closing-section" aria-labelledby="closing-title">
           <SectionContainer className="closing-inner">
+            {storyImage ? (
+              <figure className="closing-image">
+                <Image
+                  src={storyImage.src}
+                  alt={storyImage.alt}
+                  width={storyImage.width}
+                  height={storyImage.height}
+                  sizes="(max-width: 767px) calc(100vw - 40px), 620px"
+                  loading="lazy"
+                />
+              </figure>
+            ) : null}
             <h2 id="closing-title">אנחנו עושים את שלנו בחזית. עכשיו אנחנו צריכים אתכם איתנו.</h2>
             <div className="prose">
               <p>
