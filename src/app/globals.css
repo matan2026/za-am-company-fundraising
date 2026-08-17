@@ -8239,4 +8239,17 @@ html.accessibility-large-cursor summary {
     min-height: 0;
     padding: 24px 20px;
   }
+
+  .transparency-heading h2,
+  .urgency-heading h2,
+  .transparency-heading .eyebrow,
+  .urgency-heading .eyebrow {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .transparency-heading .eyebrow,
+  .urgency-heading .eyebrow {
+    justify-content: center;
+  }
 }
