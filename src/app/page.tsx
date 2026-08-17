@@ -15,7 +15,6 @@ import { VideoCard } from "@/components/VideoCard";
 import { campaignAssets, type ApprovedImageAsset } from "@/config/assets";
 import {
   campaign,
-  formatIls,
   isConfigured,
 } from "@/config/campaign";
 import { existingAsset, existingAssets } from "@/lib/public-assets";
@@ -138,7 +137,6 @@ export default function Home() {
               </div>
 
               <div className="hero-progress">
-                <p className="goal-label">יעד הגיוס: {formatIls(campaign.targetAmount)}</p>
                 <CampaignProgress />
               </div>
 
@@ -307,10 +305,12 @@ export default function Home() {
             <p className="eyebrow eyebrow-dark">כל סכום הוא שותפות</p>
             <h2 id="donation-title">מצטרפים ומחזקים את פלוגת זעם</h2>
             <p className="section-intro donation-supporting-text">
-              כל תרומה, קטנה כגדולה, מסייעת לנו לרכוש ציוד ומיגון, לחזק את חוסן
-              הלוחמים ולתת לפלוגה את המעטפת שהיא זקוקה לה.
+              סט מדים טקטיים תקני עולה 1,500 ₪. בשל אופי הלחימה של הפלוגה
+              ואירועי העבר שחוותה במהלך הלחימה, איננו מוכנים להתפשר על חיי
+              הלוחמים. לכן אנו רוכשים עבורם מדים תקניים השומרים על חייהם
+              ומותאמים לשבועות ארוכים של פעילות מבצעית.
             </p>
-            <p className="donation-grid-intro">כל סכום שתבחרו מחזק את הלוחמים ומקרב את הפלוגה ליעד.</p>
+            <p className="donation-grid-intro">בחרו את מדרגת התרומה שמתאימה לכם.</p>
             <DonationAmountSelector />
             <DonationLink
               className="button button-large donation-primary-cta"

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactActions } from "@/components/ContactActions";
 import { LegalPage } from "@/components/LegalPage";
-import { campaign, formatIls } from "@/config/campaign";
 import { formatConfiguredDate, legalConfig } from "@/config/legal";
 
 export const metadata: Metadata = {
@@ -17,7 +16,7 @@ const sections = [
   ["proper-use", "זכאות ושימוש ראוי"],
   ["donations", "תרומות"],
   ["use-of-funds", "השימוש בכספי התרומות"],
-  ["target", "יעד הגיוס"],
+  ["campaign-updates", "עדכוני הקמפיין"],
   ["content", "תוכן האתר"],
   ["media", "תמונות, סרטונים ותכני מדיה"],
   ["external-video", "תכני טלוויזיה ווידאו חיצוניים"],
@@ -128,12 +127,11 @@ export default function TermsPage() {
         </p>
       </section>
 
-      <section id="target" aria-labelledby="target-title">
-        <h2 id="target-title">5. יעד הגיוס</h2>
+      <section id="campaign-updates" aria-labelledby="campaign-updates-title">
+        <h2 id="campaign-updates-title">5. עדכוני הקמפיין</h2>
         <p>
-          יעד הגיוס המוצג באתר, העומד כעת על {formatIls(campaign.targetAmount)},
-          מייצג את מטרת הקמפיין. סכומים שגויסו, מספר תורמים וסטטוס הקמפיין
-          יוצגו רק לאחר אימותם או כאשר הם מחוברים למקור מידע אמין.
+          סכומים שגויסו, מספר תורמים וסטטוס הקמפיין יוצגו רק לאחר אימותם או
+          כאשר הם מחוברים למקור מידע אמין.
         </p>
       </section>
 

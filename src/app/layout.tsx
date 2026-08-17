@@ -9,7 +9,7 @@ import "./globals.css";
 
 const title = "מחזקים את פלוגת \"זעם\" | גיוס ציוד וחוסן ללוחמי המילואים";
 const description =
-  "פלוגת \"זעם\" מגדוד 7421 בחטיבה 4 מגייסת 47,000 ₪ עבור ציוד אישי, חוסן ולכידות פלוגתית ותמיכה בעורף הפלוגתי. הצטרפו וחזקו את הלוחמים.";
+  "פלוגת \"זעם\" מגדוד 7421 בחטיבה 4 מגייסת תמיכה עבור ציוד אישי, חוסן ולכידות פלוגתית ותמיכה בעורף הפלוגתי. הצטרפו וחזקו את הלוחמים.";
 const socialImage = existingAsset(campaignAssets.socialImage);
 const unitEmblem = existingAsset(campaignAssets.unitEmblem);
 

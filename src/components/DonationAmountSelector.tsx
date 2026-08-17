@@ -19,9 +19,11 @@ export function DonationAmountSelector() {
             className={`amount-option${option.amount === null ? " amount-other" : ""}`}
             amount={analyticsAmount}
             sectionFallback={false}
+            ariaLabel={`${option.label} - ${option.title}. ${option.description}`}
           >
             <strong dir="rtl">{option.label}</strong>
-            <span>{option.description}</span>
+            <span className="amount-option-title">{option.title}</span>
+            <span className="amount-option-description">{option.description}</span>
           </DonationLink>
         );
       })}

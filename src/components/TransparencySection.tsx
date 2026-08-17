@@ -3,7 +3,6 @@ import { CampaignProgress } from "@/components/Progress";
 import { SectionContainer } from "@/components/SectionContainer";
 import {
   campaign,
-  formatIls,
   isConfigured,
 } from "@/config/campaign";
 
@@ -30,13 +29,8 @@ export function TransparencySection() {
           <div className="transparency-target-column">
             <aside
               className="transparency-card"
-              aria-label="יעד הגיוס ופרטי האמון בקמפיין"
+              aria-label="התקדמות ופרטי האמון בקמפיין"
             >
-              <div className="transparency-goal">
-                <span>יעד הקמפיין</span>
-                <strong>{formatIls(campaign.targetAmount)}</strong>
-              </div>
-
               <p className="transparency-target-explanation">
                 הסכום שיגויס ישמש לחיזוק הפלוגה בשלושת התחומים שהוגדרו.
               </p>

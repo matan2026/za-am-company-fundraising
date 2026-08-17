@@ -8175,3 +8175,56 @@ html.accessibility-large-cursor summary {
     padding-block: 68px;
   }
 }
+
+/* Concrete donation tiers need more room than the previous short labels. */
+.amount-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.amount-option {
+  min-height: 270px;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 24px 20px;
+}
+
+.amount-option strong {
+  font-size: 28px;
+}
+
+.amount-option .amount-option-title {
+  color: var(--charcoal);
+  font-family: var(--font-heading), sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.amount-option .amount-option-description {
+  color: #5c6158;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.65;
+}
+
+.amount-option.amount-other {
+  justify-content: center;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .amount-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .amount-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .amount-option {
+    min-height: 0;
+    padding: 24px 20px;
+  }
+}

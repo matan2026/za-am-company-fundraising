@@ -49,7 +49,7 @@ export function CampaignProgress({
       >
         <span style={{ width: `${progress}%` }} />
       </div>
-      <p className="campaign-progress-support">מתקדמים יחד לעבר היעד</p>
+      <p className="campaign-progress-support">מתקדמים יחד בחיזוק הפלוגה</p>
     </div>
   );
 }
