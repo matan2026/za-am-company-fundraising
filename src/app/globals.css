@@ -8252,4 +8252,29 @@ html.accessibility-large-cursor summary {
   .urgency-heading .eyebrow {
     justify-content: center;
   }
+
+  .video-poster-button .video-overlay {
+    inset: 14px auto auto 14px;
+    width: auto;
+    height: auto;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    padding: 0;
+  }
+
+  .video-poster-button .play-button,
+  .hero-media .video-poster-button .play-button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .video-poster-button .play-button span {
+    font-size: 0.9rem;
+    translate: -1px 0;
+  }
+
+  .video-poster-button .video-play-label {
+    font-size: 0.78rem;
+  }
 }
