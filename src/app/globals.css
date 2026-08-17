@@ -2781,10 +2781,11 @@ summary {
 
 .transparency-target-explanation {
   max-width: 40ch;
-  margin: 22px 0 0;
+  margin: 22px auto 0;
   color: #e2e5e1;
   font-size: 17px;
   line-height: 1.7;
+  text-align: center;
 }
 
 .transparency-secure-message {
@@ -6424,7 +6425,6 @@ main.legal-page .legal-updated {
   .story-copy,
   .need-card-copy,
   .transparency-intro,
-  .transparency-target-explanation,
   .transparency-allocation-note,
   .faq-answer,
   .faq-answer p {
