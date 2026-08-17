@@ -1,5 +1,4 @@
 import { DonationLink } from "@/components/DonationLink";
-import { CampaignProgress } from "@/components/Progress";
 import { SectionContainer } from "@/components/SectionContainer";
 import {
   campaign,
@@ -34,8 +33,6 @@ export function TransparencySection() {
               <p className="transparency-target-explanation">
                 הסכום שיגויס ישמש לחיזוק הפלוגה בשלושת התחומים שהוגדרו.
               </p>
-
-              <CampaignProgress variant="target-card" />
 
               <div className="transparency-secure-message">
                 <p>כל שקל הופך לתמיכה אמיתית בחיילים 🤍</p>

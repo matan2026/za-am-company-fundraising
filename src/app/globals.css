@@ -6625,14 +6625,15 @@ main.legal-page .legal-updated {
     display: grid;
     width: 100%;
     max-width: 100vw;
-    grid-template-columns: minmax(0, 1fr) minmax(112px, auto);
-    gap: 10px;
+    grid-template-columns: minmax(0, 1fr);
     box-sizing: border-box;
     padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
   }
 
   .mobile-donation-bar .button {
+    width: 100%;
     min-height: 54px;
+    justify-content: center;
     font-size: 17px;
   }
 

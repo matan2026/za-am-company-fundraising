@@ -8,7 +8,6 @@ import { Gallery } from "@/components/Gallery";
 import { Header } from "@/components/Header";
 import { MobileDonationBar } from "@/components/MobileDonationBar";
 import { needIcons, type NeedIconName } from "@/components/NeedIcons";
-import { CampaignProgress } from "@/components/Progress";
 import { SectionContainer } from "@/components/SectionContainer";
 import { TransparencySection } from "@/components/TransparencySection";
 import { VideoCard } from "@/components/VideoCard";
@@ -134,10 +133,6 @@ export default function Home() {
                 <a className="text-link" href="#our-story">
                   צפו בסיפור שלנו <span aria-hidden="true">←</span>
                 </a>
-              </div>
-
-              <div className="hero-progress">
-                <CampaignProgress />
               </div>
 
               <div className="hero-trust">
