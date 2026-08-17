@@ -7208,7 +7208,7 @@ main.legal-page .legal-updated {
   .story-section .story-intro,
   .story-section .story-copy {
     max-width: 78ch;
-    margin-inline-start: clamp(34px, 4.5vw, 86px);
+    margin-inline-start: 0;
     margin-inline-end: auto;
     text-align: right;
   }
