@@ -18,7 +18,7 @@ export function TransparencySection() {
       <SectionContainer>
         <div className="transparency-layout">
           <div className="transparency-heading">
-            <p className="eyebrow eyebrow-dark">שקיפות ואחריות</p>
+            <p className="eyebrow eyebrow-dark">Transparency and accountability</p>
             <h2 id="transparency-title">{campaign.transparency.title}</h2>
             <p className="transparency-intro">
               {campaign.transparency.fundingStatement}
@@ -28,25 +28,25 @@ export function TransparencySection() {
           <div className="transparency-target-column">
             <aside
               className="transparency-card"
-              aria-label="התקדמות ופרטי האמון בקמפיין"
+              aria-label="Campaign trust and accountability details"
             >
               <p className="transparency-target-explanation">
-                הסכום שיגויס ישמש לחיזוק הפלוגה בשלושת התחומים שהוגדרו.
+                Every amount raised will strengthen the company across the three defined areas.
               </p>
 
               <div className="transparency-secure-message">
-                <p>כל שקל הופך לתמיכה אמיתית בחיילים 🤍</p>
+                <p>Every shekel becomes real support for our soldiers.</p>
               </div>
 
               {nonprofitConfigured ? (
                 <dl className="transparency-facts">
                   <div>
-                    <dt>הגוף המפעיל</dt>
+                    <dt>Operating organization</dt>
                     <dd>
-                      {campaign.nonprofitName} · מספר גוף:{" "}
+                      {campaign.nonprofitName} · Organization number:{" "}
                       <bdi>{campaign.nonprofitNumber}</bdi>
                       {campaign.taxDeductible
-                        ? " · התרומה מוכרת לצורכי מס בהתאם לסעיף 46."
+                        ? " · Donations are tax deductible in Israel under Section 46."
                         : null}
                     </dd>
                   </div>
@@ -56,7 +56,7 @@ export function TransparencySection() {
 
             <div className="transparency-target-actions">
               <DonationLink className="button transparency-cta">
-                מעבר לתרומה המאובטחת
+                Continue to secure donation
               </DonationLink>
               <p>{campaign.transparency.securePaymentMessage}</p>
             </div>
@@ -64,7 +64,7 @@ export function TransparencySection() {
 
           <div
             className="transparency-areas"
-            aria-label="תחומי השימוש בכספי התרומות"
+            aria-label="How donations will be used"
           >
             {campaign.transparency.fundingAreas.map((area, index) => (
               <article className="transparency-area" key={area.title}>

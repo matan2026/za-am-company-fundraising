@@ -25,13 +25,13 @@ type CampaignAssets = {
 export const campaignAssets: CampaignAssets = {
   unitEmblem: {
     src: "/images/logo/zaam-logo.png",
-    alt: "לוגו פלוגת זעם",
+    alt: "Za'am Company emblem",
     width: 566,
     height: 441,
   },
   videoPoster: {
     src: "/images/video-poster.webp",
-    alt: "ניצן לוי בראיון חדשות הבוקר על פעילות הפלוגה",
+    alt: "Nitzan Levy discussing the company's activity in a morning news interview",
     width: 1280,
     height: 720,
     objectPosition: "50% 50%",
@@ -39,7 +39,7 @@ export const campaignAssets: CampaignAssets = {
   heroImages: [],
   storyImage: {
     src: "/images/story/za-am-story.webp",
-    alt: "לוחמי פלוגת זעם במהלך הפעילות, לצד כלי משוריין ומחזיקים בדגל ישראל",
+    alt: "Za'am Company soldiers beside an armored vehicle, holding an Israeli flag",
     width: 1600,
     height: 1200,
     objectPosition: "50% 50%",
@@ -48,7 +48,7 @@ export const campaignAssets: CampaignAssets = {
     {
       src: "/images/gallery/soldiers-with-israeli-flag.webp",
       thumbnailSrc: "/images/gallery/thumbnails/soldiers-with-israeli-flag.webp",
-      alt: "לוחמי הפלוגה לצד כלי משוריין, מחזיקים בדגל ישראל",
+      alt: "Company soldiers beside an armored vehicle, holding an Israeli flag",
       width: 1600,
       height: 1200,
       objectPosition: "50% 50%",
@@ -56,7 +56,7 @@ export const campaignAssets: CampaignAssets = {
     {
       src: "/images/gallery/rainbow-over-coast.webp",
       thumbnailSrc: "/images/gallery/thumbnails/rainbow-over-coast.webp",
-      alt: "קשת כפולה מעל קו החוף כפי שנצפתה מתוך כלי משוריין",
+      alt: "A double rainbow over the coastline, seen from an armored vehicle",
       width: 1600,
       height: 1200,
       objectPosition: "50% 50%",
@@ -64,7 +64,7 @@ export const campaignAssets: CampaignAssets = {
     {
       src: "/images/gallery/armored-company-in-field.webp",
       thumbnailSrc: "/images/gallery/thumbnails/armored-company-in-field.webp",
-      alt: "מבט רחב על שטח הפעילות וכלים משוריינים של הפלוגה",
+      alt: "A wide view of the operational area and the company's armored vehicles",
       width: 1600,
       height: 1200,
       objectPosition: "50% 55%",
@@ -72,7 +72,7 @@ export const campaignAssets: CampaignAssets = {
     {
       src: "/images/gallery/tank-under-cloudy-sky.webp",
       thumbnailSrc: "/images/gallery/thumbnails/tank-under-cloudy-sky.webp",
-      alt: "טנק של הפלוגה בשטח תחת שמיים מעוננים",
+      alt: "A company tank in the field under cloudy skies",
       width: 1200,
       height: 1600,
       objectPosition: "50% 48%",
@@ -80,7 +80,7 @@ export const campaignAssets: CampaignAssets = {
     {
       src: "/images/gallery/soldier-at-protected-entrance.webp",
       thumbnailSrc: "/images/gallery/thumbnails/soldier-at-protected-entrance.webp",
-      alt: "לוחם הפלוגה לצד כניסה מוגנת במהלך פעילות בשטח",
+      alt: "A company soldier beside a protected entrance during field activity",
       width: 1200,
       height: 1600,
       objectPosition: "50% 45%",
@@ -88,7 +88,7 @@ export const campaignAssets: CampaignAssets = {
     {
       src: "/images/gallery/tank-at-sunset.webp",
       thumbnailSrc: "/images/gallery/thumbnails/tank-at-sunset.webp",
-      alt: "טנק של הפלוגה בתנועה באור השקיעה",
+      alt: "A company tank moving at sunset",
       width: 1200,
       height: 1600,
       objectPosition: "50% 50%",
@@ -96,7 +96,7 @@ export const campaignAssets: CampaignAssets = {
     {
       src: "/images/gallery/view-from-armored-vehicle.webp",
       thumbnailSrc: "/images/gallery/thumbnails/view-from-armored-vehicle.webp",
-      alt: "מבט מתוך כלי משוריין במהלך פעילות הפלוגה בשטח",
+      alt: "A view from inside an armored vehicle during company operations",
       width: 1600,
       height: 1200,
       objectPosition: "48% 50%",
@@ -104,7 +104,7 @@ export const campaignAssets: CampaignAssets = {
     {
       src: "/images/gallery/soldier-beside-tank.webp",
       thumbnailSrc: "/images/gallery/thumbnails/soldier-beside-tank.webp",
-      alt: "לוחם הפלוגה עומד לצד טנק במהלך הפעילות",
+      alt: "A company soldier standing beside a tank during operations",
       width: 1600,
       height: 1200,
       objectPosition: "56% 50%",
@@ -112,7 +112,7 @@ export const campaignAssets: CampaignAssets = {
     {
       src: "/images/gallery/tank-during-operational-activity.webp",
       thumbnailSrc: "/images/gallery/thumbnails/tank-during-operational-activity.webp",
-      alt: "טנק של הפלוגה במהלך פעילות מבצעית בשטח",
+      alt: "A company tank during operational activity in the field",
       width: 1080,
       height: 576,
       objectPosition: "58% 50%",
@@ -120,7 +120,7 @@ export const campaignAssets: CampaignAssets = {
   ],
   memorialImage: {
     src: "/images/memorial/oriel-aviad-silverman.webp",
-    alt: "אוריאל אביעד סילברמן ז״ל מחייך בתצלום לזכרו",
+    alt: "Oriel Aviad Silverman smiling in a memorial photograph",
     width: 740,
     height: 555,
     objectPosition: "50% 50%",

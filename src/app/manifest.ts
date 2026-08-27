@@ -6,15 +6,15 @@ export default function manifest(): MetadataRoute.Manifest {
   const unitEmblem = existingAsset(campaignAssets.unitEmblem);
 
   return {
-    name: "מחזקים את פלוגת זעם",
-    short_name: "פלוגת זעם",
-    description: "קמפיין גיוס לציוד אישי, חוסן ולכידות פלוגתית ותמיכה בעורף הפלוגתי.",
+    name: "Support Za'am Company",
+    short_name: "Za'am Company",
+    description: "A fundraising campaign for personal equipment, company resilience, and support for soldiers' families.",
     start_url: "/",
     display: "standalone",
     background_color: "#faf9f5",
     theme_color: "#1d241f",
-    lang: "he",
-    dir: "rtl",
+    lang: "en",
+    dir: "ltr",
     icons: unitEmblem
       ? [
           {

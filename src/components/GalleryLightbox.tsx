@@ -82,7 +82,7 @@ export function GalleryLightbox({
       className="lightbox"
       role="dialog"
       aria-modal="true"
-      aria-label={`תמונה ${active + 1} מתוך ${images.length}: ${images[active].alt}`}
+      aria-label={`Image ${active + 1} of ${images.length}: ${images[active].alt}`}
       onClick={onClose}
     >
       <button
@@ -90,7 +90,7 @@ export function GalleryLightbox({
         type="button"
         className="lightbox-close"
         onClick={onClose}
-        aria-label="סגירת התמונה"
+        aria-label="Close image"
       >
         ×
       </button>
@@ -125,24 +125,24 @@ export function GalleryLightbox({
       <div className="lightbox-controls">
         <button
           type="button"
-          aria-label="לתמונה הקודמת"
+          aria-label="Previous image"
           onClick={(event) => {
             event.stopPropagation();
             onIndexChange((active - 1 + images.length) % images.length);
           }}
         >
-          הקודמת
+          Previous
         </button>
         <span>{active + 1} / {images.length}</span>
         <button
           type="button"
-          aria-label="לתמונה הבאה"
+          aria-label="Next image"
           onClick={(event) => {
             event.stopPropagation();
             onIndexChange((active + 1) % images.length);
           }}
         >
-          הבאה
+          Next
         </button>
       </div>
     </div>,

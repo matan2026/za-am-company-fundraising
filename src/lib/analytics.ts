@@ -1,6 +1,7 @@
 export type AnalyticsEvent =
   | "donate_click"
   | "donation_amount_selected"
+  | "donation_form_submit"
   | "payment_page_open"
   | "video_play"
   | "whatsapp_click"

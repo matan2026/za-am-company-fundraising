@@ -160,7 +160,7 @@ export function AccessibilityMenu() {
         ref={buttonRef}
         className="accessibility-trigger"
         type="button"
-        aria-label="פתיחת תפריט נגישות"
+        aria-label="Open accessibility menu"
         aria-expanded={isOpen}
         aria-controls="accessibility-panel"
         onClick={() => setIsOpen((open) => !open)}
@@ -178,36 +178,36 @@ export function AccessibilityMenu() {
           aria-labelledby="accessibility-panel-title"
         >
           <div className="accessibility-panel-header">
-            <h2 id="accessibility-panel-title">תפריט נגישות</h2>
-            <button className="accessibility-close" type="button" onClick={closePanel} aria-label="סגירת תפריט נגישות">
+            <h2 id="accessibility-panel-title">Accessibility menu</h2>
+            <button className="accessibility-close" type="button" onClick={closePanel} aria-label="Close accessibility menu">
               ×
             </button>
           </div>
 
-          <div className="accessibility-controls" aria-label="הגדרות נגישות">
+          <div className="accessibility-controls" aria-label="Accessibility settings">
             <div className="accessibility-control-group">
-              <span className="accessibility-control-label">גודל טקסט</span>
+              <span className="accessibility-control-label">Text size</span>
               <div className="accessibility-size-controls">
-                <button type="button" onClick={() => updatePreferences({ textSize: "increased" })}>הגדלת טקסט</button>
-                <button type="button" onClick={decreaseText}>הקטנת טקסט</button>
-                <button type="button" onClick={() => updatePreferences({ textSize: "normal" })}>איפוס גודל טקסט</button>
-                <button type="button" onClick={() => updatePreferences({ textSize: "large" })}>טקסט גדול</button>
+                <button type="button" onClick={() => updatePreferences({ textSize: "increased" })}>Increase text</button>
+                <button type="button" onClick={decreaseText}>Decrease text</button>
+                <button type="button" onClick={() => updatePreferences({ textSize: "normal" })}>Reset text size</button>
+                <button type="button" onClick={() => updatePreferences({ textSize: "large" })}>Large text</button>
               </div>
             </div>
 
-            <ToggleControl label="ניגודיות גבוהה" active={preferences.highContrast} onClick={() => updatePreferences({ highContrast: !preferences.highContrast })} />
-            <ToggleControl label="גווני אפור" active={preferences.grayscale} onClick={() => updatePreferences({ grayscale: !preferences.grayscale })} />
-            <ToggleControl label="הדגשת קישורים" active={preferences.highlightLinks} onClick={() => updatePreferences({ highlightLinks: !preferences.highlightLinks })} />
-            <ToggleControl label="עצירת אנימציות" active={preferences.reduceMotion} onClick={() => updatePreferences({ reduceMotion: !preferences.reduceMotion })} />
-            <ToggleControl label="סמן גדול" active={preferences.largeCursor} onClick={() => updatePreferences({ largeCursor: !preferences.largeCursor })} />
+            <ToggleControl label="High contrast" active={preferences.highContrast} onClick={() => updatePreferences({ highContrast: !preferences.highContrast })} />
+            <ToggleControl label="Grayscale" active={preferences.grayscale} onClick={() => updatePreferences({ grayscale: !preferences.grayscale })} />
+            <ToggleControl label="Highlight links" active={preferences.highlightLinks} onClick={() => updatePreferences({ highlightLinks: !preferences.highlightLinks })} />
+            <ToggleControl label="Reduce motion" active={preferences.reduceMotion} onClick={() => updatePreferences({ reduceMotion: !preferences.reduceMotion })} />
+            <ToggleControl label="Large cursor" active={preferences.largeCursor} onClick={() => updatePreferences({ largeCursor: !preferences.largeCursor })} />
 
             <button className="accessibility-reset" type="button" onClick={() => updatePreferences(defaults)}>
-              איפוס הגדרות
+              Reset settings
             </button>
           </div>
 
           <Link className="accessibility-statement-link" href="/accessibility" onClick={closePanel}>
-            הצהרת נגישות
+            Accessibility statement
           </Link>
         </div>
       ) : null}
@@ -224,7 +224,7 @@ function ToggleControl({ label, active, onClick }: { label: string; active: bool
       onClick={onClick}
     >
       <span>{label}</span>
-      <span className="accessibility-toggle-state" aria-hidden="true">{active ? "פעיל" : "כבוי"}</span>
+      <span className="accessibility-toggle-state" aria-hidden="true">{active ? "On" : "Off"}</span>
     </button>
   );
 }

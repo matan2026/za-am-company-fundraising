@@ -7,9 +7,9 @@ import { siteUrl } from "@/config/site";
 import { existingAsset } from "@/lib/public-assets";
 import "./globals.css";
 
-const title = "מחזקים את פלוגת \"זעם\" | גיוס ציוד וחוסן ללוחמי המילואים";
+const title = "Support Za'am Company | Equipment and Resilience for Reservists";
 const description =
-  "פלוגת \"זעם\" מגדוד 7421 בחטיבה 4 מגייסת תמיכה עבור ציוד אישי, חוסן ולכידות פלוגתית ותמיכה בעורף הפלוגתי. הצטרפו וחזקו את הלוחמים.";
+  "Za'am Company of Battalion 7421, Brigade 4, is raising support for personal equipment, company resilience, and the families behind its reservists.";
 const socialImage = existingAsset(campaignAssets.socialImage);
 const unitEmblem = existingAsset(campaignAssets.unitEmblem);
 
@@ -31,13 +31,13 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title,
   description,
-  applicationName: "מחזקים את פלוגת זעם",
+  applicationName: "Support Za'am Company",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "פלוגת \"זעם\" צריכה אתכם איתה בקו",
+    title: "Za'am Company Needs You With Us",
     description:
-      "עזרו לנו לצייד את הלוחמים, לחזק את החוסן והלכידות הפלוגתית ולתמוך בעורף הפלוגתי.",
-    locale: "he_IL",
+      "Help equip our soldiers, strengthen company resilience, and support the families behind the unit.",
+    locale: "en_US",
     type: "website",
     images: socialImage
       ? [
@@ -52,9 +52,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: socialImage ? "summary_large_image" : "summary",
-    title: "פלוגת \"זעם\" צריכה אתכם איתה בקו",
+    title: "Za'am Company Needs You With Us",
     description:
-      "עזרו לנו לצייד את הלוחמים, לחזק את החוסן והלכידות הפלוגתית ולתמוך בעורף הפלוגתי.",
+      "Help equip our soldiers, strengthen company resilience, and support the families behind the unit.",
     images: socialImage ? [socialImage.src] : undefined,
   },
   icons: unitEmblem ? { icon: unitEmblem.src } : undefined,
@@ -69,10 +69,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="he" dir="rtl" className={`${heebo.variable} ${rubik.variable}`}>
+    <html lang="en" dir="ltr" className={`${heebo.variable} ${rubik.variable}`}>
       <body className={`${heebo.variable} ${rubik.variable}`}>
         <a className="skip-link" href="#main-content">
-          דילוג לתוכן המרכזי
+          Skip to main content
         </a>
         {children}
         <AccessibilityMenu />

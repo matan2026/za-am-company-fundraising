@@ -1,54 +1,54 @@
 const OFFICIAL_DONATION_URL =
-  "https://pay.grow.link/NDcyMTg~43ba563f25afc399352a239f7225899e-MzcwOTE2Mw";
+  "https://secured.israelgives.org/pay/makedonation?MakeDonation=1&AmutaGovId=580502086";
 
 export const donationAmounts = [
   {
     amount: 180,
-    label: "180 ₪",
-    title: "תמיכה בעורף והמשפחות",
+    label: "₪180",
+    title: "Support for families and the home front",
     description:
-      "סיוע במימון פעילויות רווחה, מארזים לחגים למשפחות הלוחמים, וחיזוק העורף הפלוגתי.",
+      "Helps fund welfare activities, holiday packages for soldiers' families, and support for the company's home front.",
   },
   {
     amount: 360,
-    label: "360 ₪",
-    title: "פינוקים לשבת למחלקת לוחמים",
+    label: "₪360",
+    title: "Shabbat treats for a combat platoon",
     description:
-      "סיוע ברכישת תפנוקים המרימים את רוחם של הלוחמים אשר נמצאים במהלך השבתות במילואים.",
+      "Helps provide treats that lift the spirits of soldiers spending Shabbat on reserve duty.",
   },
   {
     amount: 750,
-    label: "750 ₪",
-    title: "חצי סט ציוד טקטי (חולצה/מכנס)",
+    label: "₪750",
+    title: "Half a tactical uniform set (shirt/pants)",
     description:
-      "השתתפות משמעותית ברכישת ציוד הלחימה ללוחם, המאפשרת לקנות חולצה ומכנסיים טקטיים העמידים לאש ומצילים חיים.",
+      "A meaningful contribution toward fire-resistant tactical clothing that protects soldiers and saves lives.",
   },
   {
     amount: 1500,
-    label: "1,500 ₪",
-    title: "לוחם מוגן ומוכן - סט טקטי מלא",
+    label: "₪1,500",
+    title: "One soldier protected and ready - full tactical set",
     description:
-      "אתם רוכשים במלואו סט מדים טקטיים קומפלט ללוחם שריון אחד, המותאם לשבועות ארוכים של לחימה בתוך הטנק ומחוצה לו.",
+      "Funds a complete tactical uniform set for one armored-corps soldier, designed for long weeks of combat inside and outside the tank.",
   },
   {
     amount: 6000,
-    label: "6,000 ₪",
-    title: "מעטפת ציוד לצוות טנק שלם",
+    label: "₪6,000",
+    title: "Equipment for an entire tank crew",
     description:
-      "מציידים צוות טנק מלא (מפקד, תותחן, טען ונהג) בסטים טקטיים קומפלט כבר בלחימה הנוכחית.",
+      "Equips a full tank crew - commander, gunner, loader, and driver - with complete tactical sets for the current deployment.",
   },
   {
     amount: 9000,
-    label: "9,000 ₪",
-    title: "שותפות פלוגתית אסטרטגית",
+    label: "₪9,000",
+    title: "Strategic partnership with the company",
     description:
-      "רכישת מדים טקטיים ל-6 לוחמים, או מימון מלא של ערב חוסן פלוגתי משמעותי לעיבוד חוויות הלחימה.",
+      "Funds tactical uniforms for six soldiers or a full company resilience evening to process combat experiences.",
   },
   {
     amount: null,
-    label: "סכום אחר",
-    title: "בחרו את הסכום שמתאים לכם",
-    description: "כל תרומה מחזקת את הפלוגה ואת לוחמיה.",
+    label: "Other amount",
+    title: "Choose the amount that works for you",
+    description: "Every donation strengthens the company and its soldiers.",
   },
 ] as const;
 
@@ -61,43 +61,42 @@ export const campaign = {
   campaignProgressStartPercent: 5,
   campaignProgressDaysPerIncrease: 3,
   campaignProgressMaxPercent: 100,
-  donationUrl:
-    process.env.NEXT_PUBLIC_DONATION_URL?.trim() || OFFICIAL_DONATION_URL,
-  donationAmountParam: "",
+  donationUrl: OFFICIAL_DONATION_URL,
+  donationAmountParam: "sum",
   videoFile: "/videos/za-am-hero-video-v2.mp4",
   videoPoster: "/images/video-poster.webp",
   contactPhone: process.env.NEXT_PUBLIC_CONTACT_PHONE?.trim() || "",
   contactWhatsapp:
     process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.trim() || "",
   contactWhatsappMessage:
-    "היי, הגעתי דרך דף הגיוס של פלוגת זעם ואשמח לקבל פרטים נוספים.",
-  nonprofitName: "עמותת חסדי ערן",
+    "Hi, I came through the Za'am Company fundraising page and would like more information.",
+  nonprofitName: "Hasdei Eran Association",
   nonprofitNumber: "580502086",
   // Verified Section 46 eligibility for the operating nonprofit through 2026-12-31.
   taxDeductible: true,
   transparency: {
-    title: "שקיפות לפני הכול",
+    title: "Transparency comes first",
     fundingStatement:
-      "כספי התרומות מיועדים לחיזוק הפלוגה בשלושה תחומים מרכזיים: ציוד אישי, חוסן ולכידות פלוגתית ותמיכה בעורף הפלוגתי.",
+      "Donation funds strengthen the company in three key areas: personal equipment, company resilience and cohesion, and support for the home front.",
     fundingAreas: [
       {
-        title: "ציוד אישי",
-        description: "קסדות ומדים טקטיים וציוד אישי המותאם באופן אישי לפעילות מבצעית.",
+        title: "Personal equipment",
+        description: "Helmets, tactical uniforms, and personal equipment individually fitted for operational activity.",
       },
       {
-        title: "חוסן ולכידות פלוגתית",
+        title: "Company resilience and cohesion",
         description:
-          "קיום ערבי מחלקה ופלוגה שמאפשרים לנו לעצור רגע, לעבד את התקופה המורכבת, לחזק את החיבור בין הלוחמים ולאגור כוחות למשימה הבאה.",
+          "Platoon and company gatherings that let us pause, process a difficult period, strengthen the bond between soldiers, and recharge for the next mission.",
       },
       {
-        title: "תמיכה בעורף הפלוגתי",
+        title: "Support for the company home front",
         description:
-          "תמיכה במשפחות ובילדי הפלוגה ועזרה ללוחמים המתמודדים עם מצוקת קריירה עקב המילואים.",
+          "Support for soldiers' families and children, and help for reservists facing career hardship because of extended service.",
       },
     ],
-    paymentProvider: "Grow",
+    paymentProvider: "IsraelGives",
     securePaymentMessage:
-      "התרומה מתבצעת באמצעות עמוד סליקה מאובטח.",
+      "Payment is completed on IsraelGives' secure donation page.",
   },
 } as const;
 
@@ -122,7 +121,7 @@ export function isValidExternalUrl(value: string) {
 }
 
 export const formatIls = (amount: number) =>
-  new Intl.NumberFormat("he-IL", {
+  new Intl.NumberFormat("en-IL", {
     style: "currency",
     currency: "ILS",
     maximumFractionDigits: 0,

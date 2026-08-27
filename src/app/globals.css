@@ -8290,3 +8290,201 @@ html.accessibility-large-cursor summary {
     font-size: 0.78rem;
   }
 }
+
+/* English campaign: preserve the established layout while mirroring it to LTR. */
+html[dir="ltr"] body {
+  direction: ltr;
+  text-align: left;
+}
+
+html[dir="ltr"] .hero-grid,
+html[dir="ltr"] .header-inner,
+html[dir="ltr"] .desktop-nav,
+html[dir="ltr"] .hero-actions,
+html[dir="ltr"] .story-section .story-grid,
+html[dir="ltr"] .transparency-layout,
+html[dir="ltr"] .urgency-inner,
+html[dir="ltr"] .footer-grid {
+  direction: ltr;
+}
+
+html[dir="ltr"] .hero-copy,
+html[dir="ltr"] .hero-copy .hero-title,
+html[dir="ltr"] .hero-lead,
+html[dir="ltr"] .story-heading,
+html[dir="ltr"] .story-heading .eyebrow,
+html[dir="ltr"] .story-heading .story-title,
+html[dir="ltr"] .story-intro,
+html[dir="ltr"] .story-copy,
+html[dir="ltr"] .transparency-heading,
+html[dir="ltr"] .transparency-intro,
+html[dir="ltr"] .transparency-target-explanation,
+html[dir="ltr"] .transparency-area,
+html[dir="ltr"] .urgency-heading,
+html[dir="ltr"] .urgency-content,
+html[dir="ltr"] .donation-grid-intro,
+html[dir="ltr"] .amount-option,
+html[dir="ltr"] .footer-brand,
+html[dir="ltr"] .footer-grid p,
+html[dir="ltr"] .accessibility-panel {
+  text-align: left;
+}
+
+html[dir="ltr"] .story-copy blockquote {
+  border-right: 0;
+  border-left: 4px solid var(--red);
+}
+
+html[dir="ltr"] .transparency-note {
+  border-right: 0;
+  border-left: 3px solid var(--sand);
+}
+
+.donation-form-flow {
+  width: 100%;
+}
+
+.donation-form {
+  width: min(100%, 860px);
+  margin: 42px auto 0;
+  padding: 32px;
+  border: 1px solid rgb(21 32 25 / 16%);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 14px 36px rgb(21 32 25 / 8%);
+  scroll-margin-top: 110px;
+}
+
+.donation-form-heading {
+  max-width: 650px;
+  margin: 0 auto 26px;
+  text-align: center;
+}
+
+.donation-form-heading h3 {
+  margin: 0;
+  color: var(--charcoal);
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(26px, 3vw, 34px);
+  line-height: 1.2;
+}
+
+.donation-form-heading p {
+  margin: 10px 0 0;
+  color: #5c6158;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.donation-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.donation-form label {
+  display: grid;
+  min-width: 0;
+  gap: 8px;
+  color: var(--charcoal);
+  font-weight: 700;
+  text-align: left;
+}
+
+.donation-form input {
+  width: 100%;
+  height: 54px;
+  padding: 0 14px;
+  border: 1px solid rgb(21 32 25 / 28%);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--charcoal);
+  direction: ltr;
+  font: inherit;
+  font-weight: 500;
+}
+
+.donation-form input:focus-visible {
+  border-color: var(--red);
+  outline: 3px solid rgb(190 66 55 / 20%);
+  outline-offset: 1px;
+}
+
+.donation-amount-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.donation-amount-input > span {
+  position: absolute;
+  left: 14px;
+  z-index: 1;
+  color: #5c6158;
+  pointer-events: none;
+}
+
+.donation-amount-input input {
+  padding-left: 36px;
+}
+
+.donation-form-error {
+  color: #a42f27;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.donation-form-submit {
+  display: flex;
+  width: min(100%, 420px);
+  margin: 28px auto 0;
+}
+
+.donation-form-note {
+  max-width: 660px;
+  margin: 14px auto 0;
+  color: #5c6158;
+  font-size: 14px;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.amount-option {
+  font: inherit;
+  cursor: pointer;
+}
+
+.amount-option.is-selected {
+  border-color: var(--red);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgb(190 66 55 / 15%), 0 14px 32px rgb(21 32 25 / 10%);
+}
+
+@media (max-width: 767px) {
+  html[dir="ltr"] .hero-copy,
+  html[dir="ltr"] .hero-copy .hero-title,
+  html[dir="ltr"] .hero-lead,
+  html[dir="ltr"] .story-heading,
+  html[dir="ltr"] .story-heading .eyebrow,
+  html[dir="ltr"] .story-heading .story-title,
+  html[dir="ltr"] .transparency-heading,
+  html[dir="ltr"] .transparency-heading .eyebrow,
+  html[dir="ltr"] .transparency-heading h2,
+  html[dir="ltr"] .urgency-heading,
+  html[dir="ltr"] .urgency-heading .eyebrow,
+  html[dir="ltr"] .urgency-heading h2,
+  html[dir="ltr"] .donation-grid-intro {
+    text-align: center;
+  }
+
+  .donation-form {
+    margin-top: 28px;
+    padding: 24px 18px;
+    scroll-margin-top: 88px;
+  }
+
+  .donation-form-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+}

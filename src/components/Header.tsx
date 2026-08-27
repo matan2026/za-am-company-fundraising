@@ -7,9 +7,9 @@ import { SectionContainer } from "@/components/SectionContainer";
 import type { ApprovedImageAsset } from "@/config/assets";
 
 const navItems = [
-  { href: "#our-story", label: "סיפור הפלוגה" },
-  { href: "#needs", label: "לאן התרומה הולכת" },
-  { href: "#faq", label: "שאלות נפוצות" },
+  { href: "#our-story", label: "Our story" },
+  { href: "#needs", label: "Where your donation goes" },
+  { href: "#faq", label: "FAQ" },
 ];
 
 export function Header({ logo }: { logo: ApprovedImageAsset | null }) {
@@ -111,7 +111,7 @@ export function Header({ logo }: { logo: ApprovedImageAsset | null }) {
           {logo ? (
             <Image
               src={logo.src}
-              alt="לוגו פלוגת זעם"
+              alt="Za'am Company emblem"
               width={logo.width}
               height={logo.height}
               sizes="(max-width: 1023px) 67px, 88px"
@@ -119,16 +119,16 @@ export function Header({ logo }: { logo: ApprovedImageAsset | null }) {
               loading="eager"
             />
           ) : null}
-          <span className="sr-only">- לראש העמוד</span>
+          <span className="sr-only">- back to top</span>
         </a>
 
-        <nav className="desktop-nav" aria-label="ניווט ראשי">
+        <nav className="desktop-nav" aria-label="Main navigation">
           {navItems.map((item) => (
             <a key={item.href} href={item.href}>
               {item.label}
             </a>
           ))}
-          <DonationLink className="button button-small">תרמו עכשיו</DonationLink>
+          <DonationLink className="button button-small">Donate now</DonationLink>
         </nav>
 
         <button
@@ -137,7 +137,7 @@ export function Header({ logo }: { logo: ApprovedImageAsset | null }) {
           type="button"
           aria-expanded={open}
           aria-controls="mobile-menu"
-          aria-label={open ? "סגירת תפריט" : "פתיחת תפריט"}
+          aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((value) => !value)}
         >
           <span />
@@ -152,7 +152,7 @@ export function Header({ logo }: { logo: ApprovedImageAsset | null }) {
         className={`mobile-nav ${open ? "is-open" : ""}`}
         role="dialog"
         aria-modal="true"
-        aria-label="תפריט ניווט לנייד"
+        aria-label="Mobile navigation menu"
         aria-hidden={!open}
       >
         <button
@@ -165,7 +165,7 @@ export function Header({ logo }: { logo: ApprovedImageAsset | null }) {
             menuButtonRef.current?.focus();
           }}
         />
-        <nav aria-label="ניווט לנייד">
+        <nav aria-label="Mobile navigation">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -177,10 +177,10 @@ export function Header({ logo }: { logo: ApprovedImageAsset | null }) {
           ))}
           <DonationLink
             className="button"
-            ariaLabel="תרמו עכשיו לפלוגת זעם"
+            ariaLabel="Donate now to Za'am Company"
             onNavigate={() => setOpen(false)}
           >
-            תרמו עכשיו
+            Donate now
           </DonationLink>
         </nav>
       </div>
