@@ -9,6 +9,8 @@ export function DonationForm() {
   const [selectedAmount, setSelectedAmount] = useState<number | "custom" | null>(null);
   const [amount, setAmount] = useState("");
   const [amountError, setAmountError] = useState("");
+  const [submitError, setSubmitError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   const amountRef = useRef<HTMLInputElement>(null);
 
@@ -24,8 +26,9 @@ export function DonationForm() {
     });
   };
 
-  const submitDonation = (event: FormEvent<HTMLFormElement>) => {
+  const submitDonation = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setSubmitError("");
     const numericAmount = Number(amount);
 
     if (!Number.isFinite(numericAmount) || numericAmount < 1) {
@@ -34,11 +37,41 @@ export function DonationForm() {
       return;
     }
 
-    const donationUrl = new URL(campaign.donationUrl);
-    donationUrl.searchParams.set(campaign.donationAmountParam, String(Math.round(numericAmount)));
-    trackEvent("donation_form_submit", { amount: Math.round(numericAmount) });
-    trackEvent("payment_page_open", { amount: Math.round(numericAmount) });
-    window.location.assign(donationUrl.toString());
+    const roundedAmount = Math.round(numericAmount);
+    const formData = new FormData(event.currentTarget);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/donation-intent", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: formData.get("fullName"),
+          phone: formData.get("phone"),
+          email: formData.get("email"),
+          amount: roundedAmount,
+          website: formData.get("website"),
+        }),
+      });
+      const result = (await response.json()) as { ok?: boolean; error?: string };
+
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || "We could not save your details. Please try again.");
+      }
+
+      const donationUrl = new URL(campaign.donationUrl);
+      donationUrl.searchParams.set(campaign.donationAmountParam, String(roundedAmount));
+      trackEvent("donation_form_submit", { amount: roundedAmount });
+      trackEvent("payment_page_open", { amount: roundedAmount });
+      window.location.assign(donationUrl.toString());
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : "We could not save your details. Please try again.",
+      );
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -57,6 +90,11 @@ export function DonationForm() {
         </div>
 
         <div className="donation-form-grid">
+          <label className="donation-form-honeypot" aria-hidden="true">
+            <span>Website</span>
+            <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+          </label>
+
           <label>
             <span>Full name</span>
             <input
@@ -120,8 +158,17 @@ export function DonationForm() {
           </label>
         </div>
 
-        <button className="button button-large donation-form-submit" type="submit">
-          Continue to secure payment
+        {submitError ? (
+          <p className="donation-form-error donation-form-submit-error" role="alert">
+            {submitError}
+          </p>
+        ) : null}
+        <button
+          className="button button-large donation-form-submit"
+          type="submit"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? "Saving your details..." : "Continue to secure payment"}
         </button>
         <p className="donation-form-note">
           Payment is completed securely on IsraelGives. You may be asked to confirm your details there.

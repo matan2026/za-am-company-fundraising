@@ -8438,6 +8438,28 @@ html.accessibility-large-cursor summary {
   font-weight: 600;
 }
 
+.donation-form-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.donation-form-submit-error {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.donation-form-submit:disabled {
+  cursor: wait;
+  opacity: 0.75;
+}
+
 .donation-form-submit {
   display: flex;
   width: min(100%, 420px);
