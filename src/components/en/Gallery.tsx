@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
-import type { ApprovedImageAsset } from "@/config/assets";
-import type { GalleryLightbox as GalleryLightboxType } from "@/components/GalleryLightbox";
+import type { ApprovedImageAsset } from "@/config/assets-en";
+import type { GalleryLightbox as GalleryLightboxType } from "@/components/en/GalleryLightbox";
 
 type LightboxComponent = typeof GalleryLightboxType;
 
@@ -29,7 +29,7 @@ export function Gallery({ images: gallery }: { images: readonly ApprovedImageAss
     trackEvent("gallery_interaction", { image_index: index + 1 });
 
     if (!Lightbox) {
-      const lightboxModule = await import("@/components/GalleryLightbox");
+      const lightboxModule = await import("@/components/en/GalleryLightbox");
       setLightbox(() => lightboxModule.GalleryLightbox);
     }
   };
@@ -59,7 +59,7 @@ export function Gallery({ images: gallery }: { images: readonly ApprovedImageAss
         key={image.src}
         style={{ aspectRatio: `${image.width} / ${image.height}` }}
         onClick={(event) => void openLightbox(index, event.currentTarget)}
-        aria-label={`פתיחת תמונה בתצוגה מוגדלת: ${image.alt}`}
+        aria-label={`Open enlarged image: ${image.alt}`}
       >
         <Image
           src={image.thumbnailSrc ?? image.src}
@@ -73,7 +73,7 @@ export function Gallery({ images: gallery }: { images: readonly ApprovedImageAss
             event.currentTarget.closest("button")?.setAttribute("hidden", "");
           }}
         />
-        <span>פתיחת התמונה</span>
+        <span>Open image</span>
       </button>
     );
   };

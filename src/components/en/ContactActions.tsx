@@ -1,6 +1,6 @@
 "use client";
 
-import { campaign } from "@/config/campaign";
+import { campaign } from "@/config/campaign-en";
 import { trackEvent } from "@/lib/analytics";
 import {
   buildWhatsappUrl,
@@ -28,10 +28,10 @@ export function ContactActions({
         {phone ? (
           <a
             href={`tel:${phone.e164}`}
-            aria-label={`התקשרות לצוות הקמפיין בטלפון ${phone.e164}`}
+            aria-label={`Call the campaign team at ${phone.e164}`}
             onClick={() => trackEvent("phone_click")}
           >
-            טלפון: <bdi>{phone.e164}</bdi>
+            Phone: <bdi>{phone.e164}</bdi>
           </a>
         ) : null}
         {whatsappUrl ? (
@@ -39,7 +39,7 @@ export function ContactActions({
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="פתיחת שיחה עם צוות הקמפיין ב-WhatsApp"
+            aria-label="Open a WhatsApp chat with the campaign team"
             onClick={() => trackEvent("whatsapp_click")}
           >
             WhatsApp
@@ -52,8 +52,8 @@ export function ContactActions({
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="פתיחת שיחה עם צוות הקמפיין ב-WhatsApp"
-          title="יצירת קשר ב-WhatsApp"
+          aria-label="Open a WhatsApp chat with the campaign team"
+          title="Contact us on WhatsApp"
           onClick={() => trackEvent("whatsapp_click")}
         >
           WA

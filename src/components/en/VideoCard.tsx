@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import type { ApprovedImageAsset } from "@/config/assets";
-import { campaign } from "@/config/campaign";
+import type { ApprovedImageAsset } from "@/config/assets-en";
+import { campaign } from "@/config/campaign-en";
 import { trackEvent } from "@/lib/analytics";
 
 type VideoCardProps = {
@@ -26,14 +26,14 @@ export function VideoCard({ poster }: VideoCardProps) {
   if (failed) {
     return (
       <div className="video-card video-error" role="alert">
-        <p>לא ניתן לנגן את הסרטון בדפדפן זה.</p>
+        <p>This video cannot be played in your browser.</p>
         <a
           className="button button-light"
           href={campaign.videoFile}
           target="_blank"
           rel="noopener noreferrer"
         >
-          פתיחת הסרטון בחלון חדש
+          Open video in a new window
         </a>
       </div>
     );
@@ -49,8 +49,8 @@ export function VideoCard({ poster }: VideoCardProps) {
           playsInline
           preload="metadata"
           poster={poster?.src ?? campaign.videoPoster}
-          title="סרטון פלוגת זעם"
-          aria-label="סרטון פלוגת זעם"
+          title="Za'am Company video"
+          aria-label="Za'am Company video"
           onError={() => setFailed(true)}
           onPlay={() => {
             if (!hasTrackedPlay.current) {
@@ -60,13 +60,13 @@ export function VideoCard({ poster }: VideoCardProps) {
           }}
         >
           <source src={campaign.videoFile} type="video/mp4" />
-          הדפדפן שלך אינו תומך בניגון וידאו.
+          Your browser does not support video playback.
         </video>
       ) : (
         <button
           className="video-poster-button"
           type="button"
-          aria-label="צפו בסיפור הפלוגה - ניגון סרטון פלוגת זעם"
+          aria-label="Watch the company story - play the Za'am Company video"
           onClick={() => setActivated(true)}
         >
           {poster ? (
@@ -83,7 +83,7 @@ export function VideoCard({ poster }: VideoCardProps) {
           <span className="video-poster-shade" aria-hidden="true" />
           <span className="video-overlay" aria-hidden="true">
             <span className="play-button"><span>▶</span></span>
-            <span className="video-play-label">צפו בסיפור הפלוגה</span>
+            <span className="video-play-label">Watch our story</span>
           </span>
         </button>
       )}

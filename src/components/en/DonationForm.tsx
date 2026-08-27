@@ -1,8 +1,8 @@
 "use client";
 
 import { type FormEvent, useRef, useState } from "react";
-import { DonationAmountSelector } from "@/components/DonationAmountSelector";
-import { campaign } from "@/config/campaign";
+import { DonationAmountSelector } from "@/components/en/DonationAmountSelector";
+import { campaign } from "@/config/campaign-en";
 import { trackEvent } from "@/lib/analytics";
 
 export function DonationForm() {

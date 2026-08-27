@@ -7,9 +7,9 @@ import { siteUrl } from "@/config/site";
 import { existingAsset } from "@/lib/public-assets";
 import "./globals.css";
 
-const title = "Support Za'am Company | Equipment and Resilience for Reservists";
+const title = "מחזקים את פלוגת \"זעם\" | גיוס ציוד וחוסן ללוחמי המילואים";
 const description =
-  "Za'am Company of Battalion 7421, Brigade 4, is raising support for personal equipment, company resilience, and the families behind its reservists.";
+  "פלוגת \"זעם\" מגדוד 7421 בחטיבה 4 מגייסת תמיכה עבור ציוד אישי, חוסן ולכידות פלוגתית ותמיכה בעורף הפלוגתי. הצטרפו וחזקו את הלוחמים.";
 const socialImage = existingAsset(campaignAssets.socialImage);
 const unitEmblem = existingAsset(campaignAssets.unitEmblem);
 
@@ -31,13 +31,16 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title,
   description,
-  applicationName: "Support Za'am Company",
-  alternates: { canonical: "/" },
+  applicationName: "מחזקים את פלוגת זעם",
+  alternates: {
+    canonical: "/",
+    languages: { "he-IL": "/", "en-US": "/en" },
+  },
   openGraph: {
-    title: "Za'am Company Needs You With Us",
+    title: "פלוגת \"זעם\" צריכה אתכם איתה בקו",
     description:
-      "Help equip our soldiers, strengthen company resilience, and support the families behind the unit.",
-    locale: "en_US",
+      "עזרו לנו לצייד את הלוחמים, לחזק את החוסן והלכידות הפלוגתית ולתמוך בעורף הפלוגתי.",
+    locale: "he_IL",
     type: "website",
     images: socialImage
       ? [
@@ -52,9 +55,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: socialImage ? "summary_large_image" : "summary",
-    title: "Za'am Company Needs You With Us",
+    title: "פלוגת \"זעם\" צריכה אתכם איתה בקו",
     description:
-      "Help equip our soldiers, strengthen company resilience, and support the families behind the unit.",
+      "עזרו לנו לצייד את הלוחמים, לחזק את החוסן והלכידות הפלוגתית ולתמוך בעורף הפלוגתי.",
     images: socialImage ? [socialImage.src] : undefined,
   },
   icons: unitEmblem ? { icon: unitEmblem.src } : undefined,
@@ -69,10 +72,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" dir="ltr" className={`${heebo.variable} ${rubik.variable}`}>
+    <html lang="he" dir="rtl" className={`${heebo.variable} ${rubik.variable}`}>
       <body className={`${heebo.variable} ${rubik.variable}`}>
         <a className="skip-link" href="#main-content">
-          Skip to main content
+          דילוג לתוכן המרכזי
         </a>
         {children}
         <AccessibilityMenu />

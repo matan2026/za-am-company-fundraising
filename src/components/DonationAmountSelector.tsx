@@ -1,36 +1,30 @@
 "use client";
 
+import { DonationLink } from "@/components/DonationLink";
 import { donationAmounts } from "@/config/campaign";
 
-export function DonationAmountSelector({
-  selectedAmount,
-  onSelect,
-}: {
-  selectedAmount: number | "custom" | null;
-  onSelect: (amount: number | "custom") => void;
-}) {
+export function DonationAmountSelector() {
   return (
     <div
       className="amount-grid"
       role="group"
-      aria-label="Choose a donation amount"
+      aria-label="בחירת סכום לתרומה"
     >
       {donationAmounts.map((option) => {
         const analyticsAmount = option.amount ?? "custom";
 
         return (
-          <button
-            type="button"
+          <DonationLink
             key={option.label}
-            className={`amount-option${option.amount === null ? " amount-other" : ""}${selectedAmount === analyticsAmount ? " is-selected" : ""}`}
-            aria-pressed={selectedAmount === analyticsAmount}
-            aria-label={`${option.label} - ${option.title}. ${option.description}`}
-            onClick={() => onSelect(analyticsAmount)}
+            className={`amount-option${option.amount === null ? " amount-other" : ""}`}
+            amount={analyticsAmount}
+            sectionFallback={false}
+            ariaLabel={`${option.label} - ${option.title}. ${option.description}`}
           >
-            <strong>{option.label}</strong>
+            <strong dir="rtl">{option.label}</strong>
             <span className="amount-option-title">{option.title}</span>
             <span className="amount-option-description">{option.description}</span>
-          </button>
+          </DonationLink>
         );
       })}
     </div>

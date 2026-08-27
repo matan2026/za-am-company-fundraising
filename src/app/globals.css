@@ -8292,50 +8292,54 @@ html.accessibility-large-cursor summary {
 }
 
 /* English campaign: preserve the established layout while mirroring it to LTR. */
-html[dir="ltr"] body {
+.english-site {
   direction: ltr;
   text-align: left;
 }
 
-html[dir="ltr"] .hero-grid,
-html[dir="ltr"] .header-inner,
-html[dir="ltr"] .desktop-nav,
-html[dir="ltr"] .hero-actions,
-html[dir="ltr"] .story-section .story-grid,
-html[dir="ltr"] .transparency-layout,
-html[dir="ltr"] .urgency-inner,
-html[dir="ltr"] .footer-grid {
+.accessibility-menu-english .accessibility-panel {
   direction: ltr;
-}
-
-html[dir="ltr"] .hero-copy,
-html[dir="ltr"] .hero-copy .hero-title,
-html[dir="ltr"] .hero-lead,
-html[dir="ltr"] .story-heading,
-html[dir="ltr"] .story-heading .eyebrow,
-html[dir="ltr"] .story-heading .story-title,
-html[dir="ltr"] .story-intro,
-html[dir="ltr"] .story-copy,
-html[dir="ltr"] .transparency-heading,
-html[dir="ltr"] .transparency-intro,
-html[dir="ltr"] .transparency-target-explanation,
-html[dir="ltr"] .transparency-area,
-html[dir="ltr"] .urgency-heading,
-html[dir="ltr"] .urgency-content,
-html[dir="ltr"] .donation-grid-intro,
-html[dir="ltr"] .amount-option,
-html[dir="ltr"] .footer-brand,
-html[dir="ltr"] .footer-grid p,
-html[dir="ltr"] .accessibility-panel {
   text-align: left;
 }
 
-html[dir="ltr"] .story-copy blockquote {
+.english-site .hero-grid,
+.english-site .header-inner,
+.english-site .desktop-nav,
+.english-site .hero-actions,
+.english-site .story-section .story-grid,
+.english-site .transparency-layout,
+.english-site .urgency-inner,
+.english-site .footer-grid {
+  direction: ltr;
+}
+
+.english-site .hero-copy,
+.english-site .hero-copy .hero-title,
+.english-site .hero-lead,
+.english-site .story-heading,
+.english-site .story-heading .eyebrow,
+.english-site .story-heading .story-title,
+.english-site .story-intro,
+.english-site .story-copy,
+.english-site .transparency-heading,
+.english-site .transparency-intro,
+.english-site .transparency-target-explanation,
+.english-site .transparency-area,
+.english-site .urgency-heading,
+.english-site .urgency-content,
+.english-site .donation-grid-intro,
+.english-site .amount-option,
+.english-site .footer-brand,
+.english-site .footer-grid p {
+  text-align: left;
+}
+
+.english-site .story-copy blockquote {
   border-right: 0;
   border-left: 4px solid var(--red);
 }
 
-html[dir="ltr"] .transparency-note {
+.english-site .transparency-note {
   border-right: 0;
   border-left: 3px solid var(--sand);
 }
@@ -8461,19 +8465,19 @@ html[dir="ltr"] .transparency-note {
 }
 
 @media (max-width: 767px) {
-  html[dir="ltr"] .hero-copy,
-  html[dir="ltr"] .hero-copy .hero-title,
-  html[dir="ltr"] .hero-lead,
-  html[dir="ltr"] .story-heading,
-  html[dir="ltr"] .story-heading .eyebrow,
-  html[dir="ltr"] .story-heading .story-title,
-  html[dir="ltr"] .transparency-heading,
-  html[dir="ltr"] .transparency-heading .eyebrow,
-  html[dir="ltr"] .transparency-heading h2,
-  html[dir="ltr"] .urgency-heading,
-  html[dir="ltr"] .urgency-heading .eyebrow,
-  html[dir="ltr"] .urgency-heading h2,
-  html[dir="ltr"] .donation-grid-intro {
+  .english-site .hero-copy,
+  .english-site .hero-copy .hero-title,
+  .english-site .hero-lead,
+  .english-site .story-heading,
+  .english-site .story-heading .eyebrow,
+  .english-site .story-heading .story-title,
+  .english-site .transparency-heading,
+  .english-site .transparency-heading .eyebrow,
+  .english-site .transparency-heading h2,
+  .english-site .urgency-heading,
+  .english-site .urgency-heading .eyebrow,
+  .english-site .urgency-heading h2,
+  .english-site .donation-grid-intro {
     text-align: center;
   }
 

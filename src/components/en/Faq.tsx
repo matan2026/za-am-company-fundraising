@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { campaign, isConfigured } from "@/config/campaign";
+import { campaign, isConfigured } from "@/config/campaign-en";
 
 const taxDeductionVerified =
   campaign.taxDeductible &&
@@ -10,25 +10,25 @@ const taxDeductionVerified =
 
 const faqs = [
   {
-    question: "לאן מועברות התרומות?",
+    question: "Where do the donations go?",
     answer:
-      "התרומות ישמשו לציוד אישי, לחיזוק החוסן והלכידות הפלוגתית ולתמיכה בעורף הפלוגתי, במשפחות ובילדי הפלוגה.",
+      "Donations fund personal equipment, company resilience and cohesion, and support for the soldiers' families and children.",
   },
   {
-    question: "האם התרומה מאובטחת?",
+    question: "Is my donation secure?",
     answer:
-      "כן. התרומה מתבצעת בעמוד הסליקה המאובטח של Grow, באמצעות הקישור הרשמי של הקמפיין.",
+      "Yes. Payment is completed on the secure IsraelGives donation page through the campaign's official link.",
   },
   {
-    question: "האם התרומה מוכרת לצורכי מס?",
+    question: "Is the donation tax deductible?",
     answer: taxDeductionVerified
-      ? "כל התרומות מוכרות לצרכי מס לפי סעיף 46."
-      : "פרטי ההכרה לצורכי מס יעודכנו בהתאם לגוף המפעיל את הקמפיין.",
+      ? "All donations are tax deductible in Israel under Section 46."
+      : "Tax-deduction details will be updated according to the organization operating the campaign.",
   },
   {
-    question: "האם אפשר לתרום עבור צורך מסוים?",
+    question: "Can I donate toward a specific need?",
     answer:
-      "התרומות מחולקות בהתאם לצרכים העדכניים של הפלוגה ולסדרי העדיפויות שנקבעים במהלך הקמפיין.",
+      "Donations are allocated according to the company's current needs and the priorities set throughout the campaign.",
   },
 ];
 
