@@ -35,7 +35,7 @@ export function TransparencySection() {
               </p>
 
               <div className="transparency-secure-message">
-                <p>Every shekel becomes real support for our soldiers.</p>
+                <p>Every dollar becomes real support for our soldiers.</p>
               </div>
 
               {nonprofitConfigured ? (

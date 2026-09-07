@@ -32,7 +32,7 @@ export function DonationForm() {
     const numericAmount = Number(amount);
 
     if (!Number.isFinite(numericAmount) || numericAmount < 1) {
-      setAmountError("Enter a donation amount of at least ₪1.");
+      setAmountError("Enter a donation amount of at least $1.");
       amountRef.current?.focus();
       return;
     }
@@ -131,7 +131,7 @@ export function DonationForm() {
           <label>
             <span>Donation amount</span>
             <span className="donation-amount-input">
-              <span aria-hidden="true">₪</span>
+              <span aria-hidden="true">$</span>
               <input
                 ref={amountRef}
                 type="number"

@@ -318,7 +318,7 @@ export default function Home() {
             <p className="eyebrow eyebrow-dark">EVERY AMOUNT MAKES YOU A PARTNER</p>
             <h2 id="donation-title">Stand with and strengthen Za&apos;am Company</h2>
             <p className="section-intro donation-supporting-text">
-              A certified tactical uniform set costs ₪1,500. Given the nature of our combat
+              A certified tactical uniform set costs $1,500. Given the nature of our combat
               and the incidents the company has faced, we will not compromise on our soldiers&apos;
               lives. We purchase certified, life-protecting uniforms designed for long weeks
               of operational activity.
